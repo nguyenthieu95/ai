@@ -53,6 +53,33 @@ sobee
         multi_cpu:  
         multi_ram:  
         
+Ann (con may tang 9):
+    
+    3m:
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
+        
+    5m:
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
+        
+    8m:
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
+        
+    10m:
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
+
+
         
 Kq cua 1 screen: 3^7 = 2187 (model)
     ->16 screen: 34992     
