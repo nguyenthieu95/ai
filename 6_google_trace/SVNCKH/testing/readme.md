@@ -16,9 +16,9 @@ sonia:
         
     8m:
         cpu         :13556
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        ram         :16229
+        multi_cpu:  16320
+        multi_ram:  16409
         
     10m:
         cpu         :11842

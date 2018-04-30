@@ -5,19 +5,18 @@ Created on Wed Mar 28 16:19:55 2018
 
 @author: thieunv
 """
-from math import sqrt
-from pandas import read_csv
-import numpy as np
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-from sklearn import preprocessing
-
-from copy import deepcopy
-from random import random
-from operator import add, itemgetter
-
 from preprocessing import TimeSeries
 from cluster import Clustering
 from utils import MathHelper, GraphUtil, IOHelper
+
+from math import sqrt
+from pandas import read_csv
+import numpy as np
+from copy import deepcopy
+from random import random
+from operator import add, itemgetter
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+from sklearn import preprocessing
 
 
 class Model(object):
@@ -211,7 +210,8 @@ class Model(object):
 
     def draw_result(self):
         GraphUtil.draw_loss(fig_id, self.max_gens, self.loss_train, "Loss on training per epoch")
-        GraphUtil.draw_predict_with_mae(fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.score_test_RMSE, self.score_test_MAE, "Model predict")
+        GraphUtil.draw_predict_with_mae(fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.score_test_RMSE,
+                                        self.score_test_MAE, "Model predict", self.filename, self.pathsave)
 
     def save_result(self):
         IOHelper.save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, pathsave)
@@ -237,10 +237,10 @@ df = read_csv(fullpath+ filename3, header=None, index_col=False, usecols=[3, 4],
 dataset_original = df.values
 
 
-list_num3 = (9730, 13900, 0)
-list_num5 = (5810, 8300, 0)
-list_num8 = (3850, 5500, 0)
-list_num10 = (2870, 4100, 0)
+list_num3 = (11120, 13900, 0)
+list_num5 = (6640, 8300, 0)
+list_num8 = (4160, 5200, 0)
+list_num10 = (3280, 4100, 0)
 output_index = 0
 method_statistic = 0
 max_cluster=15
@@ -256,16 +256,16 @@ positive_numbers = [0.25]  # [0.05, 0.15, 0.35]
 stimulation_levels = [0.35]  # [0.10, 0.25, 0.45]
 distance_levels = [0.85] # [0.65, 0.75, 0.85]
 
-list_max_gens = [50]  # epoch
-list_num_bees = [24]  # number of bees - population
+list_max_gens = [180]  # epoch
+list_num_bees = [8]  # number of bees - population
 num_sites = 3  # phan vung, 3 dia diem
 elite_sites = 1
 patch_size = 3.0
 patch_factor = 0.975
-e_bees = 11
-o_bees = 3
-low_up_w = [-5.0, 5.0]          # Lower and upper values for weights
-low_up_b = [-3.0, 3.0]
+e_bees = 5
+o_bees = 2
+low_up_w = [-0.2, 0.6]          # Lower and upper values for weights
+low_up_b = [-1.5, 1.5]
 
 
 fig_id = 1
