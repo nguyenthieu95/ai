@@ -1,0 +1,58 @@
+1. Chú giải thích giúp anh các thông số này :
+	1s - loss: 6814.2874 - acc: 1.8018e-04 - val_loss: 26961.7305 - val_acc: 0.0000e+00
+	tìm cái dòng model.compile rồi bỏ cái metric=['accuracy'] đi nhé thì nó mất cái acc với val_acc
+	còn loss, với val_loss là như sau:
+		đầu tiên a load tất cả dữ liệu vào RAM lưu trữ nó dưới dạng numpy array, sau đó a chia tập dữ liệu gốc của người ta làm 2 tập train và test:
+			+ tập train là dùng để huấn luyện mạng, học ra các trọng số trong mạng (ở đây a lấy từ ngày 30/4 đến 19/6)
+			+ tập test dùng để đánh giá mô hình mạng vừa học được từ tập train (trong code a lấy từ ngày 20/6 đến 30/6), mô hình mạng sẽ có đầu ra dự đoán số lượng truy cập của nó là y_predicted chẳng hạn, trong khi đó đầu ra trong thực tế là y chính là số lượng request thực tế cho trong file dữ liệu
+		thì loss ở đây a dùng là mean_absolute_error, tức là loss = trung bình của các |y_predicted - y|. giá trị loss thì tương ứng với giá trị trung bình các error của các mẫu trong tập train, còn val_loss là giá trị trung bình error trên tập test
+			Nếu mà trong quá trình học chú thấy loss và val_loss giảm dần tức là việc học đang khá ổn định, 2 giá trị này càng thấp càng tốt, còn nếu mà thấy nó tăng hay ko thay đổi thì lúc này mô hình có vẻ đang có vấn đề chú phải điều chỉnh số lượng hidden layer hoặc số lượng units trong mỗi layer
+
+1s: là gì, ở đâu ra? 
+loss: Giá trị gì đây chú?
+acc: ?
+val_loss: ?
+val_acc: ???
+	
+	
+2. Cái Epoch có phải là số tầng ẩn trong mạng NN ?
+	Epoch thích cho bao nhiêu cũng được hả?
+	để hiểu được cái này thì chú phải đọc giải thuạt học bằng stochastic-gradient-descent thì mới hiểu được.
+	Đại khái cái mỗi 1 Epoch này là 1 lần chú lướt qua toàn bộ dữ liệu train, tức là mô hình chú học được từ toàn bộ tập train đó. thì nếu mình cho số lượng epoch = 50 thì tức là chú lướt qua tập dữ liệu 50 lần lặp đi lặp lại. Cái số này mình có thể chọn tùy ý. Nhưng thường khi chú chạy chú thấy khi nào mà cho loss với val_loss thấp nhất thì chú lấy từng đó epoch
+	
+3. Giải thích mấy thông số này nữa: 
+	input_dim = 4	(input_dim: là gì thế chú, tác dụng của nó thế nào? Sao chú lại chọn là 4 mà không phải số khác) 
+	input_dim là số chiều của vector x đầu vào, thì rõ ràng ở đây đầu vào chính là thời gian tính theo phút, thì a sẽ chỉ lấy 4 đặc trưng làm 4 chiều của vector đầu vào, cái năm là 1998 chung hết cho tất cả các samples nên cái đặc trưng này bỏ. còn lại là: tháng, ngày, giờ, phút. thì mỗi sample input sẽ được biểu diễn bằng 1 vector này
+    layers = [32, 32, 32, 32, 32, 1] 	(tương tự trên)
+	layers này chính là cấu trúc mạng đấy, ví dụ ở đây sẽ có 5 hidden layer và 1 output layer. 5 hidden layer thì mỗi hidden layer có 32 units. output layer cuối cùng thì chỉ có 1 units thôi
+    reg_layers = [0, 0, 0, 0, 0, 0]		(tương tự trên) 
+	cái reg_layers này cũng la 1 tham số điều chỉnh để việc học của mình cho kết quả tốt hơn, thì muốn hiểu rõ thì cần phải học lí thuyết bài bản, chú có thể chỉnh nhiều giá trị chú muốn và lấy giá trị nào mà nó cho kết quả loss với val_loss của chú thấp nhất (ví dụ chú có thể chỉnh = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01]) 
+    
+4. Trong code có đoạn này: 
+	line = fp.readline()
+    line = fp.readline().strip()
+- Tại sao lại phải thế. Anh bỏ dòng đầu tiên đi thì nó lại lỗi ??? 
+chú cùi vl, chú để ý cài dòng đầu tiên của file nó là timestamp, num_request. thì dĩ nhiên phải bỏ dòng này đi còn gì nữa
+    
+    
+- cứ tính xong két quả chuẩn hóa nó chuyển đến layer kế tiếp luôn ko lúc nào dùng cả
+
+- khi nào thì nó update trọng số -> cứ mỗi vòng lặp là nó update bao giờ chú chạy xong 50 epoch thì nó mới ngừng
+- tức là cứ sau mỗi epoch và sau mỗi mini_batch trong epoch là đã update luôn r
+
+Chú vẽ đồ thị loss trên cả tập train và tập test ra cho thầy xem
+Giờ dùng matplotlib mà vẽ thôi
+
+
+Batch size, có, chú có thể thay đổi tùy thích
+Mỗi lần cập nhật trọng số là nó dựa trên 1 batch size đó
+Ví dụ dữ liệu của chú có 80000 sample
+Batch size = 500
+Tức là mỗi vòng lặp chú chỉ lấy 500 sample để phân tích thôi
+
+
+
+    
+    
+        
+
