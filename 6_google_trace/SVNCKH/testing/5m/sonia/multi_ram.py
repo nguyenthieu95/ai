@@ -12,7 +12,7 @@ filename5 = "data_resource_usage_5Minutes_6176858948.csv"
 df = read_csv(fullpath+ filename5, header=None, index_col=False, usecols=[3, 4], engine='python')
 dataset_original = df.values
 
-list_num5 = (5810, 8300, 0)
+list_num5 = (6640, 8300, 0)
 output_index = 1                # 0: cpu, 1: ram
 method_statistic = 0
 max_cluster=25
