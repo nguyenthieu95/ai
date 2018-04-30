@@ -12,10 +12,8 @@ import tensorflow as tf
 from preprocessing import TimeSeries
 from utils import MathHelper, GraphUtil, IOHelper
 from math import sqrt
-from pandas import read_csv
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn import preprocessing
-
 
 class Model(object):
 
@@ -78,7 +76,7 @@ class Model(object):
             self.X_train, self.y_train, self.X_test, self.y_test, self.min_max_scaler = timeseries.net_single_output(self.output_index)
         else:
             self.X_train, self.y_train, self.X_valid, self.y_valid, self.X_test, self.y_test, self.min_max_scaler = timeseries.net_single_output(self.output_index)
-        print("Processing data done!!!")
+        # print("Processing data done!!!")
 
 
     # Create and train a tensorflow model of a neural network
@@ -135,11 +133,11 @@ class Model(object):
             loss_epoch = sess.run(loss, feed_dict={X: X_train, y: y_train})
             weights1, bias1, weights2, bias2 = sess.run([W1, b1, W2, b2])
             loss_plot.append(loss_epoch)
-            print("Epoch: {}".format(epoch + 1), "loss = {}".format(loss_epoch))
+            # print("Epoch: {}".format(epoch + 1), "loss = {}".format(loss_epoch))
 
         sess.close()
         self.w1, self.b1, self.w2, self.b2, self.loss_train = weights1, bias1, weights2, bias2, loss_plot
-        print("Build model and train done!!!")
+        # print("Build model and train done!!!")
 
 
     def predict(self):
@@ -175,9 +173,9 @@ class Model(object):
             self.y_predict, self.score_test_RMSE, self.score_test_MAE = y_est_np, testScoreRMSE, testScoreMAE
             self.y_test_inverse, self.y_pred_inverse = y_test_inverse, y_pred_inverse
 
-            print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
+            # print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
 
-        print("Predict done!!!")
+        # print("Predict done!!!")
 
 
     def draw_result(self):
