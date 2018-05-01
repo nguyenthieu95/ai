@@ -27,6 +27,34 @@ sonia:
         multi_ram:  12183   done
 
 
+sopso
+
+    3m:
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
+        
+    5m:
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
+        
+    8m:
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
+        
+    10m:
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
+        
+        
+
 sobee
 
     3m:
@@ -52,6 +80,8 @@ sobee
         ram         :
         multi_cpu:  
         multi_ram:  
+        
+        
         
 Ann (con may ao tang 9):
     
