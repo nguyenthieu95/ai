@@ -35,10 +35,16 @@ class Clustering(object):
 
         self.distance_level = distance_level
         self.mutation_id = mutation_id
-        self.activation_id = activation_id
         self.dataset = dataset
         self.dimension = dataset.shape[1]
-
+        if activation_id == 0:
+            self.activation = MathHelper.elu
+        elif activation_id == 1:
+            self.activation = MathHelper.relu
+        elif activation_id == 2:
+            self.activation = MathHelper.tanh
+        else:
+            self.activation = MathHelper.sigmoid
 
 
     def sobee(self, dataset=None):
@@ -145,8 +151,8 @@ class Clustering(object):
                     hu[0] = 0
                 # then go to step 1
                 m = 0
-                # if len(list_clusters) > self.max_cluster:
-                #     break
+                if len(list_clusters) > self.max_cluster:
+                    break
                     ### +++
 
         self.count_centers = len(list_clusters)
@@ -233,30 +239,11 @@ class Clustering(object):
 
     def transform_features(self, features=None):
         temp = []
-        if self.activation_id == 0:
-            for i in range(0, len(features)):
-                Sih = []
-                for j in range(0, len(self.centers)):  # (w11, w21) (w12, w22), (w13, w23)
-                    Sih.append(MathHelper.elu(MathHelper.distance_func(self.centers[j], features[i])))
-                temp.append(np.array(Sih))
-        elif self.activation_id == 1:
-            for i in range(0, len(features)):
-                Sih = []
-                for j in range(0, len(self.centers)):  # (w11, w21) (w12, w22), (w13, w23)
-                    Sih.append(MathHelper.relu(MathHelper.distance_func(self.centers[j], features[i])))
-                temp.append(np.array(Sih))
-        elif self.activation_id == 2:
-            for i in range(0, len(features)):
-                Sih = []
-                for j in range(0, len(self.centers)):  # (w11, w21) (w12, w22), (w13, w23)
-                    Sih.append(MathHelper.tanh(MathHelper.distance_func(self.centers[j], features[i])))
-                temp.append(np.array(Sih))
-        else:
-            for i in range(0, len(features)):
-                Sih = []
-                for j in range(0, len(self.centers)):  # (w11, w21) (w12, w22), (w13, w23)
-                    Sih.append(MathHelper.sigmoid(MathHelper.distance_func(self.centers[j], features[i])))
-                temp.append(np.array(Sih))
+        for i in range(0, len(features)):
+            Sih = []
+            for j in range(0, len(self.centers)):  # (w11, w21) (w12, w22), (w13, w23)
+                Sih.append(self.activation(MathHelper.distance_func(self.centers[j], features[i])))
+            temp.append(np.array(Sih))
         return np.array(temp)
 
 

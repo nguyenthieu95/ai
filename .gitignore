@@ -11,7 +11,7 @@
 ./5_immune_system/KAPA/
 ./6_google_trace/SONIA/testing_new/cluster_pso_old_result/
 ./project_mldl/predict_food-master/
-
+./6_google_trace/SVNCKH/test/
 
 4_neural_network/data/
 6_google_trace/google_cluster_analysis/
@@ -25,6 +25,6 @@
 5_immune_system/KAPA/
 6_google_trace/SONIA/testing_new/cluster_pso_old_result/
 project_mldl/predict_food-master/
-
+6_google_trace/SVNCKH/test/
 
 

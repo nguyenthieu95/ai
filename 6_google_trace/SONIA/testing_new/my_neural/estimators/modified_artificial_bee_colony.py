@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-Created on Tue Apr 17 01:36:18 2018
+Created on Tue May  1 17:12:00 2018
 
 @author: thieunv
 
@@ -17,6 +17,62 @@ from copy import deepcopy
 from operator import itemgetter, add
 
 
+def initial_population(minmax=None, N=None):
+    """
+    N: population size
+    """
+    pop = []
+    for i in range(N):
+        xi = []
+        oxi = []
+        for j in range(len(minmax)):
+            temp = (minmax[j][1] - minmax[j][0]) * random() + minmax[j][0]
+            xi.append(temp)
+            oxi.append(minmax[j][1] + minmax[j][0] - temp)
+        pop.append(xi)
+        pop.append(oxi)
+    pop_temp = [(xij, objective_function(xij)) for xij in pop ]
+    pop_sorted = sorted(pop_temp, key=itemgetter(1))
+    del pop_temp
+    return pop_sorted[:N]
+
+def stype_subpopulation(pop=None, N=None, M=None):
+    """
+    M: number of sub group
+    """
+    s = int(N/M)
+    group = []
+    for i in range(N):
+        
+        temp = []
+        for j in range(s):
+    
+    
+    
+    
+        
+
+def search_main():
+    N = 80
+    M = 3
+    max_iteration = 1500
+    
+    pop = initial_population(minmax, N)
+    stype_subpopulation(pop, N, M)
+    trial = 0   # 1 < trial < food_number
+    # initialize elitists to be food source - chon ra moi~ vung trong M vu`ng 1 con tot nhat (M-bees)
+    best_food_source = find_best(M-bees)
+    
+    Iter = 0
+    while Iter <= max_iteration:
+        
+
+
+def objective_function(vector):
+    return reduce(add, (pow(x, 2.0) for x in vector), 0.0)
+
+
+
 def random_vector(minmax):  # minmax: [ [-1, 1], [-1, 1], ... ]
     x = []
     for i in range(len(minmax)):
@@ -24,12 +80,11 @@ def random_vector(minmax):  # minmax: [ [-1, 1], [-1, 1], ... ]
     return x
 
 
+
 def create_random_bee(search_space):
     return random_vector(search_space)
 
 
-def objective_function(vector):
-    return reduce(add, (pow(x, 2.0) for x in vector), 0.0)
 
 
 def create_neigh_bee(individual, patch_size, search_space):
@@ -91,6 +146,9 @@ if __name__ == "__main__":
     #    problem_size = num_hidden_unit * num_output + num_output    # weights hidden and bias output
     problem_size = 60
     search_space = [[-1, 1] for i in range(problem_size)]
+    
+    food_number = CS / 2    # CS: colony size
+    
 
     max_gens = 1500  # epoch
     num_bees = 100  # number of bees - population

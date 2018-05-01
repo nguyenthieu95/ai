@@ -4,27 +4,6 @@
 Created on Wed Mar 28 16:19:55 2018
 
 @author: thieunv
-
-- Chay cung` tham so: mutation cho ket qua tot hon duoc 1-2%
-Mutation: 0.23
-No-mutation: 0.247
-
-
-*) GradientDescentOptimizer (MinMaxScaler - 2)
-
-    elu / relu/ tanh/ sigmoid ===> failed/ failed/ failed / (0.48) failed
-
-*) AdamOptimizer
-
-     elu / relu/ tanh/ sigmoid ===> 0.42/ failed / 0.42 / failed
-
-*) AdagradOptimizer
-
-     elu / relu/  tanh/  sigmoid ===> 0.45/ 0.45 / 0.46 (g00d) / failed
-
-*) AdadeltaOptimizer
-
-     elu / relu/ tanh/ sigmoid ===> 0.41/ 0.41 / 0.41 / 0.48
 """
 
 import tensorflow as tf
@@ -39,7 +18,7 @@ from utils import MathHelper, GraphUtil, IOHelper
 class Model(object):
     def __init__(self, dataset_original=None, list_idx=(1000, 2000, 0), output_index=0, epoch=100, batch_size=32, learning_rate=0.1,
                  sliding=2, method_statistic=0,
-                 max_cluster=15, positive_number=0.15, sti_level=0.15, dis_level=0.25, mutation_id=1, activation_id=2, activation_id2=0, fig_id=0, pathsave=None):
+                 max_cluster=15, positive_number=0.15, sti_level=0.15, dis_level=0.25, mutation_id=1, couple_acti=(2,3), fig_id=0, pathsave=None):
         self.dataset_original = dataset_original
         self.output_index = output_index
         self.epoch = epoch
@@ -52,8 +31,16 @@ class Model(object):
         self.positive_number = positive_number
         self.learning_rate = learning_rate
         self.mutation_id = mutation_id
-        self.activation_id = activation_id
-        self.activation_id2 = activation_id2
+        self.activation_id1 = couple_acti[0]
+        if couple_acti[1] == 0:
+            self.activation2 = tf.nn.elu
+        elif couple_acti[1] == 1:
+            self.activation2 = tf.nn.relu
+        elif couple_acti[1] == 2:
+            self.activation2 = tf.nn.tanh
+        else:
+            self.activation2 = tf.nn.sigmoid
+
         self.method_statistic = method_statistic
         self.min_max_scaler = preprocessing.MinMaxScaler()
         self.standard_scaler = preprocessing.StandardScaler()
@@ -80,7 +67,7 @@ class Model(object):
 
     def clustering_data(self):
         self.clustering = Clustering(stimulation_level=self.stimulation_level, positive_number=self.positive_number, max_cluster=self.max_cluster,
-                                distance_level=self.distance_level, mutation_id=self.mutation_id, activation_id=self.activation_id, dataset=self.X_train)
+                                distance_level=self.distance_level, mutation_id=self.mutation_id, activation_id=self.activation_id1, dataset=self.X_train)
         self.centers, self.list_clusters, self.count_centers = self.clustering.sonia_with_mutation()
         # print("Encoder features done!!!")
 
@@ -106,15 +93,7 @@ class Model(object):
 
         W = tf.Variable(tf.random_normal([h_size, y_size], stddev=0.03, dtype=tf.float64), name="W")
         b = tf.Variable(tf.random_normal([y_size], dtype=tf.float64), name="b")
-
-        if self.activation_id2 == 0:
-            y_ = tf.nn.elu(tf.add(tf.matmul(X, W), b))
-        elif self.activation_id2 == 1:
-            y_ = tf.nn.relu(tf.add(tf.matmul(X, W), b))
-        elif self.activation_id2 == 2:
-            y_ = tf.nn.tanh(tf.add(tf.matmul(X, W), b))
-        else:
-            y_ = tf.nn.sigmoid(tf.add(tf.matmul(X, W), b))
+        y_ = self.activation2(tf.add(tf.matmul(X, W), b))
 
         # Backward propagation
         cost = tf.reduce_mean(tf.square(y_ - y))
@@ -151,21 +130,12 @@ class Model(object):
 
         X_size = X_test.shape[1]
         y_size = y_test.shape[1]
-
         X = tf.placeholder("float64", shape=[None, X_size], name='X')
         y = tf.placeholder("float64", shape=[None, y_size], name='y')
 
         W = tf.Variable(self.weight)
         b = tf.Variable(self.bias)
-
-        if self.activation_id2 == 0:
-            y_ = tf.nn.elu(tf.add(tf.matmul(X, W), b))
-        elif self.activation_id2 == 1:
-            y_ = tf.nn.relu(tf.add(tf.matmul(X, W), b))
-        elif self.activation_id2 == 2:
-            y_ = tf.nn.tanh(tf.add(tf.matmul(X, W), b))
-        else:
-            y_ = tf.nn.sigmoid(tf.add(tf.matmul(X, W), b))
+        y_ = self.activation2(tf.add(tf.matmul(X, W), b))
 
         # Calculate the predicted outputs
         init = tf.global_variables_initializer()
@@ -187,7 +157,7 @@ class Model(object):
         # print("Predict done!!!")
 
     def draw_result(self):
-        # GraphUtil.draw_loss(self.fig_id, self.epoch, self.loss_train, "Loss on training per epoch")
+        GraphUtil.draw_loss(self.fig_id, self.epoch, self.loss_train, "Loss on training per epoch")
         GraphUtil.draw_predict_with_mae(self.fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.score_test_RMSE,
                                         self.score_test_MAE, "Model predict", self.filename, self.pathsave)
 
@@ -203,3 +173,4 @@ class Model(object):
             self.predict()
             self.draw_result()
             self.save_result()
+

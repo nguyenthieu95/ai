@@ -17,8 +17,7 @@ output_index = 0                # 0: cpu, 1: ram
 method_statistic = 0
 max_cluster=25
 mutation_id=1
-activation_id= 2            # 0: elu, 1:relu, 2:tanh, 3:sigmoid
-activation_id2 = 3
+couple_acti = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
 
 
 epochs = [480, 1000, 2000]
@@ -39,7 +38,7 @@ for epoch in epochs:
                     for sti_level in stimulation_levels:
                         for dis_level in distance_levels:
                             my_model = sonia.Model(dataset_original, list_num5, output_index, epoch, batch_size, learning_rate, sliding, method_statistic, max_cluster,
-                                             positive_number, sti_level, dis_level, mutation_id, activation_id, activation_id2, fig_id, pathsave)
+                                             positive_number, sti_level, dis_level, mutation_id, couple_acti, fig_id, pathsave)
                             my_model.fit()
                             so_vong_lap += 1
                             fig_id += 2
