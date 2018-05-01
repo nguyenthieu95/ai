@@ -62,7 +62,7 @@ class Model(object):
         elif optimizer == 1:
             self.optimizer = tf.train.AdamOptimizer
         elif optimizer == 2:
-            self.optimizer = tf.train.AdagradDAOptimizer
+            self.optimizer = tf.train.AdagradOptimizer
         else:
             self.optimizer = tf.train.AdadeltaOptimizer
 
@@ -191,4 +191,3 @@ class Model(object):
         self.predict()
         self.draw_result()
         self.save_result()
-

@@ -53,31 +53,31 @@ sobee
         multi_cpu:  
         multi_ram:  
         
-Ann (con may tang 9):
+Ann (con may ao tang 9):
     
     3m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         : 13499
+        ram         : 13545
+        multi_cpu:   13593
+        multi_ram:  13640
         
     5m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         : 13690
+        ram         : 13736
+        multi_cpu:   13781
+        multi_ram:   13830
         
     8m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         : 13879
+        ram         : 13908
+        multi_cpu:   13969
+        multi_ram:   14000
         
     10m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         : 14065
+        ram         : 14094
+        multi_cpu:   14139
+        multi_ram:  14187
 
 
         
