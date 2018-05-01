@@ -25,8 +25,8 @@ batch_sizes = [8, 32, 64]
 learning_rates = [0.05, 0.15, 0.35]
 sliding_windows = [ 2, 3, 5]
 positive_numbers = [0.05, 0.15, 0.35]
-stimulation_levels = [0.25, 0.4, 0.65]
-distance_levels = [0.10, 0.25, 0.45]
+stimulation_levels = [0.10, 0.20, 0.35]
+distance_levels = [0.65, 0.75, 0.85]
 
 fig_id = 1
 so_vong_lap = 0
@@ -38,7 +38,7 @@ for epoch in epochs:
                     for sti_level in stimulation_levels:
                         for dis_level in distance_levels:
                             my_model = sonia.Model(dataset_original, list_num8, output_index, epoch, batch_size, learning_rate, sliding, method_statistic, max_cluster,
-                                           sti_level, positive_number, dis_level, mutation_id, activation_id, activation_id2, fig_id, pathsave)
+                                             positive_number, sti_level, dis_level, mutation_id, activation_id, activation_id2, fig_id, pathsave)
                             my_model.fit()
                             so_vong_lap += 1
                             fig_id += 2

@@ -19,7 +19,7 @@ def plot_figure(y_pred=None, y_test=None,title=None, color=['blue', 'red']):
     ax.plot(y_test,label='Actual')
     ax.legend()
     ax.set_title(title)
-    plt.show()
+    # plt.show()
     return None
 
 def plot_figure_with_label(y_pred=None,y_test=None,title=None, x_label=None, y_label=None):

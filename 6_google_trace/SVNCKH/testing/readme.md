@@ -11,20 +11,20 @@ sonia:
     5m:
         cpu         :9390
         ram         :9532
-        multi_cpu:  9662
-        multi_ram:  9771
+        multi_cpu:  9662    done
+        multi_ram:  9771    done
         
     8m:
-        cpu         :13556
-        ram         :16229
-        multi_cpu:  16320
-        multi_ram:  16409
+        cpu         :13556  done
+        ram         :16229  done
+        multi_cpu:  16320   done
+        multi_ram:  16409   done
         
     10m:
-        cpu         :11842
-        ram         :11972
-        multi_cpu:  12109
-        multi_ram:  12183
+        cpu         :11842  done
+        ram         :11972  done
+        multi_cpu:  12109   done
+        multi_ram:  12183   done
 
 
 sobee
@@ -56,7 +56,7 @@ sobee
 Ann (con may ao tang 9):
     
     3m:
-        cpu         : 13499
+        cpu         : 19532
         ram         : 13545
         multi_cpu:   13593
         multi_ram:  13640

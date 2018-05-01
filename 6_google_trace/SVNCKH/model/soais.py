@@ -4,27 +4,6 @@
 Created on Wed Mar 28 16:19:55 2018
 
 @author: thieunv
-
-- Chay cung` tham so: mutation cho ket qua tot hon duoc 1-2%
-Mutation: 0.23
-No-mutation: 0.247
-
-
-*) GradientDescentOptimizer (MinMaxScaler - 2)
-
-    elu / relu/ tanh/ sigmoid ===> failed/ failed/ failed / (0.48) failed
-
-*) AdamOptimizer
-
-     elu / relu/ tanh/ sigmoid ===> 0.42/ failed / 0.42 / failed
-
-*) AdagradOptimizer
-
-     elu / relu/  tanh/  sigmoid ===> 0.45/ 0.45 / 0.46 (g00d) / failed
-
-*) AdadeltaOptimizer
-
-     elu / relu/ tanh/ sigmoid ===> 0.41/ 0.41 / 0.41 / 0.48
 """
 
 import tensorflow as tf
@@ -206,56 +185,3 @@ class Model(object):
 
 
 
-from pandas import read_csv
-
-pathsave = "/home/thieunv/Desktop/Link to LabThayMinh/code/6_google_trace/SVNCKH/testing/3m/sonia/result/cpu/"
-fullpath = "/home/thieunv/university/LabThayMinh/code/data/GoogleTrace/"
-
-# pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/3m/sonia/result/cpu/"
-# fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
-
-filename3 = "data_resource_usage_3Minutes_6176858948.csv"
-filename5 = "data_resource_usage_5Minutes_6176858948.csv"
-filename8 = "data_resource_usage_8Minutes_6176858948.csv"
-filename10 = "data_resource_usage_10Minutes_6176858948.csv"
-df = read_csv(fullpath+ filename3, header=None, index_col=False, usecols=[3], engine='python')
-dataset_original = df.values
-
-list_num3 = (11120, 13900, 0)
-list_num5 = (6640, 8300, 0)
-list_num8 = (4160, 5200, 0)
-list_num10 = (3280, 4100, 0)
-
-output_index = 0                # 0: cpu, 1: ram
-method_statistic = 0
-max_cluster=30
-mutation_id=1
-activation_id= 2            # 0: elu, 1:relu, 2:tanh, 3:sigmoid
-activation_id2 = 3
-
-epochs = [480]
-batch_sizes = [8]
-learning_rates = [0.05]
-sliding_windows = [ 2]
-positive_numbers = [0.25]
-stimulation_levels = [0.15]
-distance_levels = [0.65]
-
-fig_id = 1
-so_vong_lap = 0
-for epoch in epochs:
-    for batch_size in batch_sizes:
-        for learning_rate in learning_rates:
-            for sliding in sliding_windows:
-                for positive_number in positive_numbers:
-                    for sti_level in stimulation_levels:
-                        for dis_level in distance_levels:
-                            my_model = Model(dataset_original, list_num3, output_index, epoch, batch_size, learning_rate, sliding, method_statistic, max_cluster,
-                                             positive_number, sti_level, dis_level, mutation_id, activation_id, activation_id2, fig_id, pathsave)
-                            my_model.fit()
-                            so_vong_lap += 1
-                            fig_id += 2
-                            if so_vong_lap % 100 == 0:
-                                print "Vong lap thu : {0}".format(so_vong_lap)
-
-print "Processing DONE !!!"

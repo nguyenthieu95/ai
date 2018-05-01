@@ -124,16 +124,20 @@ class Clustering(object):
             if distmc < self.stimulation_level:
                 list_clusters[c][0] += 1  # update hidden unit cth
 
-                for i in range(len(list_clusters)):
-                    centers[i] += self.positive_number * distmc * (dataset[m] - list_clusters[i][1])
-                    list_clusters[i][1] += self.positive_number * distmc * (dataset[m] - list_clusters[i][1])
+                centers[c] = centers[c] + self.positive_number * distmc * (dataset[m] - list_clusters[c][1])
+                list_clusters[c][1] = list_clusters[c][1] + self.positive_number * distmc * (dataset[m] - list_clusters[c][1])
+
+                # for i in range(len(list_clusters)):
+                #     centers[i] = centers[i] + self.positive_number * distmc * (dataset[m] - list_clusters[i][1])
+                #     list_clusters[i][1] = list_clusters[i][1] + self.positive_number * distmc * (dataset[m] - list_clusters[i][1])
+
                 # Tiep tuc vs cac example khac
                 m += 1
                 # if m % 1000 == 0:
                 #     print "distmc = {0}".format(distmc)
                 #     print "m = {0}".format(m)
             else:
-                #                print "Failed !!!. distmc = {0}".format(distmc)
+                # print "Failed !!!. distmc = {0}".format(distmc)
                 list_clusters.append([0, deepcopy(dataset[m])])
                 # print "Hidden unit thu: {0} duoc tao ra.".format(len(list_clusters))
                 centers = np.append(centers, [deepcopy(dataset[m])], axis=0)
@@ -141,8 +145,8 @@ class Clustering(object):
                     hu[0] = 0
                 # then go to step 1
                 m = 0
-                if len(list_clusters) > self.max_cluster:
-                    break
+                # if len(list_clusters) > self.max_cluster:
+                #     break
                     ### +++
 
         self.count_centers = len(list_clusters)
