@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "sopso_cpu.py", line 59, in <module>
+    my_model.fit()
+  File "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/3m/sopso/../../../model/sopso.py", line 225, in fit
+    self.transform_data()
+  File "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/3m/sopso/../../../model/sopso.py", line 91, in transform_data
+    self.S_test = self.clustering.transform_features(self.X_test)
+  File "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/3m/sopso/../../../model/cluster.py", line 245, in transform_features
+    Sih.append(self.activation(MathHelper.distance_func(self.centers[j], features[i])))
+  File "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/3m/sopso/../../../model/utils/MathHelper.py", line 16, in distance_func
+    return distance.euclidean(a, b)
+  File "/usr/local/lib/python2.7/dist-packages/scipy/spatial/distance.py", line 433, in euclidean
+    dist = norm(u - v)
+  File "/usr/local/lib/python2.7/dist-packages/scipy/linalg/misc.py", line 129, in norm
+    a = np.asarray_chkfinite(a)
+  File "/usr/local/lib/python2.7/dist-packages/numpy/lib/function_base.py", line 1231, in asarray_chkfinite
+    if a.dtype.char in typecodes['AllFloat'] and not np.isfinite(a).all():
+  File "/usr/local/lib/python2.7/dist-packages/numpy/core/_methods.py", line 41, in _all
+    return umr_all(a, axis, dtype, out, keepdims)
+KeyboardInterrupt
