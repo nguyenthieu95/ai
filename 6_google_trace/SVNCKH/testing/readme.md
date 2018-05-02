@@ -30,28 +30,28 @@ sonia:
 sopso
 
     3m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         :32441
+        ram         :364
+        multi_cpu:  450
+        multi_ram:  539
         
     5m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         : 671
+        ram         : 766
+        multi_cpu:  852
+        multi_ram:  948
         
     8m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         :1074
+        ram         :1164
+        multi_cpu:  1252
+        multi_ram:  1350
         
     10m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         :1497
+        ram         :1600
+        multi_cpu:  1700
+        multi_ram:  1808
         
         
 
