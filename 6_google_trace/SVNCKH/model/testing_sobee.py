@@ -13,14 +13,17 @@ from math import sqrt
 from pandas import read_csv
 import numpy as np
 from copy import deepcopy
-from operator import add
+from random import random
+from operator import add, itemgetter
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn import preprocessing
 
+
 class Model(object):
-    def __init__(self, dataset_original=None, list_idx=(1000, 2000, 1), output_index=0, sliding=2, method_statistic=0, max_cluster=15,
-                 positive_number=0.15, sti_level=0.15, dis_level=0.25, mutation_id=1, couple_acti=(2, 0), fig_id=0, pathsave=None,
-                 max_move=100, pop_size=45, c_couple=(1.2, 1.2), w_minmax=(0.4, 0.9), value_minmax=(-1, +1)):
+    def __init__(self, dataset_original=None, list_idx=(1000, 2000, 0), output_index=0, sliding=2, method_statistic=0, max_cluster=15,
+                 positive_number=0.15, sti_level=0.15, dis_level=0.25, mutation_id=1, activation_id=0, activation_id2=0, pathsave=None,
+                 max_gens=100, num_bees=45, num_sites=3, elite_sites=1, patch_size=3.0, patch_factor=0.985, e_bees=7, o_bees=2,
+                 low_up_w=(-1, 1), low_up_b=(-1, 1)):
         self.dataset_original = dataset_original
         self.output_index = output_index
         self.sliding = sliding
@@ -30,34 +33,28 @@ class Model(object):
         self.distance_level = dis_level
         self.positive_number = positive_number
         self.mutation_id = mutation_id
+        self.activation_id = activation_id
+        self.activation_id2 = activation_id2
         self.pathsave = pathsave
-        self.fig_id = fig_id
         self.min_max_scaler = preprocessing.MinMaxScaler()
         self.standard_scaler = preprocessing.StandardScaler()
 
-        self.max_move = max_move
-        self.pop_size = pop_size
-        self.c1 = c_couple[0]
-        self.c2 = c_couple[1]
-        self.w_min = w_minmax[0]
-        self.w_max = w_minmax[1]
-        self.value_min = value_minmax[0]
-        self.value_max = value_minmax[1]
-        self.activation_id1 = couple_acti[0]
-        if couple_acti[0] == 0:
-            self.activation1 = MathHelper.elu
-        elif couple_acti[0] == 1:
-            self.activation1 = MathHelper.relu
-        elif couple_acti[0] == 2:
-            self.activation1 = MathHelper.tanh
-        else:
-            self.activation1 = MathHelper.sigmoid
+        self.max_gens = max_gens
+        self.num_bees = num_bees
+        self.num_sites = num_sites
+        self.elite_sites = elite_sites
+        self.patch_size = patch_size
+        self.patch_factor = patch_factor
+        self.e_bees = e_bees
+        self.o_bees = o_bees
+        self.low_up_w = low_up_w
+        self.low_up_b = low_up_b
 
-        if couple_acti[1] == 0:
+        if activation_id2 == 0:
             self.activation2 = MathHelper.elu
-        elif couple_acti[1] == 1:
+        elif activation_id2 == 1:
             self.activation2 = MathHelper.relu
-        elif couple_acti[1] == 2:
+        elif activation_id2 == 2:
             self.activation2 = MathHelper.tanh
         else:
             self.activation2 = MathHelper.sigmoid
@@ -69,8 +66,7 @@ class Model(object):
         else:
             self.valid_idx = int(list_idx[0] + (list_idx[1] - list_idx[0]) / 2)
 
-        self.filename = 'Slid=' + str(sliding) + '_PN=' + str(positive_number) + '_SL=' + str(sti_level) + '_DL=' + str(dis_level) + '_MM=' + str(max_move) + '_PS=' + str(pop_size) \
-            + '_c1=' + str(c_couple[0]) + '_c2=' + str(c_couple[1])
+        self.filename = 'Slid=' + str(sliding) + '_PN=' + str(positive_number) + '_SL=' + str(sti_level) + '_DL=' + str(dis_level) + '_MG=' + str(max_gens) + '_NB=' + str(num_bees)
 
     def preprocessing_data(self):
         timeseries = TimeSeries(self.train_idx, self.valid_idx, self.test_idx, self.sliding, self.method_statistic, self.dataset_original, self.min_max_scaler)
@@ -78,124 +74,125 @@ class Model(object):
             self.X_train, self.y_train, self.X_test, self.y_test, self.min_max_scaler = timeseries.net_single_output(self.output_index)
         else:
             self.X_train, self.y_train, self.X_valid, self.y_valid, self.X_test, self.y_test, self.min_max_scaler = timeseries.net_single_output(self.output_index)
-        # print("Processing data done!!!")
+        print("Processing data done!!!")
 
 
     def clustering_data(self):
         self.clustering = Clustering(stimulation_level=self.stimulation_level, positive_number=self.positive_number, max_cluster=self.max_cluster,
-                                distance_level=self.distance_level, mutation_id=self.mutation_id, activation_id=self.activation_id1, dataset=self.X_train)
+                                distance_level=self.distance_level, mutation_id=self.mutation_id, activation_id=self.activation_id, dataset=self.X_train)
         self.centers, self.list_clusters, self.count_centers = self.clustering.sobee_with_mutation()
-        # print("Encoder features done!!!")
+        print("Encoder features done!!!")
 
     def transform_data(self):
         self.S_train = self.clustering.transform_features(self.X_train)
         self.S_test = self.clustering.transform_features(self.X_test)
         if self.valid_idx != 0:
             self.S_valid = self.clustering.transform_features(self.X_valid)
-        # print("Transform features done!!!")
+        print("Transform features done!!!")
 
 
+    def create_search_space(self, low_up_w=None, low_up_b=None):  # [ [-1, 1], [-1, 1], ... ]
+        self.number_node_input = len(self.list_clusters)
+        self.number_node_output = self.y_train.shape[1]
+        self.size_w2 = self.number_node_input * self.number_node_output
+        self.size_b2 = self.number_node_output
+        w2 = [low_up_w for i in range(self.size_w2)]
+        b2 = [low_up_b for i in range(self.size_b2)]
+        search_space = w2 + b2
+        return search_space
 
-    def get_average_mae(self, weightHO, X_data, y_data):
+    def create_candidate(self, minmax=None):
+        candidate = [(minmax[i][1] - minmax[i][0]) * random() + minmax[i][0] for i in range(len(minmax))]
+        #        return candidate
+        fitness = self.get_mae(candidate, self.S_train, self.y_train)
+        return [candidate, fitness]
+
+    def get_mae(self, bee=None, X_data=None, y_data=None):
         mae_list = []
+
+        w2 = np.reshape(bee[:self.size_w2], (self.number_node_input, -1))
+        b2 = np.reshape(bee[self.size_w2:], (-1, self.size_b2))
+
         for i in range(0, len(X_data)):
-            y_out = np.dot(X_data[i], weightHO)
-            mae_list.append(abs(self.activation2(y_out) - y_data[i]))
+            output = np.add(np.matmul(X_data[i], w2), b2)
+            y_pred = np.apply_along_axis(self.activation2, 1, output)
+            mae_list.append(np.average(np.power((y_data[i].flatten() - y_pred), 2)))
         temp = reduce(add, mae_list, 0)
         return temp / (len(X_data) * 1.0)
 
-    def grade_pop(self, pop):
-        """ Find average fitness for a population"""
-        summed = reduce(add, (self.fitness_encode(indiv) for indiv in pop))
-        return summed / (len(pop) * 1.0)
+    def create_random_bee(self, search_space):
+        return self.create_candidate(search_space)
 
-    def get_global_best(self, pop):
-        sorted_pop = sorted(pop, key=lambda temp: temp[3])
-        gbest = deepcopy([sorted_pop[0][0], sorted_pop[0][3]])
-        return gbest
+    def objective_function(self, vector):
+        return self.get_mae(vector, self.S_train, self.y_train)
 
-    def individual(self, length, min=-1, max=1):
+    def create_neigh_bee(self, individual, patch_size, search_space):
+        bee = []
+        for x in range(0, len(individual)):
+            if random() < 0.5:
+                elem = individual[x] + random() * patch_size
+            else:
+                elem = individual[x] - random() * patch_size
+
+            if elem < search_space[x][0]:
+                elem = search_space[x][0]
+            if elem > search_space[x][1]:
+                elem = search_space[x][1]
+            bee.append(deepcopy(elem))
+
+        fitness = self.get_mae(bee, self.S_train, self.y_train)
+        return [bee, fitness]
+
+    def search_neigh(self, parent, neigh_size, patch_size, search_space):  # parent:  [ vector_individual, fitness ]
         """
-        x: vi tri hien tai cua con chim
-        x_past_best: vi tri trong qua khu ma` ga`n voi thuc an (best result) nhat
-        v: vector van toc cua con chim (cung so chieu vs x)
+        Tim kiem trong so neigh_size, chi lay 1 hang xom tot nhat
         """
-        x = (max - min) * np.random.random_sample((length, 1)) + min
-        x_past_best = deepcopy(x)
-        v = np.zeros((x.shape[0], 1))
-        x_fitness = self.fitness_individual(x)
-        x_past_fitness = deepcopy(x_fitness)
-        return [x, x_past_best, v, x_fitness, x_past_fitness]
+        neigh = [self.create_neigh_bee(parent[0], patch_size, search_space) for x in range(0, neigh_size)]
+        #        neigh = [(bee, self.objective_function(bee)) for bee in neigh]
+        neigh_sorted = sorted(neigh, key=itemgetter(1))
+        return neigh_sorted[0]
 
-    def population(self, pop_size, length, min=-1, max=1):
-        """
-        individual: 1 solution
-        pop_size: number of individuals (population)
-        length: number of values per individual
-        """
-        return [self.individual(length, min, max) for x in range(pop_size)]
+    def create_scout_bees(self, search_space, num_scouts):  # So luong ong trinh tham
+        return [self.create_random_bee(search_space) for x in range(0, num_scouts)]
 
-    def fitness_encode(self, encode):
-        """ distance between the sum of an indivuduals numbers and the target number. Lower is better"""
-        averageTrainMAE = self.get_average_mae(encode[0], self.S_train, self.y_train)
-        averageValidationMAE = self.get_average_mae(encode[0], self.S_valid, self.y_valid)
-        #        sum = reduce(add, individual)  # sum = reduce( (lambda tong, so: tong + so), individual )
-        return 0.4 * averageTrainMAE + 0.6 * averageValidationMAE
+    def search(self, max_gens, search_space, num_bees, num_sites, elite_sites, patch_size, patch_factor, e_bees, o_bees):
+        pop = [self.create_random_bee(search_space) for x in range(0, num_bees)]
+        self.loss_train = []
+        for j in range(0, max_gens):
+            #            pop = [(bee, self.objective_function(bee)) for bee in pop]
+            pop_sorted = sorted(pop, key=itemgetter(1))
+            best = pop_sorted[0]
 
-    def fitness_individual(self, individual):
-        """ distance between the sum of an indivuduals numbers and the target number. Lower is better"""
-        averageTrainMAE = self.get_average_mae(individual, self.S_train, self.y_train)
-        averageValidationMAE = self.get_average_mae(individual, self.S_valid, self.y_valid)
-        return (0.4 * averageTrainMAE + 0.6 * averageValidationMAE)
+            next_gen = []
+            for i in range(0, num_sites):
+                if i < elite_sites:
+                    neigh_size = e_bees
+                else:
+                    neigh_size = o_bees
+                next_gen.append(self.search_neigh(pop_sorted[i], neigh_size, patch_size, search_space))
 
-    def build_model_and_train(self):
-        """
-        - Khoi tao quan the (tinh ca global best)
-        - Di chuyen va update vi tri, update gbest
-        """
-        pop = self.population(self.pop_size, len(self.list_clusters), self.value_min, self.value_max)
-        fitness_history = []
+            scouts = self.create_scout_bees(search_space, (num_bees - num_sites))  # Ong trinh tham
+            pop = next_gen + scouts
+            patch_size = patch_size * patch_factor
+            self.loss_train.append(best[1])
+            print("Epoch = {0}, patch_size = {1}, best = {2}".format(j + 1, patch_size, best[1]))
+        return best
 
-        gbest = self.get_global_best(pop)
-        fitness_history.append(gbest[1])
-
-        for i in range(self.max_move):
-            # Update weight after each move count  (weight down)
-            w = (self.max_move - i) / self.max_move * (self.w_max - self.w_min) + self.w_min
-
-            for j in range(self.pop_size):
-                r1 = np.random.random_sample()
-                r2 = np.random.random_sample()
-                vi_sau = w * pop[j][2] + self.c1 * r1 * (pop[j][1] - pop[j][0]) + self.c2 * r2 * (
-                            gbest[0] - pop[j][0])
-                xi_sau = pop[j][0] + vi_sau  # Xi(sau) = Xi(truoc) + Vi(sau) * deltaT (deltaT = 1)
-                fit_sau = self.fitness_individual(xi_sau)
-                fit_truoc = pop[j][4]
-                # Cap nhat x hien tai, v hien tai, so sanh va cap nhat x past best voi x hien tai
-                pop[j][0] = deepcopy(xi_sau)
-                pop[j][2] = deepcopy(vi_sau)
-                pop[j][3] = fit_sau
-
-                if fit_sau < fit_truoc:
-                    pop[j][1] = deepcopy(xi_sau)
-                    pop[j][4] = fit_sau
-
-            gbest = self.get_global_best(pop)
-            fitness_history.append(gbest[1])
-            # print "Generation : {0}, average MAE over population: {1}".format(i+1, gbest[1])
-
-        self.weight, self.loss_train = gbest[0], fitness_history[1:]
-    # print("Build model and train done!!!")
-
+    def build_and_train(self):
+        search_space = self.create_search_space(self.low_up_w, self.low_up_b)
+        best = self.search(self.max_gens, search_space, self.num_bees, self.num_sites, self.elite_sites,
+                           self.patch_size, self.patch_factor, self.e_bees, self.o_bees)
+        print("done! Solution: f = {0}, s = {1}".format(best[1], best[0]))
+        self.bee = best[0]
 
     def predict(self):
-
-        w2 = self.weight
+        w2 = np.reshape(self.bee[:self.size_w2], (self.number_node_input, -1))
+        b2 = np.reshape(self.bee[self.size_w2:], (-1, self.size_b2))
         y_pred = []
         for i in range(0, len(self.S_test)):
-            output = np.matmul(self.S_test[i], w2).reshape(-1, 1)
+            output = np.add(np.matmul(self.S_test[i], w2), b2)
             out = np.apply_along_axis(self.activation2, 1, output)
-            y_pred.append(out.flatten())
+            y_pred.append(self.activation2(out.flatten()))
 
         # Evaluate models on the test set
         y_test_inverse = self.min_max_scaler.inverse_transform(self.y_test)
@@ -207,27 +204,27 @@ class Model(object):
         self.y_predict, self.score_test_RMSE, self.score_test_MAE = y_pred, testScoreRMSE, testScoreMAE
         self.y_test_inverse, self.y_pred_inverse = y_test_inverse, y_pred_inverse
 
-        # print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
-        # print("Predict done!!!")
+        print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
+        print("Predict done!!!")
 
 
     def draw_result(self):
-        GraphUtil.draw_loss(self.fig_id, self.max_move, self.loss_train, "Loss on training per epoch")
-        GraphUtil.draw_predict_with_mae(self.fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.score_test_RMSE,
+        GraphUtil.draw_loss(fig_id, self.max_gens, self.loss_train, "Loss on training per epoch")
+        GraphUtil.draw_predict_with_mae(fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.score_test_RMSE,
                                         self.score_test_MAE, "Model predict", self.filename, self.pathsave)
 
     def save_result(self):
-        IOHelper.save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, self.pathsave)
+        IOHelper.save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, pathsave)
 
     def fit(self):
         self.preprocessing_data()
         self.clustering_data()
         if self.count_centers <= self.max_cluster:
             self.transform_data()
-            self.build_model_and_train()
+            self.build_and_train()
             self.predict()
             self.draw_result()
-            self.save_result()
+            # self.save_result()
 
 
 pathsave = "/home/thieunv/Desktop/Link to LabThayMinh/code/6_google_trace/SVNCKH/testing/3m/sonia/result/cpu_ram_cpu/"
@@ -236,35 +233,39 @@ filename3 = "data_resource_usage_3Minutes_6176858948.csv"
 filename5 = "data_resource_usage_5Minutes_6176858948.csv"
 filename8 = "data_resource_usage_8Minutes_6176858948.csv"
 filename10 = "data_resource_usage_10Minutes_6176858948.csv"
-df = read_csv(fullpath+ filename3, header=None, index_col=False, usecols=[3], engine='python')
+df = read_csv(fullpath+ filename3, header=None, index_col=False, usecols=[4], engine='python')
 dataset_original = df.values
 
 
-list_num3 = (9730, 13900, 1)
-list_num5 = (5810, 8300, 1)
-list_num8 = (3640, 5200, 1)
-list_num10 = (2870, 4100, 1)
-
+list_num3 = (11120, 13900, 0)
+list_num5 = (6640, 8300, 0)
+list_num8 = (4160, 5200, 0)
+list_num10 = (3280, 4100, 0)
 output_index = 0
 method_statistic = 0
 max_cluster=15
 neighbourhood_density=0.2
 gauss_width=1.0
 mutation_id=1
+activation_id= 0            # 0: elu, 1:relu, 2:tanh, 3:sigmoid
+activation_id2 = 0
 
-couple_acti = (2, 0)
+
 sliding_windows = [2]  # [ 2, 3, 5]
 positive_numbers = [0.25]  # [0.05, 0.15, 0.35]
 stimulation_levels = [0.35]  # [0.10, 0.25, 0.45]
 distance_levels = [0.85] # [0.65, 0.75, 0.85]
 
-w_minmax = (0.4, 0.9)                               # [0-1] -> [0.4-0.9]      Trong luong cua con chim
-value_minmax = (-1, +1)                             # value min of weight
-c_couples = [(0.8, 1.6)]        #[(1.2, 1.2), (0.8, 2.0), (1.6, 0.6)]         #c1, c2 = 2, 2       # [0-2]   Muc do anh huong cua local va global
-# r1, r2 : random theo tung vong lap
-# delta(t) = 1 (do do: x(sau) = x(truoc) + van_toc
-pop_sizes = [80]   #        [100, 200, 300, 400]      # Kich thuoc quan the
-max_moves = [100]  #  [50, 100, 200, 300]     # So lan di chuyen`
+list_max_gens = [160]  # epoch
+list_num_bees = [12]  # number of bees - population
+num_sites = 3  # phan vung, 3 dia diem
+elite_sites = 1
+patch_size = 5.0
+patch_factor = 0.97
+e_bees = 6
+o_bees = 2
+low_up_w = [-0.2, 0.6]          # Lower and upper values for weights
+low_up_b = [-0.5, 0.5]
 
 
 fig_id = 1
@@ -274,18 +275,17 @@ for sliding in sliding_windows:
         for sti_level in stimulation_levels:
             for dist_level in distance_levels:
 
-                for max_move in max_moves:
-                    for pop_size in pop_sizes:
-                        for c_couple in c_couples:
+                for max_gens in list_max_gens:
+                    for num_bees in list_num_bees:
 
-                            my_model = Model(dataset_original, list_num3, output_index, sliding, method_statistic, max_cluster,
-                                             pos_number, sti_level, dist_level, mutation_id, couple_acti, fig_id,pathsave,
-                                             max_move, pop_size, c_couple, w_minmax, value_minmax)
-                            my_model.fit()
-                            so_vong_lap += 1
-                            fig_id += 2
-                            if so_vong_lap % 5000 == 0:
-                                print "Vong lap thu : {0}".format(so_vong_lap)
+                        my_model = Model(dataset_original, list_num3, output_index, sliding, method_statistic, max_cluster,
+                                         pos_number, sti_level, dist_level, mutation_id, activation_id, activation_id2, pathsave,
+                                         max_gens, num_bees, num_sites, elite_sites, patch_size, patch_factor, e_bees, o_bees, low_up_w, low_up_b)
+                        my_model.fit()
+                        so_vong_lap += 1
+                        fig_id += 2
+                        if so_vong_lap % 5000 == 0:
+                            print "Vong lap thu : {0}".format(so_vong_lap)
 
 print "Processing DONE !!!"
 

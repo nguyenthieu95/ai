@@ -3,55 +3,55 @@ Screen server Id
 sonia:
 
     3m:
-        cpu         :13388
-        ram         :9014
-        multi_cpu:  9169
-        multi_ram:  9254
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
         
     5m:
-        cpu         :9390
-        ram         :9532
-        multi_cpu:  9662    done
-        multi_ram:  9771    done
+        cpu         :
+        ram         :
+        multi_cpu:      
+        multi_ram:     
         
     8m:
-        cpu         :13556  done
-        ram         :16229  done
-        multi_cpu:  16320   done
-        multi_ram:  16409   done
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
         
     10m:
-        cpu         :11842  done
-        ram         :11972  done
-        multi_cpu:  12109   done
-        multi_ram:  12183   done
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram: 
 
 
 sopso
 
     3m:
-        cpu         :32441
-        ram         :364
-        multi_cpu:  450
-        multi_ram:  539
+        cpu         :3911
+        ram         :4023
+        multi_cpu:  4087
+        multi_ram:  4156
         
     5m:
-        cpu         : 671
-        ram         : 766
-        multi_cpu:  852
-        multi_ram:  948
+        cpu         : 4226
+        ram         : 4292
+        multi_cpu:  4357
+        multi_ram:  4423
         
     8m:
-        cpu         :1074
-        ram         :1164
-        multi_cpu:  1252
-        multi_ram:  1350
+        cpu         :4491
+        ram         :4555
+        multi_cpu:  4619
+        multi_ram:  4687
         
     10m:
-        cpu         :1497
-        ram         :1600
-        multi_cpu:  1700
-        multi_ram:  1808
+        cpu         :4756
+        ram         :4821
+        multi_cpu:  4885
+        multi_ram:  4952
         
         
 
