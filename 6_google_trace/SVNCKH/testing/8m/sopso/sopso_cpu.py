@@ -6,8 +6,8 @@ from pandas import read_csv
 # pathsave = "/home/thieunv/Desktop/Link to LabThayMinh/code/6_google_trace/SVNCKH/testing/3m/sopso/result/cpu_ram_cpu/"
 # fullpath = "/home/thieunv/university/LabThayMinh/code/data/GoogleTrace/"
 
-pathsave = "/home/ubuntu/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/8m/sopso/result/cpu/"
-fullpath = "/home/ubuntu/nguyenthieu95/ai/data/GoogleTrace/"
+pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/8m/sopso/result/cpu/"
+fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
 filename8 = "data_resource_usage_8Minutes_6176858948.csv"
 df = read_csv(fullpath+ filename8, header=None, index_col=False, usecols=[3], engine='python')
 dataset_original = df.values
