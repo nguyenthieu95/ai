@@ -58,16 +58,16 @@ sopso
 sobee
 
     3m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         :6752
+        ram         :6816
+        multi_cpu:  6880
+        multi_ram:  6947
         
     5m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         :7019
+        ram         :7085
+        multi_cpu:  7150
+        multi_ram:  7216
         
     8m:
         cpu         :

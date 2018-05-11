@@ -1,5 +1,5 @@
 def main():
-    for i in range(100000000):
+    for i in range(1000000):
         continue
 
 import time
