@@ -5,10 +5,9 @@ Created on Sun Apr 15 09:05:56 2018
 
 @author: thieunv
 """
-
+import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 
 from sklearn.metrics import mean_squared_error
 
