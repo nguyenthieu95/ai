@@ -83,9 +83,7 @@ filename3 = "data_resource_usage_3Minutes_6176858948.csv"
 filename5 = "data_resource_usage_5Minutes_6176858948.csv"
 filename8 = "data_resource_usage_8Minutes_6176858948.csv"
 filename10 = "data_resource_usage_10Minutes_6176858948.csv"
-df = read_csv(fullpath+ filename5
-
-              , header=None, index_col=False, usecols=[3, 4], engine='python')
+df = read_csv(fullpath+ filename10, header=None, index_col=False, usecols=[3, 5], engine='python')
 dataset_original = df.values
 
 list_num3 = (11120, 13900, 0)
@@ -94,7 +92,7 @@ list_num8 = (4160, 5200, 0)
 list_num10 = (3280, 4100, 0)
 
 output_index = 0                # 0: cpu, 1: ram
-method_statistic = 0
+method_statistic = 0            ##### changes
 max_cluster=30
 mutation_id=1
 couple_acti = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
@@ -104,8 +102,8 @@ batch_sizes = [8]
 learning_rates = [0.15]
 
 sliding_windows = [ 1 ]
-positive_numbers =  [0.05]
-stimulation_levels = [0.15]
+positive_numbers =  [0.15]          ##### Giu nguyen
+stimulation_levels = [0.30]         ##### Changes
 distance_levels = [0.65]
 
 fig_id = 1
@@ -117,7 +115,7 @@ for epoch in epochs:
                 for positive_number in positive_numbers:
                     for sti_level in stimulation_levels:
                         for dis_level in distance_levels:
-                            my_model = Model(dataset_original, list_num5, output_index, epoch, batch_size, learning_rate, sliding, method_statistic, max_cluster,
+                            my_model = Model(dataset_original, list_num10, output_index, epoch, batch_size, learning_rate, sliding, method_statistic, max_cluster,
                                              positive_number, sti_level, dis_level, mutation_id, couple_acti, fig_id, pathsave)
                             my_model.fit()
                             so_vong_lap += 1

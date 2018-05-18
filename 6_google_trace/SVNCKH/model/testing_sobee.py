@@ -7,20 +7,20 @@ Created on Wed Mar 28 16:19:55 2018
 """
 from preprocessing import TimeSeries
 from cluster import Clustering
-from utils import MathHelper, GraphUtil, IOHelper
+from utils import MathHelper, GraphUtilClient, IOHelper
 
 from math import sqrt
 from pandas import read_csv
 import numpy as np
 from copy import deepcopy
-from random import random
+from random import random, randint
 from operator import add, itemgetter
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn import preprocessing
 
 
 class Model(object):
-    def __init__(self, dataset_original=None, list_idx=(1000, 2000, 0), output_index=0, sliding=2, method_statistic=0, max_cluster=15,
+    def __init__(self, dataset_original=None, list_idx=(1000, 2000, 0), output_index=0, sliding=2, method_statistic=0, max_cluster=25,
                  positive_number=0.15, sti_level=0.15, dis_level=0.25, mutation_id=1, activation_id=0, activation_id2=0, pathsave=None,
                  max_gens=100, num_bees=45, num_sites=3, elite_sites=1, patch_size=3.0, patch_factor=0.985, e_bees=7, o_bees=2,
                  low_up_w=(-1, 1), low_up_b=(-1, 1)):
@@ -80,7 +80,7 @@ class Model(object):
     def clustering_data(self):
         self.clustering = Clustering(stimulation_level=self.stimulation_level, positive_number=self.positive_number, max_cluster=self.max_cluster,
                                 distance_level=self.distance_level, mutation_id=self.mutation_id, activation_id=self.activation_id, dataset=self.X_train)
-        self.centers, self.list_clusters, self.count_centers = self.clustering.sobee_with_mutation()
+        self.centers, self.list_clusters, self.count_centers, self.y = self.clustering.sobee_new_with_mutation()
         print("Encoder features done!!!")
 
     def transform_data(self):
@@ -127,6 +127,24 @@ class Model(object):
         return self.get_mae(vector, self.S_train, self.y_train)
 
     def create_neigh_bee(self, individual, patch_size, search_space):
+        t1 = randint(0, len(individual) - 1)
+
+        bee = deepcopy(individual)
+        if random() < 0.5:
+            bee[t1] = individual[t1] + random() * patch_size
+        else:
+            bee[t1] = individual[t1] - random() * patch_size
+
+        if bee[t1] < search_space[t1][0]:
+            bee[t1] = search_space[t1][0]
+        if bee[t1] > search_space[t1][1]:
+            bee[t1] = search_space[t1][1]
+
+        fitness = self.get_mae(bee, self.S_train, self.y_train)
+        return [bee, fitness]
+
+
+    def create_neigh_bee2(self, individual, patch_size, search_space):
         bee = []
         for x in range(0, len(individual)):
             if random() < 0.5:
@@ -185,6 +203,8 @@ class Model(object):
         print("done! Solution: f = {0}, s = {1}".format(best[1], best[0]))
         self.bee = best[0]
 
+
+
     def predict(self):
         w2 = np.reshape(self.bee[:self.size_w2], (self.number_node_input, -1))
         b2 = np.reshape(self.bee[self.size_w2:], (-1, self.size_b2))
@@ -209,8 +229,8 @@ class Model(object):
 
 
     def draw_result(self):
-        GraphUtil.draw_loss(fig_id, self.max_gens, self.loss_train, "Loss on training per epoch")
-        GraphUtil.draw_predict_with_mae(fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.score_test_RMSE,
+        GraphUtilClient.draw_loss(fig_id, self.max_gens, self.loss_train, "Loss on training per epoch")
+        GraphUtilClient.draw_predict_with_mae(fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.score_test_RMSE,
                                         self.score_test_MAE, "Model predict", self.filename, self.pathsave)
 
     def save_result(self):
@@ -233,7 +253,7 @@ filename3 = "data_resource_usage_3Minutes_6176858948.csv"
 filename5 = "data_resource_usage_5Minutes_6176858948.csv"
 filename8 = "data_resource_usage_8Minutes_6176858948.csv"
 filename10 = "data_resource_usage_10Minutes_6176858948.csv"
-df = read_csv(fullpath+ filename3, header=None, index_col=False, usecols=[4], engine='python')
+df = read_csv(fullpath+ filename3, header=None, index_col=False, usecols=[3], engine='python')
 dataset_original = df.values
 
 
@@ -241,6 +261,7 @@ list_num3 = (11120, 13900, 0)
 list_num5 = (6640, 8300, 0)
 list_num8 = (4160, 5200, 0)
 list_num10 = (3280, 4100, 0)
+
 output_index = 0
 method_statistic = 0
 max_cluster=15
@@ -253,19 +274,19 @@ activation_id2 = 0
 
 sliding_windows = [2]  # [ 2, 3, 5]
 positive_numbers = [0.25]  # [0.05, 0.15, 0.35]
-stimulation_levels = [0.35]  # [0.10, 0.25, 0.45]
-distance_levels = [0.85] # [0.65, 0.75, 0.85]
+stimulation_levels = [0.20]  # [0.10, 0.25, 0.45]
+distance_levels = [0.75] # [0.65, 0.75, 0.85]
 
-list_max_gens = [160]  # epoch
-list_num_bees = [12]  # number of bees - population
+list_max_gens = [100]  # epoch
+list_num_bees = [24]  # number of bees - population
 num_sites = 3  # phan vung, 3 dia diem
 elite_sites = 1
 patch_size = 5.0
 patch_factor = 0.97
-e_bees = 6
-o_bees = 2
-low_up_w = [-0.2, 0.6]          # Lower and upper values for weights
-low_up_b = [-0.5, 0.5]
+e_bees = 10
+o_bees = 3
+low_up_w = [-1, 1]          # Lower and upper values for weights
+low_up_b = [-1, 1]
 
 
 fig_id = 1

@@ -85,7 +85,7 @@ class Model(object):
         self.clustering = Clustering(stimulation_level=self.stimulation_level, positive_number=self.positive_number, max_cluster=self.max_cluster,
                                      neighbourhood_density=self.neighbourhood_density, gauss_width=self.gauss_width,
                                 distance_level=self.distance_level, mutation_id=self.mutation_id, activation_id=self.activation_id1, dataset=self.X_train)
-        self.centers, self.list_clusters, self.count_centers, self.y = self.clustering.sobee_with_mutation()
+        self.centers, self.list_clusters, self.count_centers, self.y = self.clustering.sobee_new_no_mutation()
         print("Encoder features done!!!")
 
     def fit(self):
@@ -103,7 +103,7 @@ filename3 = "data_resource_usage_3Minutes_6176858948.csv"
 filename5 = "data_resource_usage_5Minutes_6176858948.csv"
 filename8 = "data_resource_usage_8Minutes_6176858948.csv"
 filename10 = "data_resource_usage_10Minutes_6176858948.csv"
-df = read_csv(fullpath+ filename5, header=None, index_col=False, usecols=[3, 4], engine='python')
+df = read_csv(fullpath+ filename10, header=None, index_col=False, usecols=[3, 5], engine='python')
 dataset_original = df.values
 
 list_num3 = (11120, 13900, 0)
@@ -112,7 +112,7 @@ list_num8 = (4160, 5200, 0)
 list_num10 = (3280, 4100, 0)
 
 output_index = 0
-method_statistic = 0
+method_statistic = 0                    #### changes
 max_cluster=20
 neighbourhood_density=0.2
 gauss_width=1.0
@@ -132,8 +132,8 @@ low_up_b = [-0.5, 0.5]
 
 
 sliding_windows = [ 1 ]
-positive_numbers =  [0.05]
-stimulation_levels = [0.15]
+positive_numbers =  [0.15]                  #### changes
+stimulation_levels = [0.20]                 #### changes
 distance_levels = [0.65]
 
 fig_id = 1
@@ -146,7 +146,7 @@ for sliding in sliding_windows:
                 for max_gens in list_max_gens:
                     for num_bees in list_num_bees:
 
-                        my_model = Model(dataset_original, list_num5, output_index, sliding, method_statistic, max_cluster,
+                        my_model = Model(dataset_original, list_num10, output_index, sliding, method_statistic, max_cluster,
                                                pos_number, sti_level, dist_level, neighbourhood_density, gauss_width, mutation_id, couple_acti, fig_id, pathsave,
                                                max_gens, num_bees, num_sites, elite_sites, patch_size, patch_factor, e_bees, o_bees, low_up_w, low_up_b)
                         my_model.fit()

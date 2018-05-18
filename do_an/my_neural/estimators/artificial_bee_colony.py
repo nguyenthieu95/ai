@@ -5,11 +5,9 @@ Created on Tue Apr 17 01:36:18 2018
 
 @author: thieunv
 
-THE ARTIFICIAL BEE COLONY ALGORITHM
-IN TRAINING ARTIFICIAL NEURAL
-NETWORK FOR OIL SPILL DETECTION
+- Version 1: Copy code trong cuon: Clever Algorithms 
+- Chay thu va so sanh ra ket qua toi nhat
 
-- Kha la hieu qua neu problem size lon
 """
 
 from random import random
@@ -85,20 +83,21 @@ def search(max_gens, search_space, num_bees, num_sites, elite_sites, patch_size,
     return best
 
 
+
 if __name__ == "__main__":
     #    num_hidden_unit = 8
     #    num_output = 3
     #    problem_size = num_hidden_unit * num_output + num_output    # weights hidden and bias output
-    problem_size = 60
+    problem_size = 30
     search_space = [[-1, 1] for i in range(problem_size)]
 
-    max_gens = 1500  # epoch
+    max_gens = 280  # epoch
     num_bees = 100  # number of bees - population
     num_sites = 3  # phan vung, 3 dia diem 
     elite_sites = 1
     patch_size = 3.0
-    e_bees = 7
-    o_bees = 2
+    e_bees = 10
+    o_bees = 3
 
     best = search(max_gens, search_space, num_bees, num_sites, elite_sites, patch_size, e_bees, o_bees)
     print("done! Solution: f = {0}, s = {1}".format(best[1], best[0]))

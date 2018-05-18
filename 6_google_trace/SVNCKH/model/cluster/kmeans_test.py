@@ -101,7 +101,7 @@ epochs = [480]
 batch_sizes = [8]
 learning_rates = [0.15]
 
-sliding_windows = [ 1 ]
+sliding_windows = [ 2 ]
 positive_numbers =  [0.05]
 stimulation_levels = [0.15]
 distance_levels = [0.65]

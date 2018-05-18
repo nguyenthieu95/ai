@@ -223,7 +223,7 @@ class Clustering(object):
             # print("Finished mutation hidden unit!!!")
 
 
-    def calculate_silhouette_score(self, dataset=None):
+    def calculate_silhouette_score(self, model_name = None, dataset=None):
         # Create a subplot with 1 row and 2 columns
         fig, (ax1, ax2) = plt.subplots(1, 2)
         fig.set_size_inches(18, 7)
@@ -292,37 +292,37 @@ class Clustering(object):
         ax2.set_xlabel("Feature space for the 1st feature")
         ax2.set_ylabel("Feature space for the 2nd feature")
 
-        plt.suptitle(("Silhouette analysis for SONIA clustering on sample data with n_clusters = %d" % self.count_centers), fontsize=14, fontweight='bold')
+        plt.suptitle(("Silhouette analysis for " + model_name + " clustering with n_clusters = %d" % self.count_centers), fontsize=14, fontweight='bold')
 
         plt.show()
 
     def sobee_without_mutation(self):
         self.sobee(self.dataset)
-        self.calculate_silhouette_score(self.dataset)
+        self.calculate_silhouette_score("SoBee", self.dataset)
         return self.centers, self.list_clusters, self.count_centers, self.y
 
     def sobee_with_mutation(self):
         self.sobee(self.dataset)
-        self.calculate_silhouette_score(self.dataset)
+        self.calculate_silhouette_score("SoBee", self.dataset)
         self.mutation_cluster(self.dataset)
         return self.centers, self.list_clusters, self.count_centers, self.y
 
 
     def sonia_without_mutation(self):
         self.sonia(self.dataset)
-        self.calculate_silhouette_score(self.dataset)
+        self.calculate_silhouette_score("SONIA", self.dataset)
         return self.centers, self.list_clusters, self.count_centers, self.y
 
     def sonia_with_mutation(self):
         self.sonia(self.dataset)
         self.mutation_cluster(self.dataset)
-        self.calculate_silhouette_score(self.dataset)
+        self.calculate_silhouette_score("SONIA", self.dataset)
         return self.centers, self.list_clusters, self.count_centers, self.y
 
 
     def kmeans_without_mutation(self):
         self.kmeans(self.dataset)
-        self.calculate_silhouette_score(self.dataset)
+        self.calculate_silhouette_score("SONIA", self.dataset)
         return self.centers, self.list_clusters, self.count_centers, self.y
 
     def kmeans_with_mutation(self):
@@ -333,6 +333,21 @@ class Clustering(object):
         self.calculate_silhouette_score(self.dataset)
         return self.centers, self.list_clusters, self.count_centers, self.y
 
+
+    def sobee_new_no_mutation(self):
+        self.sonia(self.dataset)
+        self.number_cluster = self.count_centers
+        self.kmeans(self.dataset)
+        self.calculate_silhouette_score("SoBee", self.dataset)
+        return self.centers, self.list_clusters, self.count_centers, self.y
+
+    def sobee_new_with_mutation(self):
+        self.sonia(self.dataset)
+        self.number_cluster = self.count_centers
+        self.kmeans(self.dataset)
+        self.calculate_silhouette_score("SoBee", self.dataset)
+        self.mutation_cluster(self.dataset)
+        return self.centers, self.list_clusters, self.count_centers, self.y
 
     def transform_features(self, features=None):
         temp = []
