@@ -140,6 +140,7 @@ class Model(object):
 
     def save_result(self):
         IOHelper.save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, self.pathsave)
+        IOHelper.save_loss_to_csv(self.loss_train, self.filename, self.pathsave)
 
     def fit(self):
         self.preprocessing_data()

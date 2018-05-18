@@ -20,6 +20,9 @@ def save_result_to_csv(y_test=None, y_pred=None, filename=None, pathsave=None):
     t1 = np.concatenate( (y_test, y_pred), axis = 1)
     np.savetxt(pathsave + filename + ".csv", t1, delimiter=",")
 
+def save_loss_to_csv(loss_train=None, filename=None, pathsave=None):
+    t1 = np.array(loss_train).reshape(-1, 1)
+    np.savetxt(pathsave + filename + ".csv", t1, delimiter=",")
 
 def save_model(list_clusters=None, w2=None, b2=None, system_time=None, filename=None, pathsave=None):
     file = open(pathsave + "Model_" + filename + ".txt", "w")
