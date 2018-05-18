@@ -3,9 +3,6 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../../")
 from model import sobee1
 from pandas import read_csv
 
-# pathsave = "/home/thieunv/Desktop/Link to LabThayMinh/code/6_google_trace/SVNCKH/testing/3m/sopso/result/cpu_ram_cpu/"
-# fullpath = "/home/thieunv/university/LabThayMinh/code/data/GoogleTrace/"
-
 pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/3m/sobee/result/ram/"
 fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
 
