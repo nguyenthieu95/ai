@@ -30,38 +30,38 @@ sonia:
 sopso
 
     3m:
-        cpu         :3911
-        ram         :4023
-        multi_cpu:  4087
-        multi_ram:  4156
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
         
     5m:
-        cpu         : 4226
-        ram         : 4292
-        multi_cpu:  4357
-        multi_ram:  4423
+        cpu         : 
+        ram         : 
+        multi_cpu:  
+        multi_ram:  
         
     8m:
-        cpu         :4491
-        ram         :4555
-        multi_cpu:  4619
-        multi_ram:  4687
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
         
     10m:
-        cpu         :4756
-        ram         :4821
-        multi_cpu:  4885
-        multi_ram:  4952
+        cpu         :
+        ram         :
+        multi_cpu:  
+        multi_ram:  
         
         
 
 sobee
 
     3m:
-        cpu         :6752
-        ram         :6816
-        multi_cpu:  6880
-        multi_ram:  6947
+        cpu         :12071
+        ram         :12133
+        multi_cpu:  12185
+        multi_ram:  12241
         
     5m:
         cpu         :7019
@@ -86,28 +86,28 @@ sobee
 Ann (con may ao tang 9):
     
     3m:
-        cpu         : 19532
-        ram         : 13545
-        multi_cpu:   13593
-        multi_ram:  13640
+        cpu         : 
+        ram         : 
+        multi_cpu:   
+        multi_ram:  
         
     5m:
-        cpu         : 13690
-        ram         : 13736
-        multi_cpu:   13781
-        multi_ram:   13830
+        cpu         : 
+        ram         : 
+        multi_cpu:   
+        multi_ram:   
         
     8m:
-        cpu         : 13879
-        ram         : 13908
-        multi_cpu:   13969
-        multi_ram:   14000
+        cpu         : 
+        ram         : 
+        multi_cpu:   
+        multi_ram:   
         
     10m:
-        cpu         : 14065
-        ram         : 14094
-        multi_cpu:   14139
-        multi_ram:  14187
+        cpu         : 
+        ram         : 
+        multi_cpu:   
+        multi_ram:  
 
 
         

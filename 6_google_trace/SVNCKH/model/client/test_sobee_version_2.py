@@ -167,7 +167,7 @@ positive_numbers = [0.25]  # [0.05, 0.15, 0.35]
 stimulation_levels = [0.20]  # [0.10, 0.25, 0.45]
 distance_levels = [0.75] # [0.65, 0.75, 0.85]
 
-list_max_gens = [120]  # epoch
+list_max_gens = [260]  # epoch
 list_num_bees = [24]  # number of bees - population
 limit = 150
 low_up_w = [-1, 1]          # Lower and upper values for weights
