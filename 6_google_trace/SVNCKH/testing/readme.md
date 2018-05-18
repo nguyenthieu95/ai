@@ -64,22 +64,22 @@ sobee
         multi_ram:  12241
         
     5m:
-        cpu         :7019
-        ram         :7085
-        multi_cpu:  7150
-        multi_ram:  7216
+        cpu         :12757
+        ram         :12802
+        multi_cpu:  12860
+        multi_ram:  12919
         
     8m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         :13008
+        ram         :13051
+        multi_cpu:  13106
+        multi_ram:  13161
         
     10m:
-        cpu         :
-        ram         :
-        multi_cpu:  
-        multi_ram:  
+        cpu         :13252
+        ram         :13293
+        multi_cpu:  13345
+        multi_ram:  13411
         
         
         
