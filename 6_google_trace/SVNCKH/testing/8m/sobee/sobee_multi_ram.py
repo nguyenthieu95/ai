@@ -24,9 +24,9 @@ max_cluster=25
 mutation_id=1
 couple_activation = (2, 0)   # 0: elu, 1:relu, 2:tanh, 3:sigmoid
 
-sliding_windows = [2, 5]  # [ 2, 3, 5]
+sliding_windows = [5]  # [ 2, 3, 5]
 positive_numbers = [0.25]  # [0.05, 0.15, 0.35]
-stimulation_levels = [0.20]  # [0.10, 0.25, 0.45]
+stimulation_levels = [0.45]  # [0.10, 0.25, 0.45]
 distance_levels = [0.75] # [0.65, 0.75, 0.85]
 
 list_max_gens = [260]  # epoch
