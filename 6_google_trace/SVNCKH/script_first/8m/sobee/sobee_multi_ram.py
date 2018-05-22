@@ -3,17 +3,14 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../../")
 from model import sobee1
 from pandas import read_csv
 
-# pathsave = "/home/thieunv/Desktop/Link to LabThayMinh/code/6_google_trace/SVNCKH/testing/3m/sopso/result/cpu_ram_cpu/"
-# fullpath = "/home/thieunv/university/LabThayMinh/code/data/GoogleTrace/"
-
-pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/script1/3m/sobee/result/cpu/"
+pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/8m/sobee/result/multi_ram/"
 fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
 
 filename3 = "data_resource_usage_3Minutes_6176858948.csv"
 filename5 = "data_resource_usage_5Minutes_6176858948.csv"
 filename8 = "data_resource_usage_8Minutes_6176858948.csv"
 filename10 = "data_resource_usage_10Minutes_6176858948.csv"
-df = read_csv(fullpath+ filename3, header=None, index_col=False, usecols=[3], engine='python')
+df = read_csv(fullpath+ filename8, header=None, index_col=False, usecols=[3, 4], engine='python')
 dataset_original = df.values
 
 list_num3 = (11120, 13900, 0)
@@ -21,7 +18,7 @@ list_num5 = (6640, 8300, 0)
 list_num8 = (4160, 5200, 0)
 list_num10 = (3280, 4100, 0)
 
-output_index = 0
+output_index = 1
 method_statistic = 0
 max_cluster=25
 mutation_id=1
@@ -58,7 +55,7 @@ for sliding in sliding_windows:
 
                         para_data = {
                             "dataset": dataset_original,
-                            "list_index": list_num3,
+                            "list_index": list_num8,
                             "output_index": output_index,
                             "method_statistic": method_statistic,
                             "sliding": sliding

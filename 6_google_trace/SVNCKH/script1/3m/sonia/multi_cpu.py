@@ -1,12 +1,12 @@
 import sys, os
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../../")
-from model import sonia
+from model import script1
 from pandas import read_csv
 
 # pathsave = "/home/thieunv/Desktop/Link to LabThayMinh/code/6_google_trace/SVNCKH/testing/3m/sonia/result/cpu/"
 # fullpath = "/home/thieunv/university/LabThayMinh/code/data/GoogleTrace/"
 
-pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/3m/sonia/result/multi_cpu/"
+pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/script1/3m/sonia/result/multi_cpu/"
 fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
 
 filename3 = "data_resource_usage_3Minutes_6176858948.csv"
@@ -25,31 +25,54 @@ output_index = 0                # 0: cpu, 1: ram
 method_statistic = 0
 max_cluster=30
 mutation_id=1
-couple_acti = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
+couple_activation = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
 
-epochs = [480, 1000, 2000]
+model = 0       # 0: sonia, 1: sobee
+
+epochs = [800, 1200, 2000]
 batch_sizes = [8, 32, 64]
 learning_rates = [0.05, 0.15, 0.35]
-sliding_windows = [ 2, 3, 5]
-positive_numbers = [0.05, 0.15, 0.35]
-stimulation_levels = [0.10, 0.20, 0.35]
-distance_levels = [0.65, 0.75, 0.85]
+sliding_windows = [ 2, 5]
+positive_numbers = [0.15]
+stimulation_levels = [0.20]
+distance_levels = [0.65]
 
 fig_id = 1
 so_vong_lap = 0
-for epoch in epochs:
-    for batch_size in batch_sizes:
-        for learning_rate in learning_rates:
-            for sliding in sliding_windows:
-                for positive_number in positive_numbers:
-                    for sti_level in stimulation_levels:
-                        for dis_level in distance_levels:
-                            my_model = sonia.Model(dataset_original, list_num3, output_index, epoch, batch_size, learning_rate, sliding, method_statistic, max_cluster,
-                                             positive_number, sti_level, dis_level, mutation_id, couple_acti, fig_id, pathsave)
+for sliding in sliding_windows:
+    for pos_number in positive_numbers:
+        for sti_level in stimulation_levels:
+            for dist_level in distance_levels:
+
+                for epoch in epochs:
+                    for batch_size in batch_sizes:
+                        for learning_rate in learning_rates:
+
+
+                            if sliding == 5:
+                                sti_level = 0.7
+
+                            para_data = {
+                                "dataset": dataset_original,
+                                "list_index": list_num3,
+                                "output_index": output_index,
+                                "method_statistic": method_statistic,
+                                "sliding": sliding
+                            }
+
+                            para_net = {
+                                "model": model,
+                                "max_cluster": max_cluster, "pos_number": pos_number,
+                                "sti_level": sti_level, "dist_level": dist_level,
+                                "mutation_id": mutation_id, "couple_activation": couple_activation,
+                                "path_save": pathsave, "fig_id": fig_id
+                            }
+
+                            my_model = script1.Model(para_data, para_net)
                             my_model.fit()
                             so_vong_lap += 1
                             fig_id += 2
-                            if so_vong_lap % 100 == 0:
-                                print "Vong lap thu : {0}".format(so_vong_lap)
+                            if so_vong_lap % 5000 == 0:
+                                print ("Vong lap thu : {0}".format(so_vong_lap))
 
-print "Processing DONE !!!"
+print ("Processing DONE !!!")

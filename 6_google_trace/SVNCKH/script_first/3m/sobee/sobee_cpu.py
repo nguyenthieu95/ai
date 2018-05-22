@@ -6,7 +6,7 @@ from pandas import read_csv
 # pathsave = "/home/thieunv/Desktop/Link to LabThayMinh/code/6_google_trace/SVNCKH/testing/3m/sopso/result/cpu_ram_cpu/"
 # fullpath = "/home/thieunv/university/LabThayMinh/code/data/GoogleTrace/"
 
-pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/script1/3m/sobee/result/cpu/"
+pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/testing/3m/sobee/result/cpu/"
 fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
 
 filename3 = "data_resource_usage_3Minutes_6176858948.csv"

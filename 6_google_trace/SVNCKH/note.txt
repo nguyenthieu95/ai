@@ -1,0 +1,10 @@
+folder script_first : folder chung, duoc tao dau tien
+
+folder script0: Danh gia so sanh phan cum giua sonia va sobee (he so sihoutle va thoi gian)
+
+folder script1: Danh gia phan cum SONIA + BP va phan cum SoBee + BP --> So sanh ket qua du doan anh huong boi giai thuat phan cum
+
+folder script2: Danh gia phan cum SONIA + BP va phan cum SONIA + Bees --> So sanh ket qua du doan anh huong boi giai thuat Bees
+
+folder script3: SoBee voi cac tham so thay doi
+
