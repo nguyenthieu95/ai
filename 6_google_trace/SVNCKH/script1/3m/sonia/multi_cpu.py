@@ -61,7 +61,7 @@ for sliding in sliding_windows:
                             }
 
                             para_net = {
-                                "model": model,
+                                "model": model, "epoch": epoch, "batch_size": batch_size, "learning_rate": learning_rate,
                                 "max_cluster": max_cluster, "pos_number": pos_number,
                                 "sti_level": sti_level, "dist_level": dist_level,
                                 "mutation_id": mutation_id, "couple_activation": couple_activation,

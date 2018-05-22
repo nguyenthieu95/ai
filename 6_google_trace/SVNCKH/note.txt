@@ -8,3 +8,32 @@ folder script2: Danh gia phan cum SONIA + BP va phan cum SONIA + Bees --> So san
 
 folder script3: SoBee voi cac tham so thay doi
 
+
+script 1:
+
+sonia:
+
+    3m:
+        cpu         :
+        ram         :
+        multi_cpu:
+        multi_ram:
+
+    5m:
+        cpu         :
+        ram         :
+        multi_cpu:
+        multi_ram:
+
+    8m:
+        cpu         :
+        ram         :
+        multi_cpu:
+        multi_ram:
+
+    10m:
+        cpu         :
+        ram         :
+        multi_cpu:
+        multi_ram:
+
