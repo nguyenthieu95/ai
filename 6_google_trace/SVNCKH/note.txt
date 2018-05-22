@@ -14,6 +14,33 @@ script 1:
 sonia:
 
     3m:
+        cpu         : 17064
+        ram         :17997
+        multi_cpu:18381
+        multi_ram:18425
+
+    5m:
+        cpu         :19231
+        ram         :19345
+        multi_cpu:19462
+        multi_ram:20106
+
+    8m:
+        cpu         :20701
+        ram         :21105
+        multi_cpu:21724
+        multi_ram:22185
+
+    10m:
+        cpu         :22939
+        ram         :23306
+        multi_cpu:23580
+        multi_ram:24114
+
+
+sobee:
+
+    3m:
         cpu         :
         ram         :
         multi_cpu:

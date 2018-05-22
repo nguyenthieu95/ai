@@ -29,12 +29,12 @@ couple_activation = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
 
 model = 0       # 0: sonia, 1: sobee
 
-epochs = [800, 1200, 2000]
-batch_sizes = [8, 32, 64]
-learning_rates = [0.05, 0.15, 0.35]
+epochs = [2000]
+batch_sizes = [32]
+learning_rates = [0.15]
 sliding_windows = [ 2, 5]
-positive_numbers = [0.15]
-stimulation_levels = [0.20]
+positive_numbers = [0.05, 0.15, 0.35]
+stimulation_levels = [0.20, 0.30, 0.40, 0.50]
 distance_levels = [0.65]
 
 fig_id = 1
@@ -47,10 +47,6 @@ for sliding in sliding_windows:
                 for epoch in epochs:
                     for batch_size in batch_sizes:
                         for learning_rate in learning_rates:
-
-
-                            if sliding == 5:
-                                sti_level = 0.45
 
                             para_data = {
                                 "dataset": dataset_original,
