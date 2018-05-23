@@ -1,7 +1,7 @@
 import sys, os
 
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../")
-from model import script2
+from model import script3
 from pandas import read_csv
 
 data = [3, 5, 8, 10]
@@ -65,7 +65,7 @@ for i in range(0, len(data)):
                                     "patch_size": patch_size, "patch_factor": patch_factor,
                                     "couple_bees": couple_bees, "lowup_w": low_up_b, "lowup_b": low_up_b
                                 }
-                                my_model = script2.SOBEE(para_data, para_net, para_bee)
+                                my_model = script3.SOBEE(para_data, para_net, para_bee)
                                 my_model.fit()
                                 so_vong_lap += 1
                                 fig_id += 2

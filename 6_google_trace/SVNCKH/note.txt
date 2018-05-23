@@ -76,30 +76,11 @@ sobee:
 
 Script 3:
 
-sobee
+test3
+    cpu         :
+    ram         :
+    multi_cpu   :
+    multi_ram   :
 
-    3m:
-        cpu         :
-        ram         :
-        multi_cpu:
-        multi_ram:
-
-    5m:
-        cpu         :
-        ram         :
-        multi_cpu:
-        multi_ram:
-
-    8m:
-        cpu         :
-        ram         :
-        multi_cpu:
-        multi_ram:
-
-    10m:
-        cpu         :
-        ram         :
-        multi_cpu:
-        multi_ram:
 
 
