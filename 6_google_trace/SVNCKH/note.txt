@@ -7,6 +7,10 @@ folder script1: Danh gia phan cum SONIA + BP va phan cum SoBee + BP --> So sanh 
 folder script2: Danh gia phan cum SONIA + BP va phan cum SONIA + Bees --> So sanh ket qua du doan anh huong boi giai thuat Bees
 
 folder script3: SoBee voi cac tham so thay doi
+    phrase1: Thay doi max_gens
+    phrase2: Thay doi num_bees
+    phrase3: Thay doi (ebees, obees)
+
 
 
 
