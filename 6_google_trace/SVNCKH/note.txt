@@ -1,4 +1,4 @@
-folder script_first : folder chung, duoc tao dau tien
+folder script_first : folder chung, duoc tao dau tien,
 
 folder script0: Danh gia so sanh phan cum giua sonia va sobee (he so sihoutle va thoi gian)
 
@@ -9,36 +9,70 @@ folder script2: Danh gia phan cum SONIA + BP va phan cum SONIA + Bees --> So san
 folder script3: SoBee voi cac tham so thay doi
 
 
+
+----------
+22/5/2018
+    folder script1_old: file script 1 cu, bi loi 1 so cho nen phai lam lai
+
+
+
+
+
 script 1:
 
-sonia:
+sonia, sobee:
 
     3m:
-        cpu         : 17064
-        ram         :17997
-        multi_cpu:18381
-        multi_ram:18425
+        cpu         :
+        ram         :
+        multi_cpu:
+        multi_ram:
 
     5m:
-        cpu         :19231
-        ram         :19345
-        multi_cpu:19462
-        multi_ram:20106
+        cpu         :
+        ram         :
+        multi_cpu:
+        multi_ram:
 
     8m:
-        cpu         :20701
-        ram         :21105
-        multi_cpu:21724
-        multi_ram:22185
+        cpu         :
+        ram         :
+        multi_cpu:
+        multi_ram:
 
     10m:
-        cpu         :22939
-        ram         :23306
-        multi_cpu:23580
-        multi_ram:24114
+        cpu         :
+        ram         :
+        multi_cpu:
+        multi_ram:
 
+
+
+Script 2:
+
+sonia:
+    cpu         :24109
+    ram         :24303
+    multi_cpu   :24347
+    multi_ram   :24610
 
 sobee:
+    cpu         :22185
+    ram         :21724
+    multi_cpu   :21105
+    multi_ram   :20701
+
+
+
+
+
+
+
+
+
+Script 3:
+
+sobee
 
     3m:
         cpu         :
@@ -63,4 +97,5 @@ sobee:
         ram         :
         multi_cpu:
         multi_ram:
+
 
