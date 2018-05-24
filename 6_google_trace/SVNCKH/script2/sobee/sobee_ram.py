@@ -29,9 +29,9 @@ for i in range(0, len(data)):
     stimulation_levels = [0.20]  # [0.10, 0.25, 0.45]
     distance_levels = [0.65]  # [0.65, 0.75, 0.85]
 
-    list_max_gens = [360, 650, 1000, 1400]  # epoch
+    list_max_gens = [400, 650, 850]  # epoch
     list_num_bees = [26, 40, 64]  # number of bees - population
-    list_couple_bees = [(15, 3), (6, 3)]  # e_bees, o_bees
+    list_couple_bees = [(15, 3), (9, 3), (3, 3)]  # e_bees, o_bees
     num_sites = 3  # phan vung, 3 dia diem
     elite_sites = 1
     patch_size = 5.0
