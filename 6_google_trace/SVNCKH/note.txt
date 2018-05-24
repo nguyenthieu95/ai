@@ -77,10 +77,10 @@ sobee:
 Script 3:
 
 test3
-    cpu         :
-    ram         :
-    multi_cpu   :
-    multi_ram   :
+    cpu         :19914
+    ram         :19955
+    multi_cpu   :20001
+    multi_ram   :20054
 
 
 

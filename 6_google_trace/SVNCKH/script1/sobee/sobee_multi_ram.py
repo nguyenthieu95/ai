@@ -10,7 +10,7 @@ data = [3, 5, 8, 10]
 list_number_data = [(11120, 13900, 0), (6640, 8300, 0), (4160, 5200, 0), (3280, 4100, 0)]
 
 for i in range(0, len(data)):
-    pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/script2/sobee/result/" + str(data[i]) + "m/multi_ram/"
+    pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/script1/sobee/result/" + str(data[i]) + "m/multi_ram/"
     fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
     filename = "data_resource_usage_" + str(data[i]) + "Minutes_6176858948.csv"
     df = read_csv(fullpath+ filename, header=None, index_col=False, usecols=[3, 4], engine='python')
@@ -19,19 +19,19 @@ for i in range(0, len(data)):
 
     output_index = 1                # 0: cpu, 1: ram
     method_statistic = 0
-    max_cluster=30
-    mutation_id=1
-    couple_activation = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
+    max_cluster = 50
+    mutation_id = 1
+    couple_activation = (2, 0)  # 0: elu, 1:relu, 2:tanh, 3:sigmoid
 
     model = 1  # 0: sonia, 1: sobee
 
-    epochs = [800, 1200, 2000]
-    batch_sizes = [8, 32, 64]
-    learning_rates = [0.05, 0.15, 0.35]
-    sliding_windows = [ 2, 5]
-    positive_numbers = [0.15]
-    stimulation_levels = [0.20]
-    distance_levels = [0.65]
+    epochs = [2000]
+    batch_sizes = [32]
+    learning_rates = [0.15]
+    sliding_windows = [2, 5]
+    positive_numbers = [0.05, 0.15, 0.35]
+    stimulation_levels = [0.20, 0.30, 0.40, 0.50]
+    distance_levels = [0.35, 0.50, 0.70]
 
     fig_id = 1
     so_vong_lap = 0

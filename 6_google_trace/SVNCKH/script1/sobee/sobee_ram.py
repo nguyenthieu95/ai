@@ -17,13 +17,13 @@ for i in range(0, len(data)):
     dataset_original = df.values
     list_num = list_number_data[i]
 
-    output_index = 0                # 0: cpu, 1: ram
+    output_index = 0  # 0: cpu, 1: ram
     method_statistic = 0
-    max_cluster=30
-    mutation_id=1
-    couple_activation = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
+    max_cluster = 50
+    mutation_id = 1
+    couple_activation = (2, 0)  # 0: elu, 1:relu, 2:tanh, 3:sigmoid
 
-    model = 0  # 0: sonia, 1: sobee
+    model = 1  # 0: sonia, 1: sobee
 
     epochs = [2000]
     batch_sizes = [32]
@@ -31,7 +31,7 @@ for i in range(0, len(data)):
     sliding_windows = [2, 5]
     positive_numbers = [0.05, 0.15, 0.35]
     stimulation_levels = [0.20, 0.30, 0.40, 0.50]
-    distance_levels = [0.65]
+    distance_levels = [0.35, 0.50, 0.70]
 
     fig_id = 1
     so_vong_lap = 0
