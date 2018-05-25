@@ -42,4 +42,28 @@ multi_ram: 1173
 
 
 ============ Script 2 ===============
-    
+
+SONIA:
+
+cpu: 9223
+ram: 9260
+multi_cpu: 9303
+multi_ram: 9454
+
+
+SoBee:
+
+cpu: 10034
+ram: 10239
+multi_cpu: 10427
+multi_ram: 10597
+
+
+============ Script 3 ===============
+
+
+
+
+
+
+
