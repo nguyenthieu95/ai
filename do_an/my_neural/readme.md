@@ -22,4 +22,24 @@
 - Khi mà đọc 1 bộ tham số từ queue ra thì bộ tham số sẽ bị xóa đi trong queue đó.
 - Khi mất điện, tiến trình chết, các bộ tham số còn lại chưa được chạy vẫn ở trong queue. 
 
+
+====== Script 1 =========
+
+SONIA:
+
+cpu: 31154
+ram: 31445
+multi_cpu: 31528
+multi_ram: 31876
+
+
+SoBee:
+
+cpu: 31999
+ram: 32356
+multi_cpu: 470
+multi_ram: 1173
+
+
+============ Script 2 ===============
     

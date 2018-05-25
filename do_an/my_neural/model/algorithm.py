@@ -46,7 +46,6 @@ class Bee1(object):
         fitness = self.get_mae(candidate)
         return [candidate, fitness]
 
-
     def get_mae(self, bee=None):
         w2 = np.reshape(bee[:self.size_w2], (self.number_node_input, -1))
         b2 = np.reshape(bee[self.size_w2:], (-1, self.size_b2))

@@ -16,7 +16,7 @@ import numpy as np
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn import preprocessing
 from algorithm import Bee1
-
+import time
 from preprocessing import TimeSeries
 from cluster import Clustering
 from utils import MathHelper, GraphUtil, IOHelper
@@ -73,11 +73,13 @@ class SONIA(object):
 
 
     def clustering_data(self):
+        start_time_cluster = time.time()
         self.clustering = Clustering(stimulation_level=self.stimulation_level, positive_number=self.positive_number,
                                      max_cluster=self.max_cluster,
                                      distance_level=self.distance_level, mutation_id=self.mutation_id,
                                      activation_id=self.activation_id1, dataset=self.X_train)
         self.centers, self.list_clusters, self.count_centers, self.y = self.clustering.sonia_with_mutation()
+        self.time_cluster = round(time.time() - start_time_cluster, 3)
         # print("Encoder features done!!!")
 
 
@@ -90,6 +92,7 @@ class SONIA(object):
 
 
     def build_and_train(self):
+        start_time_train = time.time()
         ## Build layer's sizes
         X_train, y_train = self.S_train, self.y_train
 
@@ -133,6 +136,7 @@ class SONIA(object):
                 # print("Epoch: {}".format(epoch + 1), "cost = {}".format(loss_epoch))
 
         self.weight, self.bias, self.loss_train = weight, bias, loss_plot
+        self.time_train = round(time.time() - start_time_train, 3)
         # print("Build model and train done!!!")
 
     def predict(self):
@@ -160,7 +164,7 @@ class SONIA(object):
             testScoreRMSE = sqrt(mean_squared_error(y_test_inverse, y_pred_inverse))
             testScoreMAE = mean_absolute_error(y_test_inverse, y_pred_inverse)
 
-            self.y_predict, self.score_test_RMSE, self.score_test_MAE = y_est_np, testScoreRMSE, testScoreMAE
+            self.y_predict, self.RMSE, self.MAE = y_est_np, testScoreRMSE, testScoreMAE
             self.y_test_inverse, self.y_pred_inverse = y_test_inverse, y_pred_inverse
 
             # print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
@@ -169,8 +173,8 @@ class SONIA(object):
 
     def draw_result(self):
         GraphUtil.draw_loss(self.fig_id, self.epoch, self.loss_train, "Error on training per epoch")
-        GraphUtil.draw_predict_with_mae(self.fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.score_test_RMSE,
-                                        self.score_test_MAE, "Model predict", self.filename, self.pathsave)
+        GraphUtil.draw_predict_with_mae(self.fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.RMSE,
+                                        self.MAE, "Model predict", self.filename, self.pathsave)
 
     def save_result(self):
         IOHelper.save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, self.pathsave)
@@ -252,9 +256,11 @@ class SOBEE(object):
 
 
     def clustering_data(self):
+        start_time_cluster = time.time()
         self.clustering = Clustering(stimulation_level=self.stimulation_level, positive_number=self.positive_number, max_cluster=self.max_cluster,
                                 distance_level=self.distance_level, mutation_id=self.mutation_id, activation_id=self.activation_id1, dataset=self.X_train)
         self.centers, self.list_clusters, self.count_centers, self.y = self.clustering.sobee_new_with_mutation()
+        self.time_cluster = round(time.time() - start_time_cluster, 3)
         # print("Encoder features done!!!")
 
     def transform_data(self):
@@ -265,6 +271,7 @@ class SOBEE(object):
         # print("Transform features done!!!")
 
     def train_bee(self):
+        start_time_train = time.time()
         self.number_node_input = len(self.list_clusters)
         self.number_node_output = self.y_train.shape[1]
         self.size_w2 = self.number_node_input * self.number_node_output
@@ -280,6 +287,7 @@ class SOBEE(object):
         }
         bee = Bee1(other_para, bee_para)
         self.bee, self.loss_train = bee.build_and_train()
+        self.time_train = round(time.time() - start_time_train, 3)
 
     def predict(self):
         w2 = np.reshape(self.bee[:self.size_w2], (self.number_node_input, -1))
@@ -297,8 +305,10 @@ class SOBEE(object):
         testScoreRMSE = sqrt(mean_squared_error(y_test_inverse, y_pred_inverse))
         testScoreMAE = mean_absolute_error(y_test_inverse, y_pred_inverse)
 
-        self.y_predict, self.score_test_RMSE, self.score_test_MAE = y_pred, testScoreRMSE, testScoreMAE
+        self.y_predict, self.RMSE, self.MAE = y_pred, testScoreRMSE, testScoreMAE
         self.y_test_inverse, self.y_pred_inverse = y_test_inverse, y_pred_inverse
+        self.weight = w2
+        self.bias = b2
 
         # print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
         # print("Predict done!!!")
@@ -306,8 +316,8 @@ class SOBEE(object):
 
     def draw_result(self):
         GraphUtil.draw_loss(self.fig_id, self.max_gens, self.loss_train, "Loss on training per epoch")
-        GraphUtil.draw_predict_with_mae(self.fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.score_test_RMSE,
-                                        self.score_test_MAE, "Model predict", self.filename, self.pathsave)
+        GraphUtil.draw_predict_with_mae(self.fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.RMSE,
+                                        self.MAE, "Model predict", self.filename, self.pathsave)
 
     def save_result(self):
         IOHelper.save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, self.pathsave)

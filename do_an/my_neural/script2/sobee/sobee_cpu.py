@@ -1,36 +1,35 @@
-import sys, os
+import sys, os, time
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../")
 from model import script2
+from model.utils import IOHelper
 from pandas import read_csv
-
-# pathsave = "/home/thieunv/Desktop/Link to LabThayMinh/code/6_google_trace/SVNCKH/testing/3m/sonia/result/cpu/"
-# fullpath = "/home/thieunv/university/LabThayMinh/code/data/GoogleTrace/"
 
 data = [3, 5, 8, 10]
 list_number_data = [(11120, 13900, 0), (6640, 8300, 0), (4160, 5200, 0), (3280, 4100, 0)]
 
 for i in range(0, len(data)):
-    pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/script2/sobee/result/" + str(data[i]) + "m/cpu/"
+    pathsave = "/home/hunter/nguyenthieu95/ai/do_an/my_neural/script2/sobee/result/" + str(data[i]) + "m/cpu/"
     fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
     filename = "data_resource_usage_" + str(data[i]) + "Minutes_6176858948.csv"
-    df = read_csv(fullpath+ filename, header=None, index_col=False, usecols=[3], engine='python')
+    filesave_model = "/home/hunter/nguyenthieu95/ai/do_an/my_neural/script2/sobee/result/" + str(data[i]) + "m/cpu.txt"
+    df = read_csv(fullpath + filename, header=None, index_col=False, usecols=[3], engine='python')
     dataset_original = df.values
     list_num = list_number_data[i]
 
     output_index = 0                # 0: cpu, 1: ram
     method_statistic = 0
-    max_cluster=30
+    max_cluster=50
     mutation_id=1
     couple_activation = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
 
-    sliding_windows = [2, 5]  # [ 2, 3, 5]
-    positive_numbers = [0.15]  # [0.05, 0.15, 0.35]
-    stimulation_levels = [0.20]  # [0.10, 0.25, 0.45]
-    distance_levels = [0.65]  # [0.65, 0.75, 0.85]
+    sliding_windows = [2, 5]
+    positive_numbers = [0.15]
+    stimulation_levels = [0.25]
+    distance_levels = [0.55]
 
-    list_max_gens = [400, 650, 850]  # epoch
-    list_num_bees = [26, 40, 64]  # number of bees - population
-    list_couple_bees = [(15, 3), (9, 3), (3, 3)]  # e_bees, o_bees
+    list_max_gens = [400, 500, 600, 700, 800]  # epoch
+    list_num_bees = [60, 80, 100, 120, 140]  # number of bees - population
+    list_couple_bees = [(15, 3), (9, 3), (3, 3), (3, 9), (3, 15)]  # e_bees, o_bees
     num_sites = 3  # phan vung, 3 dia diem
     elite_sites = 1
     patch_size = 5.0
@@ -48,11 +47,16 @@ for i in range(0, len(data)):
                     for max_gens in list_max_gens:
                         for num_bees in list_num_bees:
                             for couple_bees in list_couple_bees:
-                                if sliding == 5:
-                                    sti_level = 0.50
+
+                                start_time = time.time()
+                                model_name = "_sliding=" + str(sliding) + "_posNumber=" + str(pos_number) + \
+                                             "_stiLevel=" + str(sti_level) + "_disLevel=" + str(dist_level) + \
+                                             "_maxGens=" + str(max_gens) + "_numBees=" + str(num_bees) + "_coupleBees=" + str(couple_bees)
+
                                 para_data = {
                                     "dataset": dataset_original, "list_index": list_num,
-                                    "output_index": output_index, "method_statistic": method_statistic, "sliding": sliding
+                                    "output_index": output_index, "method_statistic": method_statistic,
+                                    "sliding": sliding
                                 }
                                 para_net = {
                                     "max_cluster": max_cluster, "pos_number": pos_number,
@@ -68,9 +72,19 @@ for i in range(0, len(data)):
                                 }
                                 my_model = script2.SOBEE(para_data, para_net, para_bee)
                                 my_model.fit()
+                                time_model = round(time.time() - start_time, 3)
+
+                                temp = [my_model.time_cluster, my_model.time_train, time_model]
+                                IOHelper.save_model(my_model.list_clusters, my_model.weight, my_model.bias, temp,
+                                                    my_model.RMSE, my_model.MAE, model_name, filesave_model)
+
                                 so_vong_lap += 1
                                 fig_id += 2
-                                if so_vong_lap % 5000 == 0:
+                                if so_vong_lap % 100 == 0:
                                     print ("Vong lap thu : {0}".format(so_vong_lap))
 
     print ("Processing loop {0} DONE!!!".format(i))
+
+
+
+

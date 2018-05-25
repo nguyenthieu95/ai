@@ -1,36 +1,36 @@
-import sys, os
+import sys, os, time
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../")
 from model import script2
+from model.utils import IOHelper
 from pandas import read_csv
-
-# pathsave = "/home/thieunv/Desktop/Link to LabThayMinh/code/6_google_trace/SVNCKH/testing/3m/sonia/result/cpu/"
-# fullpath = "/home/thieunv/university/LabThayMinh/code/data/GoogleTrace/"
 
 data = [3, 5, 8, 10]
 list_number_data = [(11120, 13900, 0), (6640, 8300, 0), (4160, 5200, 0), (3280, 4100, 0)]
 
-
 for i in range(0, len(data)):
-    pathsave = "/home/hunter/nguyenthieu95/ai/6_google_trace/SVNCKH/script2/sonia/result/" + str(data[i]) + "m/multi_cpu/"
+    pathsave = "/home/hunter/nguyenthieu95/ai/do_an/my_neural/script2/sonia/result/" + str(data[i]) + "m/multi_cpu/"
     fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
     filename = "data_resource_usage_" + str(data[i]) + "Minutes_6176858948.csv"
+    filesave_model = "/home/hunter/nguyenthieu95/ai/do_an/my_neural/script2/sonia/result/"+ str(data[i]) + "m/multi_cpu.txt"
+
     df = read_csv(fullpath+ filename, header=None, index_col=False, usecols=[3, 4], engine='python')
     dataset_original = df.values
     list_num = list_number_data[i]
 
     output_index = 0                # 0: cpu, 1: ram
     method_statistic = 0
-    max_cluster=30
+    max_cluster=50
     mutation_id=1
     couple_activation = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
 
-    epochs = [800, 1200, 2000]
-    batch_sizes = [8, 32, 64]
-    learning_rates = [0.05, 0.15, 0.35]
-    sliding_windows = [ 2, 5]
+    sliding_windows = [2, 5]
     positive_numbers = [0.15]
-    stimulation_levels = [0.20]
-    distance_levels = [0.65]
+    stimulation_levels = [0.50]
+    distance_levels = [0.55]
+
+    epochs = [800, 1200, 1500, 1750, 2000]
+    batch_sizes = [8, 32, 64, 128, 256]
+    learning_rates = [0.01, 0.05, 0.10, 0.20, 0.30]
 
     fig_id = 1
     so_vong_lap = 0
@@ -42,8 +42,12 @@ for i in range(0, len(data)):
                     for epoch in epochs:
                         for batch_size in batch_sizes:
                             for learning_rate in learning_rates:
-                                if sliding == 5:
-                                    sti_level = 0.70
+
+                                start_time = time.time()
+                                model_name = "_sliding=" + str(sliding) + "_posNumber=" + str(pos_number) +\
+                                            "_stiLevel=" + str(sti_level) + "_disLevel=" + str(dist_level) + \
+                                            "_epoch=" + str(epoch) + "_batchSize=" + str(batch_size) + "_learningRate=" + str(learning_rate)
+
                                 para_data = {
                                     "dataset": dataset_original,
                                     "list_index": list_num,
@@ -56,14 +60,20 @@ for i in range(0, len(data)):
                                     "max_cluster": max_cluster, "pos_number": pos_number,
                                     "sti_level": sti_level, "dist_level": dist_level,
                                     "mutation_id": mutation_id, "couple_activation": couple_activation,
-                                    "path_save": pathsave, "fig_id": fig_id
+                                    "path_save": pathsave, "fig_id": fig_id, "model_name": model_name
                                 }
 
                                 my_model = script2.SONIA(para_data, para_net)
                                 my_model.fit()
+                                time_model = round(time.time() - start_time, 3)
+
+                                temp = [my_model.time_cluster, my_model.time_train, time_model]
+                                IOHelper.save_model(my_model.list_clusters, my_model.weight, my_model.bias, temp,
+                                                    my_model.RMSE, my_model.MAE, model_name, filesave_model)
+
                                 so_vong_lap += 1
                                 fig_id += 2
-                                if so_vong_lap % 5000 == 0:
+                                if so_vong_lap % 100 == 0:
                                     print ("Vong lap thu : {0}".format(so_vong_lap))
 
     print ("Processing loop {0} DONE!!!".format(i))
