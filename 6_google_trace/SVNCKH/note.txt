@@ -55,22 +55,16 @@ sonia, sobee:
 Script 2:
 
 sonia:
-    cpu         :24109
-    ram         :24303
-    multi_cpu   :24347
-    multi_ram   :24610
+    cpu         :
+    ram         :
+    multi_cpu   :
+    multi_ram   :
 
 sobee:
-    cpu         :22185
-    ram         :21724
-    multi_cpu   :21105
-    multi_ram   :20701
-
-
-
-
-
-
+    cpu         :10158
+    ram         :10191
+    multi_cpu   :10237
+    multi_ram   :10287
 
 
 

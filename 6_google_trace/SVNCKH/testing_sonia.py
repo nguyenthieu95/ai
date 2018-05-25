@@ -70,7 +70,7 @@ class Model(object):
         start_time_cluster = time.time()
         self.clustering = Clustering(stimulation_level=self.stimulation_level, positive_number=self.positive_number, max_cluster=self.max_cluster,
                                 distance_level=self.distance_level, mutation_id=self.mutation_id, activation_id=self.activation_id1, dataset=self.X_train)
-        self.centers, self.list_clusters, self.count_centers = self.clustering.sonia_with_mutation()
+        self.centers, self.list_clusters, self.count_centers, self.y = self.clustering.sonia_with_mutation()
         self.time_cluster = round(time.time() - start_time_cluster, 4)
         print("Encoder features done!!!")
 
@@ -154,7 +154,7 @@ class Model(object):
             testScoreRMSE = sqrt(mean_squared_error(y_test_inverse, y_pred_inverse))
             testScoreMAE = mean_absolute_error(y_test_inverse, y_pred_inverse)
 
-            self.y_predict, self.score_test_RMSE, self.score_test_MAE = y_est_np, testScoreRMSE, testScoreMAE
+            self.y_predict, self.RMSE, self.MAE = y_est_np, testScoreRMSE, testScoreMAE
             self.y_test_inverse, self.y_pred_inverse = y_test_inverse, y_pred_inverse
 
             # print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
@@ -163,8 +163,8 @@ class Model(object):
 
     def draw_result(self):
         GraphUtil.draw_loss(self.fig_id, self.epoch, self.loss_train, "Loss on training per epoch")
-        GraphUtil.draw_predict_with_mae(self.fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.score_test_RMSE,
-                                        self.score_test_MAE, "Model predict", self.filename, self.pathsave)
+        GraphUtil.draw_predict_with_mae(self.fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.RMSE,
+                                        self.MAE, "Model predict", self.filename, self.pathsave)
 
     def save_result(self):
         IOHelper.save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, self.pathsave)
@@ -196,12 +196,12 @@ max_cluster=30
 mutation_id=1
 couple_acti = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
 
-epochs = [120]
-batch_sizes = [8]
+epochs = [30, 120]
+batch_sizes = [8, 16]
 learning_rates = [0.05]
-sliding_windows = [ 2]
-positive_numbers = [0.05]
-stimulation_levels = [0.35]
+sliding_windows = [2, 5]
+positive_numbers = [0.05, 0.15]
+stimulation_levels = [0.35, 0.55]
 distance_levels = [0.65]
 
 fig_id = 1

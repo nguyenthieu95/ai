@@ -1,0 +1,81 @@
+SONIA:
+
+3m : 
+
+CPU_2slide ---- positive_number = 0.15
+
+stimulation_level = 0.10   -   filename = pos015_sl010
+'For n_clusters =', 13, 'The average silhouette_score is :', 0.8639346948887323
+
+stimulation_level = 0.20   -   filename = pos015_sl020
+('For n_clusters =', 8, 'The average silhouette_score is :', 0.9326751261947045)
+
+stimulation_level = 0.30   -   filename = pos015_sl030
+'For n_clusters =', 4, 'The average silhouette_score is :', 0.9525233644470948)
+
+
+RAM_2slide ---- positive_number = 0.15
+
+stimulation_level = 0.10   -   filename = pos015_sl010
+('For n_clusters =', 13, 'The average silhouette_score is :', 0.8167311764992304)
+
+stimulation_level = 0.20   -   filename = pos015_sl020
+('For n_clusters =', 7, 'The average silhouette_score is :', 0.9021163599676176)
+
+stimulation_level = 0.30   -   filename = pos015_sl030
+('For n_clusters =', 5, 'The average silhouette_score is :', 0.9179134926065474)
+
+
+CPU_RAM ----- positive_number = 0.15
+
+stimulation_level = 0.10   -   filename = pos015_sl010
+'For n_clusters =', 12, 'The average silhouette_score is :', 0.8485884388242886)
+
+stimulation_level = 0.20   -   filename = pos015_sl020
+('For n_clusters =', 4, 'The average silhouette_score is :', 0.9208618849427468)
+
+stimulation_level = 0.30   -   filename = pos015_sl030
+('For n_clusters =', 4, 'The average silhouette_score is :', 0.9208618849427468)
+
+
+
+10m : 
+
+CPU_2slide ---- positive_number = 0.15
+
+stimulation_level = 0.10   -   filename = pos015_sl010
+('For n_clusters =', 21, 'The average silhouette_score is :', 0.7856437495179742)
+
+stimulation_level = 0.20   -   filename = pos015_sl020
+('For n_clusters =', 11, 'The average silhouette_score is :', 0.8630061039323982)
+
+stimulation_level = 0.30   -   filename = pos015_sl030
+('For n_clusters =', 7, 'The average silhouette_score is :', 0.9289266720685517)
+
+
+RAM_2slide ---- positive_number = 0.15
+
+stimulation_level = 0.10   -   filename = pos015_sl010
+('For n_clusters =', 24, 'The average silhouette_score is :', 0.7566150412234539)
+
+stimulation_level = 0.20   -   filename = pos015_sl020
+('For n_clusters =', 10, 'The average silhouette_score is :', 0.8680215575147311)
+
+stimulation_level = 0.30   -   filename = pos015_sl030
+'For n_clusters =', 7, 'The average silhouette_score is :', 0.8806384410674227)
+
+
+CPU_RAM ----- positive_number = 0.15
+
+stimulation_level = 0.10   -   filename = pos015_sl010
+('For n_clusters =', 20, 'The average silhouette_score is :', 0.7862055929700704)
+
+stimulation_level = 0.20   -   filename = pos015_sl020
+('For n_clusters =', 9, 'The average silhouette_score is :', 0.8736489402382159)
+
+stimulation_level = 0.30   -   filename = pos015_sl030
+('For n_clusters =', 5, 'The average silhouette_score is :', 0.8938400493829676)
+
+
+
+

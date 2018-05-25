@@ -24,14 +24,18 @@ def save_loss_to_csv(loss_train=None, filename=None, pathsave=None):
     t1 = np.array(loss_train).reshape(-1, 1)
     np.savetxt(pathsave + filename + ".csv", t1, delimiter=",")
 
-def save_model(list_clusters=None, w2=None, b2=None, system_time=None, filename=None, pathsave=None):
-    file = open(pathsave + "Model_" + filename + ".txt", "w")
+def save_model(list_clusters=None, w2=None, b2=None, system_time=None, RMSE=None, MAE=None, modelname=None, filesave_model=None):
+    file = open(filesave_model, "a")
+    file.write("------------------------------------------------------\n")
+    file.write("{0}".format(modelname))
     file.write("Time cluster: {0} seconds\n".format(system_time[0]))
     file.write("Time train: {0} seconds\n".format(system_time[1]))
     file.write("Time model: {0} seconds\n".format(system_time[2]))
     file.write("List clusters: {0}\n".format(list_clusters))
     file.write("w2: {0}\n".format(w2))
     file.write("b2: {0}\n".format(b2))
+    file.write("RMSE: {0}\n".format(RMSE))
+    file.write("MAE: {0}\n".format(MAE))
     file.close()
     
 

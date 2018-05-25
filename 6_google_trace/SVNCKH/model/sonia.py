@@ -10,7 +10,7 @@ import tensorflow as tf
 from math import sqrt
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn import preprocessing
-
+import time
 from preprocessing import TimeSeries
 from cluster import Clustering
 from utils import MathHelper, GraphUtil, IOHelper
@@ -66,9 +66,11 @@ class Model(object):
 
 
     def clustering_data(self):
+        start_time_cluster = time.time()
         self.clustering = Clustering(stimulation_level=self.stimulation_level, positive_number=self.positive_number, max_cluster=self.max_cluster,
                                 distance_level=self.distance_level, mutation_id=self.mutation_id, activation_id=self.activation_id1, dataset=self.X_train)
         self.centers, self.list_clusters, self.count_centers = self.clustering.sonia_with_mutation()
+        self.time_cluster = round(time.time() - start_time_cluster, 3)
         # print("Encoder features done!!!")
 
 
@@ -81,6 +83,7 @@ class Model(object):
 
 
     def build_and_train(self):
+        start_time_train = time.time()
         ## Build layer's sizes
         X_train, y_train = self.S_train, self.y_train
 
@@ -122,6 +125,7 @@ class Model(object):
                 # print("Epoch: {}".format(epoch + 1), "cost = {}".format(loss_epoch))
 
         self.weight, self.bias, self.loss_train = weight, bias, loss_plot
+        self.time_train = round(time.time() - start_time_train, 3)
         # print("Build model and train done!!!")
 
     def predict(self):
