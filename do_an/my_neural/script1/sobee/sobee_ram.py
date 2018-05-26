@@ -8,10 +8,10 @@ data = [3, 5, 8, 10]
 list_number_data = [(11120, 13900, 0), (6640, 8300, 0), (4160, 5200, 0), (3280, 4100, 0)]
 
 for i in range(0, len(data)):
-    pathsave = "/home/hunter/nguyenthieu95/ai/do_an/my_neural/script1/sobee/result/" + str(data[i]) + "m/ram/"
-    fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
-    filename = "data_resource_usage_" + str(data[i]) + "Minutes_6176858948.csv"
-    filesave_model = "/home/hunter/nguyenthieu95/ai/do_an/my_neural/script1/sobee/result/"+ str(data[i]) + "m/ram.txt"
+    pathsave = os.path.dirname(__file__) + "/result/" + str(data[i]) + "m/ram/"
+    fullpath = os.path.abspath('../../data')
+    filename = "/data_resource_usage_" + str(data[i]) + "Minutes_6176858948.csv"
+    filesave_model = os.path.dirname(__file__) + "/result/" + str(data[i]) + "m/ram.txt"
 
     df = read_csv(fullpath+ filename, header=None, index_col=False, usecols=[4], engine='python')
     dataset_original = df.values
