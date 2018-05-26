@@ -175,7 +175,7 @@ class Model(object):
         # print("Predict done!!!")
 
     def draw_result(self):
-        GraphUtil.draw_loss(self.fig_id, self.epoch, self.loss_train, "Error on training per epoch")
+        #GraphUtil.draw_loss(self.fig_id, self.epoch, self.loss_train, "Error on training per epoch")
         GraphUtil.draw_predict_with_mae(self.fig_id+1, self.y_test_inverse, self.y_pred_inverse, self.RMSE,
                                         self.MAE, "Model predict", self.filename, self.pathsave)
 
