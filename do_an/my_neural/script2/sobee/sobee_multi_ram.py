@@ -9,10 +9,10 @@ data = [3, 5, 8, 10]
 list_number_data = [(11120, 13900, 0), (6640, 8300, 0), (4160, 5200, 0), (3280, 4100, 0)]
 
 for i in range(0, len(data)):
-    pathsave = os.path.dirname(__file__) + "/result/" + str(data[i]) + "m/multi_ram/"
+    pathsave = os.path.dirname(os.path.abspath(__file__)) + "/result/" + str(data[i]) + "m/multi_ram/"
     fullpath = os.path.abspath('../../data')
     filename = "/data_resource_usage_" + str(data[i]) + "Minutes_6176858948.csv"
-    filesave_model = os.path.dirname(__file__) + "/result/" + str(data[i]) + "m/multi_ram.txt"
+    filesave_model = os.path.dirname(os.path.abspath(__file__)) + "/result/" + str(data[i]) + "m/multi_ram.txt"
     df = read_csv(fullpath + filename, header=None, index_col=False, usecols=[3, 4], engine='python')
     dataset_original = df.values
     list_num = list_number_data[i]
