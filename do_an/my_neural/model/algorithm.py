@@ -47,7 +47,7 @@ class Bee1(object):
         return [candidate, fitness]
 
     def get_mae(self, bee=None):
-        w2 = np.reshape(bee[:self.size_w2], (self.number_node_input, -1))
+        w2 = np.reshape(bee[:self.size_2], (self.number_node_input, -1))
         b2 = np.reshape(bee[self.size_w2:], (-1, self.size_b2))
         output = np.add( np.matmul(self.X_data, w2), b2)
         y_pred = self.activation(output)

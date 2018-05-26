@@ -7,6 +7,8 @@ So sanh: SoBee thay doi cac tham so
 
 @author: thieunv
 """
+import sys, os
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../")
 
 from math import sqrt
 import numpy as np

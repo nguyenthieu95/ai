@@ -125,14 +125,14 @@ class Bee(object):
             pop = next_gen + scouts
             self.patch_size = self.patch_size * self.patch_factor
             self.loss_train.append(best[1])
-            #print("Epoch = {0}, patch_size = {1}, best = {2}".format(j + 1, self.patch_size, best[1]))
+            print("Epoch = {0}, patch_size = {1}, best = {2}".format(j + 1, self.patch_size, best[1]))
         return best
 
 
     def build_and_train(self):
         search_space = self.create_search_space()
         best = self.search(search_space)
-        #print("done! Solution: f = {0}, s = {1}".format(best[1], best[0]))
+        print("done! Solution: f = {0}, s = {1}".format(best[1], best[0]))
         self.bee = best[0]
 
         return self.bee, self.loss_train
