@@ -9,7 +9,6 @@ Su dung : AdadeltaOptimizer
 
 @author: thieunv
 """
-
 from math import sqrt
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn import preprocessing
@@ -20,8 +19,6 @@ from utils import MathHelper, GraphUtil, IOHelper
 
 class Model(object):
     def __init__(self, para_data=None, para_net=None):
-        import tensorflow as tf
-
         self.dataset_original = para_data["dataset"]
         self.train_idx = para_data["list_index"][0]
         self.test_idx = para_data["list_index"][1]
@@ -33,6 +30,7 @@ class Model(object):
         self.output_index = para_data["output_index"]
         self.method_statistic = para_data["method_statistic"]
         self.sliding = para_data["sliding"]
+        self.tf = para_data["tf"]
 
         self.model = para_net["model"]
         self.epoch = para_net["epoch"]
@@ -46,13 +44,13 @@ class Model(object):
         self.activation_id1 = para_net["couple_activation"][0]
 
         if para_net["couple_activation"][1] == 0:
-            self.activation2 = getattr(tf, '__nn__').elu
+            self.activation2 = self.tf.nn.elu
         elif para_net["couple_activation"][1] == 1:
-            self.activation2 = tf.nn.relu
+            self.activation2 = self.tf.nn.relu
         elif para_net["couple_activation"][1] == 2:
-            self.activation2 = tf.nn.tanh
+            self.activation2 = self.tf.nn.tanh
         else:
-            self.activation2 = tf.nn.sigmoid
+            self.activation2 = self.tf.nn.sigmoid
         self.pathsave = para_net["path_save"]
         self.fig_id = para_net["fig_id"]
 
@@ -103,24 +101,24 @@ class Model(object):
         h_size = len(self.list_clusters)
         y_size = y_train.shape[1]
         ## Symbols
-        X = tf.placeholder("float64", shape=[None, X_size])
-        y = tf.placeholder("float64", shape=[None, y_size])
+        X = self.tf.placeholder("float64", shape=[None, X_size])
+        y = self.tf.placeholder("float64", shape=[None, y_size])
 
-        W = tf.Variable(tf.random_normal([h_size, y_size], stddev=0.03, dtype=tf.float64), name="W")
-        b = tf.Variable(tf.random_normal([y_size], dtype=tf.float64), name="b")
-        y_ = self.activation2(tf.add(tf.matmul(X, W), b))
+        W = self.tf.Variable(self.tf.random_normal([h_size, y_size], stddev=0.03, dtype=self.tf.float64), name="W")
+        b = self.tf.Variable(self.tf.random_normal([y_size], dtype=self.tf.float64), name="b")
+        y_ = self.activation2(self.tf.add(self.tf.matmul(X, W), b))
 
         # Backward propagation
-        cost = tf.reduce_mean(tf.square(y_ - y))
-        updates = tf.train.AdadeltaOptimizer(learning_rate=self.learning_rate).minimize(cost)
+        cost = self.tf.reduce_mean(self.tf.square(y_ - y))
+        updates = self.tf.train.AdadeltaOptimizer(learning_rate=self.learning_rate).minimize(cost)
 
         loss_plot = []
         weight = None
         bias = None
         # start the session
-        with tf.Session() as sess:
+        with self.tf.Session() as sess:
             # initialise the variables
-            init_op = tf.global_variables_initializer()
+            init_op = self.tf.global_variables_initializer()
             sess.run(init_op)
 
             total_batch = int(len(X_train) / self.batch_size) + 1
@@ -148,16 +146,16 @@ class Model(object):
 
         X_size = X_test.shape[1]
         y_size = y_test.shape[1]
-        X = tf.placeholder("float64", shape=[None, X_size], name='X')
-        y = tf.placeholder("float64", shape=[None, y_size], name='y')
+        X = self.tf.placeholder("float64", shape=[None, X_size], name='X')
+        y = self.tf.placeholder("float64", shape=[None, y_size], name='y')
 
-        W = tf.Variable(self.weight)
-        b = tf.Variable(self.bias)
-        y_ = self.activation2(tf.add(tf.matmul(X, W), b))
+        W = self.tf.Variable(self.weight)
+        b = self.tf.Variable(self.bias)
+        y_ = self.activation2(self.tf.add(self.tf.matmul(X, W), b))
 
         # Calculate the predicted outputs
-        init = tf.global_variables_initializer()
-        with tf.Session() as sess:
+        init = self.tf.global_variables_initializer()
+        with self.tf.Session() as sess:
             sess.run(init)
             y_est_np = sess.run(y_, feed_dict={X: X_test, y: y_test})
 

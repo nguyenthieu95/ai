@@ -3,6 +3,7 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../")
 from model import script1
 from model.utils import IOHelper
 from pandas import read_csv
+import tensorflow as tf
 
 data = [3, 5, 8, 10]
 list_number_data = [(11120, 13900, 0), (6640, 8300, 0), (4160, 5200, 0), (3280, 4100, 0)]
@@ -54,7 +55,7 @@ for i in range(0, len(data)):
                                     "list_index": list_num,
                                     "output_index": output_index,
                                     "method_statistic": method_statistic,
-                                    "sliding": sliding
+                                    "sliding": sliding, "tf": tf
                                 }
                                 para_net = {
                                     "model": model, "epoch": epoch, "batch_size": batch_size, "learning_rate": learning_rate,

@@ -3,15 +3,16 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../")
 from model import script2
 from model.utils import IOHelper
 from pandas import read_csv
+import tensorflow as tf
 
 data = [3, 5, 8, 10]
 list_number_data = [(11120, 13900, 0), (6640, 8300, 0), (4160, 5200, 0), (3280, 4100, 0)]
 
 for i in range(0, len(data)):
-    pathsave = os.path.dirname(__file__) + "/result/" + str(data[i]) + "m/multi_cpu/"
+    pathsave = os.path.dirname(os.path.abspath(__file__)) + "/result/" + str(data[i]) + "m/multi_cpu/"
     fullpath = os.path.abspath('../../data')
     filename = "/data_resource_usage_" + str(data[i]) + "Minutes_6176858948.csv"
-    filesave_model = os.path.dirname(__file__) + "/result/" + str(data[i]) + "m/multi_cpu.txt"
+    filesave_model = os.path.dirname(os.path.abspath(__file__)) + "/result/" + str(data[i]) + "m/multi_cpu.txt"
 
     df = read_csv(fullpath+ filename, header=None, index_col=False, usecols=[3, 4], engine='python')
     dataset_original = df.values
@@ -53,7 +54,7 @@ for i in range(0, len(data)):
                                     "list_index": list_num,
                                     "output_index": output_index,
                                     "method_statistic": method_statistic,
-                                    "sliding": sliding
+                                    "sliding": sliding, "tf": tf
                                 }
                                 para_net = {
                                     "epoch": epoch, "batch_size": batch_size, "learning_rate": learning_rate,
