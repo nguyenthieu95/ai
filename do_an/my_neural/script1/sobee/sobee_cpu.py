@@ -29,9 +29,10 @@ for i in range(0, len(data)):
     batch_sizes = [32]
     learning_rates = [0.15]
     sliding_windows = [2, 5]
-    positive_numbers = [0.05, 0.15, 0.25, 0.40]
-    stimulation_levels = [0.20, 0.30, 0.40, 0.50]
-    distance_levels = [0.35, 0.45, 0.60, 0.70]
+
+    positive_numbers = [0.05, 0.15, 0.25]
+    stimulation_levels = [0.20, 0.35, 0.50]
+    distance_levels = [0.35, 0.45, 0.60]
 
     fig_id = 1
     so_vong_lap = 0
@@ -69,8 +70,7 @@ for i in range(0, len(data)):
                                 time_model = round(time.time() - start_time, 3)
 
                                 temp = [my_model.time_cluster, my_model.time_train, time_model]
-                                IOHelper.save_model(my_model.list_clusters, my_model.weight, my_model.bias, temp,
-                                                    my_model.RMSE, my_model.MAE, model_name, filesave_model)
+                                IOHelper.save_sonia(my_model.RMSE, my_model.MAE, model_name, filesave_model)
 
                                 so_vong_lap += 1
                                 fig_id += 2
