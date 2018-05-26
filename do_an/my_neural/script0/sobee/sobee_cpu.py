@@ -1,6 +1,6 @@
 import sys, os, time
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../")
-from model import script2
+from model import script0
 from model.utils import IOHelper
 from pandas import read_csv
 
@@ -8,10 +8,10 @@ data = [3, 5, 8, 10]
 list_number_data = [(11120, 13900, 0), (6640, 8300, 0), (4160, 5200, 0), (3280, 4100, 0)]
 
 for i in range(0, len(data)):
-    pathsave = os.path.dirname(__file__) + "/result/" + str(data[i]) + "m/cpu/"
-    fullpath = "/home/hunter/nguyenthieu95/ai/data/GoogleTrace/"
-    filename = "data_resource_usage_" + str(data[i]) + "Minutes_6176858948.csv"
-    filesave_model = os.path.dirname(__file__) + "/result/" + str(data[i]) + "m/cpu.txt"
+    pathsave = os.path.dirname(os.path.abspath(__file__)) + "/result/" + str(data[i]) + "m/cpu/"
+    fullpath = os.path.abspath('../../data')
+    filename = "/data_resource_usage_" + str(data[i]) + "Minutes_6176858948.csv"
+    filesave_model = os.path.dirname(os.path.abspath(__file__)) + "/result/" + str(data[i]) + "m/cpu.txt"
     df = read_csv(fullpath + filename, header=None, index_col=False, usecols=[3], engine='python')
     dataset_original = df.values
     list_num = list_number_data[i]
@@ -24,10 +24,10 @@ for i in range(0, len(data)):
 
     sliding_windows = [2, 3, 5]
     positive_numbers = [0.05, 0.15, 0.25]
-    stimulation_levels = [0.15, 0.25, 0.45]
-    distance_levels = [0.35, 0.55, 0.75]
+    stimulation_levels = [0.25, 0.35, 0.5]
+    distance_levels = [0.50, 0.70]
 
-    list_max_gens = [600, 750, 900]  # epoch
+    list_max_gens = [500, 650, 800]  # epoch
     list_num_bees = [80, 100, 120]  # number of bees - population
     list_couple_bees = [(15, 3), (10, 3), (5, 3)]  # e_bees, o_bees
     num_sites = 3  # phan vung, 3 dia diem
@@ -36,6 +36,7 @@ for i in range(0, len(data)):
     patch_factor = 0.97
     low_up_w = [-1, 1]  # Lower and upper values for weights
     low_up_b = [-1, 1]
+
 
     fig_id = 1
     so_vong_lap = 0
@@ -70,13 +71,12 @@ for i in range(0, len(data)):
                                     "patch_size": patch_size, "patch_factor": patch_factor,
                                     "couple_bees": couple_bees, "lowup_w": low_up_b, "lowup_b": low_up_b
                                 }
-                                my_model = script2.SOBEE(para_data, para_net, para_bee)
+                                my_model = script0.SOBEE(para_data, para_net, para_bee)
                                 my_model.fit()
                                 time_model = round(time.time() - start_time, 3)
 
                                 temp = [my_model.time_cluster, my_model.time_train, time_model]
-                                IOHelper.save_model(my_model.list_clusters, my_model.weight, my_model.bias, temp,
-                                                    my_model.RMSE, my_model.MAE, model_name, filesave_model)
+                                IOHelper.save_sonia(my_model.RMSE, my_model.MAE, model_name, filesave_model)
 
                                 so_vong_lap += 1
                                 fig_id += 2

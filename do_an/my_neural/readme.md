@@ -45,16 +45,16 @@ multi_ram: 1173
 
 SONIA:
 
-cpu: 9223
-ram: 9260
-multi_cpu: 9303
-multi_ram: 9454
+cpu: 9223           run
+ram: 9260           run
+multi_cpu: 9303     run
+multi_ram: 9454     run
 
 
 SoBee:
 
-cpu: 10034    run
-ram: 10239      run
+cpu: 10034          run
+ram: 10239          run
 multi_cpu: 10427    run
 multi_ram: 10597    run
 
