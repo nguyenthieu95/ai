@@ -98,6 +98,9 @@ for loop in range(0, number_run_test):
 
     print ("Processing loop {0} DONE!!!".format(loop))
 
+    finalRMSE.append(arrayRMSE)
+    finalMAE.append(arrayMAE)
+
 filename_runtest = "/home/hunter/nguyenthieu95/ai/do_an/my_neural/script3/test1/result/"
 IOHelper.save_run_test(number_run_test, finalMAE, filename_runtest + "cpu_MAE.csv")
 IOHelper.save_run_test(number_run_test, finalRMSE, filename_runtest + "cpu_RMSE.csv")

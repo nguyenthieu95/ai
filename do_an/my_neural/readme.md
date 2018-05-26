@@ -62,20 +62,20 @@ multi_ram: 10597
 ============ Script 3 ===============
 Test1:
 
-cpu: 22796
-ram: 22839
+cpu: 22796 done
+ram: 22839 done
 
 
 Test2:
 
-cpu: 22891
-ram: 22931
+cpu: 22891 done 
+ram: 22931 done 
 
 
 Test3:
 
-cpu: 23005
-ram: 23045
+cpu: 23005 done 
+ram: 23045 done 
 
 
 
