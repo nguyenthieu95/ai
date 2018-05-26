@@ -24,9 +24,10 @@ for i in range(0, len(data)):
     mutation_id=1
     couple_activation = (2, 0)        # 0: elu, 1:relu, 2:tanh, 3:sigmoid
 
-    epochs = [800, 1200, 2000]
-    batch_sizes = [8, 32, 64]
-    learning_rates = [0.05, 0.15, 0.35]
+    epochs = [1200, 1500, 2000]
+    batch_sizes = [8, 64, 128]
+    learning_rates = [0.05, 0.15, 0.30]
+
     sliding_windows = [ 2, 5]
     positive_numbers = [0.15]
     stimulation_levels = [0.20]

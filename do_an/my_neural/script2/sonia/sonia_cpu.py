@@ -28,9 +28,9 @@ for i in range(0, len(data)):
     stimulation_levels = [0.25]
     distance_levels = [0.55]
 
-    epochs = [800, 1200, 1500, 1750, 2000]
-    batch_sizes = [8, 32, 64, 128, 256]
-    learning_rates = [0.01, 0.05, 0.10, 0.20, 0.30]
+    epochs = [1200, 1500, 2000]
+    batch_sizes = [8, 64, 128]
+    learning_rates = [0.05, 0.15, 0.30]
 
     fig_id = 1
     so_vong_lap = 0
