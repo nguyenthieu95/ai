@@ -10,7 +10,6 @@ Su dung : AdadeltaOptimizer
 @author: thieunv
 """
 
-import tensorflow as tf
 from math import sqrt
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn import preprocessing
@@ -21,6 +20,8 @@ from utils import MathHelper, GraphUtil, IOHelper
 
 class Model(object):
     def __init__(self, para_data=None, para_net=None):
+        import tensorflow as tf
+
         self.dataset_original = para_data["dataset"]
         self.train_idx = para_data["list_index"][0]
         self.test_idx = para_data["list_index"][1]
@@ -45,7 +46,7 @@ class Model(object):
         self.activation_id1 = para_net["couple_activation"][0]
 
         if para_net["couple_activation"][1] == 0:
-            self.activation2 = tf.nn.elu
+            self.activation2 = getattr(tf, '__nn__').elu
         elif para_net["couple_activation"][1] == 1:
             self.activation2 = tf.nn.relu
         elif para_net["couple_activation"][1] == 2:
