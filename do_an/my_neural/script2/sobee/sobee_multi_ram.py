@@ -77,8 +77,7 @@ for i in range(0, len(data)):
                                 time_model = round(time.time() - start_time, 3)
 
                                 temp = [my_model.time_cluster, my_model.time_train, time_model]
-                                IOHelper.save_model(my_model.list_clusters, my_model.weight, my_model.bias, temp,
-                                                    my_model.RMSE, my_model.MAE, model_name, filesave_model)
+                                IOHelper.save_sonia(my_model.RMSE, my_model.MAE, model_name, filesave_model)
 
                                 so_vong_lap += 1
                                 fig_id += 2

@@ -44,6 +44,13 @@ def save_model(list_clusters=None, w2=None, b2=None, system_time=None, RMSE=None
     file.write("MAE: {0}\n\n".format(MAE))
     file.close()
 
+def save_sonia(RMSE=None, MAE=None, modelname=None, filesave_model=None):
+    file = open(filesave_model, "a")
+    file.write("{0}".format(modelname))
+    file.write("RMSE: {0}\n".format(RMSE))
+    file.write("MAE: {0}\n\n".format(MAE))
+    file.close()
+
 def save_run_test(num_run_test=None, data=None, filepath=None):
     t0 = np.reshape(data, (num_run_test, -1))
     np.savetxt(filepath, t0, delimiter=",")
