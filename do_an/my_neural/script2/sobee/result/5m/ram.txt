@@ -1,0 +1,162 @@
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=80_coupleBees=(15, 3)RMSE: 0.0460909620661
+MAE: 0.0271747267828
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=80_coupleBees=(10, 3)RMSE: 0.0417505960513
+MAE: 0.0248189832671
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=80_coupleBees=(5, 3)RMSE: 0.0520503217411
+MAE: 0.0332835176245
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=100_coupleBees=(15, 3)RMSE: 0.0408966552005
+MAE: 0.0240854229538
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=100_coupleBees=(10, 3)RMSE: 0.0408367264928
+MAE: 0.0250581014873
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=100_coupleBees=(5, 3)RMSE: 0.0544832865949
+MAE: 0.0316657944991
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=120_coupleBees=(15, 3)RMSE: 0.0417120290069
+MAE: 0.0263204449225
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=120_coupleBees=(10, 3)RMSE: 0.0443568386752
+MAE: 0.026486564225
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=120_coupleBees=(5, 3)RMSE: 0.0484520346553
+MAE: 0.0262943702667
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=80_coupleBees=(15, 3)RMSE: 0.0429638585812
+MAE: 0.0258869367113
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=80_coupleBees=(10, 3)RMSE: 0.0402481971655
+MAE: 0.0239816930199
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=80_coupleBees=(5, 3)RMSE: 0.0406976418843
+MAE: 0.0241926454648
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=100_coupleBees=(15, 3)RMSE: 0.0409359874441
+MAE: 0.0243198763327
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=100_coupleBees=(10, 3)RMSE: 0.04522451809
+MAE: 0.0293651157895
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=100_coupleBees=(5, 3)RMSE: 0.0466318278928
+MAE: 0.0317057683515
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=120_coupleBees=(15, 3)RMSE: 0.0414334787406
+MAE: 0.0254895170654
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=120_coupleBees=(10, 3)RMSE: 0.0423621326198
+MAE: 0.0272007971461
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=120_coupleBees=(5, 3)RMSE: 0.0473601694244
+MAE: 0.0315019861343
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=80_coupleBees=(15, 3)RMSE: 0.0407264932013
+MAE: 0.0249899629827
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=80_coupleBees=(10, 3)RMSE: 0.0456595017335
+MAE: 0.0311506302105
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=80_coupleBees=(5, 3)RMSE: 0.0413302874773
+MAE: 0.0259876908068
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=100_coupleBees=(15, 3)RMSE: 0.0418446125593
+MAE: 0.0250981958105
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=100_coupleBees=(10, 3)RMSE: 0.0409444712638
+MAE: 0.0241936451146
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=100_coupleBees=(5, 3)RMSE: 0.0418827143579
+MAE: 0.0263271618828
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=120_coupleBees=(15, 3)RMSE: 0.0427807982459
+MAE: 0.0253187882238
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=120_coupleBees=(10, 3)RMSE: 0.0411277400949
+MAE: 0.0252601913855
+
+_sliding=2_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=120_coupleBees=(5, 3)RMSE: 0.0446595259208
+MAE: 0.0267798620224
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=80_coupleBees=(15, 3)RMSE: 0.070105682277
+MAE: 0.0397727117986
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=80_coupleBees=(10, 3)RMSE: 0.0572984677849
+MAE: 0.0384469651448
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=80_coupleBees=(5, 3)RMSE: 0.0721716357245
+MAE: 0.0528504233016
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=100_coupleBees=(15, 3)RMSE: 0.0820012531686
+MAE: 0.0489587976996
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=100_coupleBees=(10, 3)RMSE: 0.0978518319656
+MAE: 0.0547935370538
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=100_coupleBees=(5, 3)RMSE: 0.112122028162
+MAE: 0.0773491948267
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=120_coupleBees=(15, 3)RMSE: 0.068039636012
+MAE: 0.0504985691308
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=120_coupleBees=(10, 3)RMSE: 0.0490662608639
+MAE: 0.0296323769797
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=500_numBees=120_coupleBees=(5, 3)RMSE: 0.0815146597505
+MAE: 0.052264108197
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=80_coupleBees=(15, 3)RMSE: 0.0609641924181
+MAE: 0.0464306489337
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=80_coupleBees=(10, 3)RMSE: 0.0608234548572
+MAE: 0.0400152991452
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=80_coupleBees=(5, 3)RMSE: 0.059287903204
+MAE: 0.0382983022819
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=100_coupleBees=(15, 3)RMSE: 0.0639436266774
+MAE: 0.0362712199525
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=100_coupleBees=(10, 3)RMSE: 0.11411353817
+MAE: 0.0722897676281
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=100_coupleBees=(5, 3)RMSE: 0.0692799442629
+MAE: 0.0450461121712
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=120_coupleBees=(15, 3)RMSE: 0.0523137526759
+MAE: 0.0325970759883
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=120_coupleBees=(10, 3)RMSE: 0.0633341879578
+MAE: 0.0509929715463
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=650_numBees=120_coupleBees=(5, 3)RMSE: 0.077245681806
+MAE: 0.0392447292744
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=80_coupleBees=(15, 3)RMSE: 0.0540002795927
+MAE: 0.0372933970249
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=80_coupleBees=(10, 3)RMSE: 0.0887318407871
+MAE: 0.0528489047514
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=80_coupleBees=(5, 3)RMSE: 0.0905702512635
+MAE: 0.0556254279952
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=100_coupleBees=(15, 3)RMSE: 0.062796951623
+MAE: 0.0411308749338
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=100_coupleBees=(10, 3)RMSE: 0.0856617976958
+MAE: 0.0479148042373
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=100_coupleBees=(5, 3)RMSE: 0.070254559506
+MAE: 0.0446877818641
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=120_coupleBees=(15, 3)RMSE: 0.0781644995915
+MAE: 0.0506061310975
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=120_coupleBees=(10, 3)RMSE: 0.0499882791691
+MAE: 0.0351317468977
+
+_sliding=5_posNumber=0.15_stiLevel=0.25_disLevel=0.55_maxGens=800_numBees=120_coupleBees=(5, 3)RMSE: 0.0392322957254
+MAE: 0.0271808719388
+
