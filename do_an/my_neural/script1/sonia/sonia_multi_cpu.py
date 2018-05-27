@@ -30,9 +30,9 @@ for i in range(0, len(data)):
     batch_sizes = [32]
     learning_rates = [0.15]
     sliding_windows = [2, 5]
-    positive_numbers = [0.05, 0.25]
+    positive_numbers = [0.05, 0.15, 0.25]
     stimulation_levels = [0.20, 0.30, 0.40, 0.50]
-    distance_levels = [0.5, 0.70]
+    distance_levels = [0.5, 0.60, 0.70]
 
     fig_id = 1
     so_vong_lap = 0

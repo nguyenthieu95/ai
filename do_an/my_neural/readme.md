@@ -53,11 +53,10 @@ multi_ram: 9454     run
 
 SoBee:
 
-cpu: 10034          run
-ram: 10239          run
-multi_cpu: 10427    run
-multi_ram: 10597    run
-
+cpu:        done
+ram:        done
+multi_cpu:  done
+multi_ram:  done
 
 ============ Script 3 ===============
 Test1:
