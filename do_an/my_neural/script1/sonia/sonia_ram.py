@@ -5,8 +5,8 @@ from model.utils import IOHelper
 from pandas import read_csv
 import tensorflow as tf
 
-data = [3, 5, 8, 10]
-list_number_data = [(11120, 13900, 0), (6640, 8300, 0), (4160, 5200, 0), (3280, 4100, 0)]
+data = [10, 8, 5, 3]
+list_number_data = [(3280, 4100, 0), (4160, 5200, 0), (6640, 8300, 0), (11120, 13900, 0)]
 
 for i in range(0, len(data)):
     pathsave = os.path.dirname(__file__) + "/result/" + str(data[i]) + "m/ram/"
@@ -30,9 +30,9 @@ for i in range(0, len(data)):
     batch_sizes = [32]
     learning_rates = [0.15]
     sliding_windows = [2, 5]
-    positive_numbers = [0.05, 0.15, 0.25]
-    stimulation_levels = [0.20, 0.35, 0.50]
-    distance_levels = [0.35, 0.45, 0.60]
+    positive_numbers = [0.05, 0.25]
+    stimulation_levels = [0.20, 0.30, 0.40, 0.50]
+    distance_levels = [0.5, 0.70]
 
     fig_id = 1
     so_vong_lap = 0
