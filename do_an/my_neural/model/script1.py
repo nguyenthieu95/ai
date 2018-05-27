@@ -60,6 +60,20 @@ class Model(object):
         self.filename = para_net["model_name"]
         self.model_name = para_net["model_name"]
 
+
+        self.y_predict = None
+        self.RMSE = None
+        self.MAE = None
+        self.y_test_inverse = None
+        self.y_pred_inverse = None
+        self.weight = None
+        self.bias = None
+        self.loss_train = None
+        self.time_train = None
+
+
+
+
     def preprocessing_data(self):
         timeseries = TimeSeries(self.train_idx, self.valid_idx, self.test_idx, self.sliding, self.method_statistic, self.dataset_original, self.min_max_scaler)
         if self.valid_idx == 0:
