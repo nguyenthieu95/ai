@@ -1,0 +1,6 @@
+_sliding=2_posNumber=0.1_stiLevel=0.2_disLevel=0.5_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.0392
+MAE: 0.0234
+
+_sliding=2_posNumber=0.1_stiLevel=0.2_disLevel=0.7_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.0397
+MAE: 0.0236
+
