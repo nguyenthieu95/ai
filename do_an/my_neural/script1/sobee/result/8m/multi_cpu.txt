@@ -88,3 +88,9 @@ MAE: 0.3086
 _sliding=5_posNumber=0.25_stiLevel=0.4_disLevel=0.7_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.4928
 MAE: 0.3039
 
+_sliding=5_posNumber=0.25_stiLevel=0.5_disLevel=0.5_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.4919
+MAE: 0.3007
+
+_sliding=5_posNumber=0.25_stiLevel=0.5_disLevel=0.7_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.5105
+MAE: 0.3072
+

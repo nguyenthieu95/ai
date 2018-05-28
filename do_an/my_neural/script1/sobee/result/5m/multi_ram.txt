@@ -1,0 +1,15 @@
+_sliding=2_posNumber=0.1_stiLevel=0.2_disLevel=0.5_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.0335
+MAE: 0.0208
+
+_sliding=2_posNumber=0.1_stiLevel=0.2_disLevel=0.7_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.0348
+MAE: 0.0223
+
+_sliding=2_posNumber=0.1_stiLevel=0.3_disLevel=0.5_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.0353
+MAE: 0.0217
+
+_sliding=2_posNumber=0.1_stiLevel=0.3_disLevel=0.7_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.0355
+MAE: 0.0222
+
+_sliding=2_posNumber=0.1_stiLevel=0.4_disLevel=0.5_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.0364
+MAE: 0.0231
+

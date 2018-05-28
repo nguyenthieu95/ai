@@ -1,0 +1,12 @@
+_sliding=2_posNumber=0.1_stiLevel=0.2_disLevel=0.5_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.5076
+MAE: 0.3121
+
+_sliding=2_posNumber=0.1_stiLevel=0.2_disLevel=0.7_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.4864
+MAE: 0.3007
+
+_sliding=2_posNumber=0.1_stiLevel=0.3_disLevel=0.5_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.4867
+MAE: 0.3062
+
+_sliding=2_posNumber=0.1_stiLevel=0.3_disLevel=0.7_epoch=2000_batchSize=32_learningRate=0.15RMSE: 0.4933
+MAE: 0.3041
+
