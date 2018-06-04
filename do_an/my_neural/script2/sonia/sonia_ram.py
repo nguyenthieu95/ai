@@ -29,9 +29,9 @@ for i in range(0, len(data)):
     stimulation_levels = [0.25]
     distance_levels = [0.55]
 
-    epochs = [1200, 1500, 2000]
-    batch_sizes = [8, 64, 128]
-    learning_rates = [0.05, 0.15, 0.30]
+    epochs = [800, 1200, 1500, 1750, 2000]
+    batch_sizes = [8, 32, 64, 128, 256]
+    learning_rates = [0.01, 0.05, 0.1, 0.2, 0.3]
 
     fig_id = 1
     so_vong_lap = 0
@@ -69,7 +69,7 @@ for i in range(0, len(data)):
                                 time_model = round(time.time() - start_time, 3)
 
                                 temp = [my_model.time_cluster, my_model.time_train, time_model]
-                                IOHelper.save_sonia(my_model.RMSE, my_model.MAE, model_name, filesave_model)
+                                IOHelper.save_time(temp, my_model.RMSE, my_model.MAE, model_name, filesave_model)
 
                                 so_vong_lap += 1
                                 fig_id += 2

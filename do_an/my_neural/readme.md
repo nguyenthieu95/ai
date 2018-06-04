@@ -27,56 +27,74 @@
 
 SONIA:
 
-cpu: 31154              run
-ram: 31445              run
-multi_cpu: 31528        run
-multi_ram: 31876        run
+cpu:        4504
+ram:        4542
+multi_cpu:  4860 
+multi_ram:  5874
 
 
 SoBee:
 
-cpu: 31999              run
-ram: 32356              run
-multi_cpu: 470          run
-multi_ram: 1173         run
+cpu:            6009   
+ram:            6109
+multi_cpu:      6591
+multi_ram:      7270
 
 
 ============ Script 2 ===============
 
 SONIA:
 
-cpu: 9223           run
-ram: 9260           run
-multi_cpu: 9303     run
-multi_ram: 9454     run
+cpu:            
+ram:            
+multi_cpu:      
+multi_ram:      
 
 
 SoBee:
 
-cpu:        done
-ram:        done
-multi_cpu:  done
-multi_ram:  done
+cpu:        
+ram:        
+multi_cpu:  
+multi_ram:  
 
 ============ Script 3 ===============
 Test1:
 
-cpu:  done
-ram:  done
+cpu:  
+ram:  
 
 
 Test2:
 
-cpu:  done 
-ram:  done 
+cpu:   
+ram:   
 
 
 Test3:
 
-cpu:  done 
-ram:  done 
+cpu:   
+ram:   
 
 
+
+- Giờ mỗi lần chạy file python phải vào môi trường ảo của nó như sau
+    source ~/.bashrc 
+    source activate ai_env 
+    python ... tên file chạy   
+    
+
+cd 6_google_trace/SVNCKH/script1/3m/sonia/
+cd 6_google_trace/SVNCKH/script1/5m/sonia/
+cd 6_google_trace/SVNCKH/script1/8m/sonia/
+cd 6_google_trace/SVNCKH/script1/10m/sonia/
+
+
+cd 6_google_trace/SVNCKH/script2/sonia/
+
+cd 6_google_trace/SVNCKH/script2/sobee/
+
+cd 6_google_trace/SVNCKH/script3/test3/
 
 
 

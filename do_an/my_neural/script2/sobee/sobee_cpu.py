@@ -27,9 +27,9 @@ for i in range(0, len(data)):
     stimulation_levels = [0.25]
     distance_levels = [0.55]
 
-    list_max_gens = [500, 650, 800]  # epoch
-    list_num_bees = [80, 100, 120]  # number of bees - population
-    list_couple_bees = [(15, 3), (10, 3), (5, 3)]  # e_bees, o_bees
+    list_max_gens = [400, 500, 600, 700, 800]  # epoch
+    list_num_bees = [60, 80, 100, 120, 140]  # number of bees - population
+    list_couple_bees = [(18, 3), (15, 3), (12, 3), (9, 3), (6, 3)]  # e_bees, o_bees
     num_sites = 3  # phan vung, 3 dia diem
     elite_sites = 1
     patch_size = 5.0
@@ -75,7 +75,7 @@ for i in range(0, len(data)):
                                 time_model = round(time.time() - start_time, 3)
 
                                 temp = [my_model.time_cluster, my_model.time_train, time_model]
-                                IOHelper.save_sonia(my_model.RMSE, my_model.MAE, model_name, filesave_model)
+                                IOHelper.save_time(temp, my_model.RMSE, my_model.MAE, model_name, filesave_model)
 
                                 so_vong_lap += 1
                                 fig_id += 2
