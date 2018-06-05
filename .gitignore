@@ -31,3 +31,6 @@ project_mldl/predict_food-master/
 6_google_trace/SVNCKH/old/
 6_google_trace/SVNCKH/old_result/
 
+*.pyc
+
+
