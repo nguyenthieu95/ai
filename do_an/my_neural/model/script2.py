@@ -59,6 +59,16 @@ class SONIA(object):
         self.min_max_scaler = preprocessing.MinMaxScaler()
         self.standard_scaler = preprocessing.StandardScaler()
 
+        self.y_predict = None
+        self.RMSE = None
+        self.MAE = None
+        self.y_test_inverse = None
+        self.y_pred_inverse = None
+        self.weight = None
+        self.bias = None
+        self.loss_train = None
+        self.time_train = None
+
         self.filename = 'Slid=' + str(self.sliding) + '_PN=' + str(self.positive_number) + '_SL=' + str(
             self.stimulation_level) + '_DL=' + str(
             self.distance_level) + '_Epoch=' + str(self.epoch) + '_BS=' + str(self.batch_size) + '_LR=' + str(self.learning_rate)
@@ -164,7 +174,7 @@ class SONIA(object):
             testScoreRMSE = sqrt(mean_squared_error(y_test_inverse, y_pred_inverse))
             testScoreMAE = mean_absolute_error(y_test_inverse, y_pred_inverse)
 
-            self.y_predict, self.RMSE, self.MAE = y_est_np, testScoreRMSE, testScoreMAE
+            self.y_predict, self.RMSE, self.MAE = y_est_np, round(testScoreRMSE, 4), round(testScoreMAE, 4)
             self.y_test_inverse, self.y_pred_inverse = y_test_inverse, y_pred_inverse
 
             # print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
@@ -182,12 +192,12 @@ class SONIA(object):
     def fit(self):
         self.preprocessing_data()
         self.clustering_data()
-        if self.count_centers <= self.max_cluster:
-            self.transform_data()
-            self.build_and_train()
-            self.predict()
-            #self.draw_result()
-            #self.save_result()
+        #if self.count_centers <= self.max_cluster:
+        self.transform_data()
+        self.build_and_train()
+        self.predict()
+        self.draw_result()
+        self.save_result()
 
 
 
@@ -242,6 +252,16 @@ class SOBEE(object):
 
         self.min_max_scaler = preprocessing.MinMaxScaler()
         self.standard_scaler = preprocessing.StandardScaler()
+
+        self.y_predict = None
+        self.RMSE = None
+        self.MAE = None
+        self.y_test_inverse = None
+        self.y_pred_inverse = None
+        self.weight = None
+        self.bias = None
+        self.loss_train = None
+        self.time_train = None
 
         self.filename = 'Slid=' + str(self.sliding) + '_PN=' + str(self.positive_number) + '_SL=' + str(self.stimulation_level) + '_DL=' + str(
             self.distance_level) + '_MG=' + str(self.max_gens) + '_NB=' + str(self.num_bees) + '_ebees=' + str(self.e_bees) + '_obees=' + str(self.o_bees)
@@ -305,7 +325,7 @@ class SOBEE(object):
         testScoreRMSE = sqrt(mean_squared_error(y_test_inverse, y_pred_inverse))
         testScoreMAE = mean_absolute_error(y_test_inverse, y_pred_inverse)
 
-        self.y_predict, self.RMSE, self.MAE = y_pred, testScoreRMSE, testScoreMAE
+        self.y_predict, self.RMSE, self.MAE = y_pred, round(testScoreRMSE, 4), round(testScoreMAE, 4)
         self.y_test_inverse, self.y_pred_inverse = y_test_inverse, y_pred_inverse
         self.weight = w2
         self.bias = b2
@@ -325,12 +345,12 @@ class SOBEE(object):
     def fit(self):
         self.preprocessing_data()
         self.clustering_data()
-        if self.count_centers <= self.max_cluster:
-            self.transform_data()
-            self.train_bee()
-            self.predict()
-            self.draw_result()
-            self.save_result()
+        #if self.count_centers <= self.max_cluster:
+        self.transform_data()
+        self.train_bee()
+        self.predict()
+        self.draw_result()
+        self.save_result()
 
 
 
