@@ -11,15 +11,14 @@ from math import sqrt
 import numpy as np
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn import preprocessing
-import time
 from preprocessing import TimeSeries
 from cluster import Clustering
 from algorithm import Bee1
 from utils import MathHelper, GraphUtil, IOHelper
 
-
 class ANN(object):
     def __init__(self, para_data=None, para_net=None):
+
         self.dataset_original = para_data["dataset"]
         self.train_idx = para_data["list_index"][0]
         self.test_idx = para_data["list_index"][1]
@@ -37,7 +36,6 @@ class ANN(object):
         self.learning_rate = para_net["learning_rate"]
         self.num_hidden = para_net["num_hidden"]
         self.couple_activation = para_net["couple_activation"]
-        self.optimizer = para_net["optimizer"]
         self.pathsave = para_net["path_save"]
         self.fig_id = para_net["fig_id"]
         self.filename = para_net["model_name"]
@@ -64,15 +62,19 @@ class ANN(object):
         if para_net["optimizer"] == 0:
             self.optimizer = self.tf.train.GradientDescentOptimizer
         elif para_net["optimizer"] == 1:
-            self.optimizer = self.tf.AdamOptimizer
+            self.optimizer = self.tf.train.AdamOptimizer
         elif para_net["optimizer"] == 2:
-            self.optimizer = self.tf.AdagradOptimizer
+            self.optimizer = self.tf.train.AdagradOptimizer
         else:
-            self.optimizer = self.tf.AdadeltaOptimizer
+            self.optimizer = self.tf.train.AdadeltaOptimizer
 
         self.min_max_scaler = preprocessing.MinMaxScaler()
         self.standard_scaler = preprocessing.StandardScaler()
-        self.standard_scaler = preprocessing.StandardScaler()
+        self.w1 = None
+        self.b1 = None
+        self.w2 = None
+        self.b2 = None
+        self.loss_train = None
 
     def preprocessing_data(self):
         timeseries = TimeSeries(self.train_idx, self.valid_idx, self.test_idx, self.sliding, self.method_statistic, self.dataset_original, self.min_max_scaler)
@@ -82,10 +84,8 @@ class ANN(object):
             self.X_train, self.y_train, self.X_valid, self.y_valid, self.X_test, self.y_test, self.min_max_scaler = timeseries.net_single_output(self.output_index)
         # print("Processing data done!!!")
 
-
     # Create and train a tensorflow model of a neural network
     def build_model_and_train(self):
-
         # Reset the graph
         self.tf.reset_default_graph()
 
@@ -126,6 +126,10 @@ class ANN(object):
 
         # Go through num_iters iterations
         loss_plot = []
+        weights1 = None
+        bias1 = None
+        weights2 = None
+        bias2 = None
         total_batch = int(len(X_train) / self.batch_size) + 1
         for epoch in range(self.epoch):
             for i in range(total_batch):
@@ -146,7 +150,6 @@ class ANN(object):
 
 
     def predict(self):
-        start_time_train = time.time()
         # Evaluate models on the test set
         X_test, y_test = self.X_test, self.y_test
 
@@ -176,12 +179,10 @@ class ANN(object):
             testScoreRMSE = sqrt(mean_squared_error(y_test_inverse, y_pred_inverse))
             testScoreMAE = mean_absolute_error(y_test_inverse, y_pred_inverse)
 
-            self.y_predict, self.RMSE, self.MAE = y_est_np, testScoreRMSE, testScoreMAE
+            self.y_predict, self.RMSE, self.MAE = y_est_np, round(testScoreRMSE, 4), round(testScoreMAE, 4)
             self.y_test_inverse, self.y_pred_inverse = y_test_inverse, y_pred_inverse
 
             # print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
-
-        self.time_train = round(time.time() - start_time_train, 3)
         # print("Predict done!!!")
 
 
@@ -217,6 +218,7 @@ class SONIA(object):
         self.sliding = para_data["sliding"]
         self.tf = para_data["tf"]
 
+
         self.epoch = para_net["epoch"]
         self.batch_size = para_net["batch_size"]
         self.learning_rate = para_net["learning_rate"]
@@ -235,11 +237,15 @@ class SONIA(object):
             self.activation2 = self.tf.nn.tanh
         else:
             self.activation2 = self.tf.nn.sigmoid
+
         self.pathsave = para_net["path_save"]
         self.fig_id = para_net["fig_id"]
 
         self.min_max_scaler = preprocessing.MinMaxScaler()
         self.standard_scaler = preprocessing.StandardScaler()
+        self.weight = None
+        self.bias = None
+        self.loss_train = None
 
         self.filename = para_net["model_name"]
         self.model_name = para_net["model_name"]
@@ -254,13 +260,11 @@ class SONIA(object):
 
 
     def clustering_data(self):
-        start_time_cluster = time.time()
         self.clustering = Clustering(stimulation_level=self.stimulation_level, positive_number=self.positive_number,
                                      max_cluster=self.max_cluster,
                                      distance_level=self.distance_level, mutation_id=self.mutation_id,
                                      activation_id=self.activation_id1, dataset=self.X_train)
         self.centers, self.list_clusters, self.count_centers, self.y = self.clustering.sonia_with_mutation()
-        self.time_cluster = round(time.time() - start_time_cluster, 3)
         # print("Encoder features done!!!")
 
 
@@ -273,7 +277,6 @@ class SONIA(object):
 
 
     def build_and_train(self):
-        start_time_train = time.time()
         ## Build layer's sizes
         X_train, y_train = self.S_train, self.y_train
 
@@ -317,7 +320,6 @@ class SONIA(object):
                 # print("Epoch: {}".format(epoch + 1), "cost = {}".format(loss_epoch))
 
         self.weight, self.bias, self.loss_train = weight, bias, loss_plot
-        self.time_train = round(time.time() - start_time_train, 3)
         # print("Build model and train done!!!")
 
     def predict(self):
@@ -359,25 +361,23 @@ class SONIA(object):
 
     def save_result(self):
         IOHelper.save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, self.pathsave)
-        #temp = [self.time_cluster, self.time_train, time_model]
-        #IOHelper.save_model(self.list_clusters, self.weight, self.bias, temp, self.model_name, self.filename, self.pathsave)
+
 
     def fit(self):
-        #start_time = time.time()
         self.preprocessing_data()
         self.clustering_data()
-        if self.count_centers <= self.max_cluster:
-            self.transform_data()
-            self.build_and_train()
-            self.predict()
-            self.draw_result()
-            #time_model = round(time.time() - start_time, 3)
-            self.save_result()
+        #if self.count_centers <= self.max_cluster:
+        self.transform_data()
+        self.build_and_train()
+        self.predict()
+        self.draw_result()
+        self.save_result()
 
 
 
 class SOBEE(object):
     def __init__(self, para_data=None, para_net=None, para_bee=None):
+
         self.dataset_original = para_data["dataset"]
         self.train_idx = para_data["list_index"][0]
         self.test_idx = para_data["list_index"][1]
@@ -413,6 +413,8 @@ class SOBEE(object):
             self.activation2 = MathHelper.sigmoid
         self.pathsave = para_net["path_save"]
         self.fig_id = para_net["fig_id"]
+        self.filename = para_net["model_name"]
+        self.model_name = para_net["model_name"]
 
         self.max_gens = para_bee["max_gens"]
         self.num_bees = para_bee["num_bees"]
@@ -428,8 +430,16 @@ class SOBEE(object):
         self.min_max_scaler = preprocessing.MinMaxScaler()
         self.standard_scaler = preprocessing.StandardScaler()
 
-        self.filename = 'Slid=' + str(self.sliding) + '_PN=' + str(self.positive_number) + '_SL=' + str(self.stimulation_level) + '_DL=' + str(
-            self.distance_level) + '_MG=' + str(self.max_gens) + '_NB=' + str(self.num_bees) + '_ebees=' + str(self.e_bees) + '_obees=' + str(self.o_bees)
+        self.bee = None
+        self.loss_train = None
+        self.y_predict = None
+        self.RMSE = None
+        self.MAE = None
+        self.y_test_inverse = None
+        self.y_pred_inverse = None
+        self.weight = None
+        self.bias = None
+
 
     def preprocessing_data(self):
         timeseries = TimeSeries(self.train_idx, self.valid_idx, self.test_idx, self.sliding, self.method_statistic, self.dataset_original, self.min_max_scaler)
@@ -441,11 +451,9 @@ class SOBEE(object):
 
 
     def clustering_data(self):
-        start_time_cluster = time.time()
         self.clustering = Clustering(stimulation_level=self.stimulation_level, positive_number=self.positive_number, max_cluster=self.max_cluster,
                                 distance_level=self.distance_level, mutation_id=self.mutation_id, activation_id=self.activation_id1, dataset=self.X_train)
         self.centers, self.list_clusters, self.count_centers, self.y = self.clustering.sobee_new_with_mutation()
-        self.time_cluster = round(time.time() - start_time_cluster, 3)
         # print("Encoder features done!!!")
 
     def transform_data(self):
@@ -456,7 +464,6 @@ class SOBEE(object):
         # print("Transform features done!!!")
 
     def train_bee(self):
-        start_time_train = time.time()
         self.number_node_input = len(self.list_clusters)
         self.number_node_output = self.y_train.shape[1]
         self.size_w2 = self.number_node_input * self.number_node_output
@@ -472,32 +479,27 @@ class SOBEE(object):
         }
         bee = Bee1(other_para, bee_para)
         self.bee, self.loss_train = bee.build_and_train()
-        self.time_train = round(time.time() - start_time_train, 3)
 
     def predict(self):
         w2 = np.reshape(self.bee[:self.size_w2], (self.number_node_input, -1))
         b2 = np.reshape(self.bee[self.size_w2:], (-1, self.number_node_output))
-        y_pred = []
-        for i in range(0, len(self.S_test)):
-            output = np.add(np.matmul(self.S_test[i], w2), b2)
-            out = np.apply_along_axis(self.activation2, 1, output)
-            y_pred.append(self.activation2(out.flatten()))
+        output = np.add(np.matmul(self.S_test, w2), b2)
+        y_pred = self.activation2(output)
 
         # Evaluate models on the test set
         y_test_inverse = self.min_max_scaler.inverse_transform(self.y_test)
-        y_pred_inverse = self.min_max_scaler.inverse_transform(np.array(y_pred).reshape(-1, self.y_test.shape[1]))
+        y_pred_inverse = self.min_max_scaler.inverse_transform(y_pred)
 
         testScoreRMSE = sqrt(mean_squared_error(y_test_inverse, y_pred_inverse))
         testScoreMAE = mean_absolute_error(y_test_inverse, y_pred_inverse)
 
-        self.y_predict, self.RMSE, self.MAE = y_pred, testScoreRMSE, testScoreMAE
+        self.y_predict, self.RMSE, self.MAE = y_pred, round(testScoreRMSE, 4), round(testScoreMAE, 4)
         self.y_test_inverse, self.y_pred_inverse = y_test_inverse, y_pred_inverse
         self.weight = w2
         self.bias = b2
 
         # print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
         # print("Predict done!!!")
-
 
     def draw_result(self):
         #GraphUtil.draw_loss(self.fig_id, self.max_gens, self.loss_train, "Loss on training per epoch")
@@ -506,14 +508,13 @@ class SOBEE(object):
 
     def save_result(self):
         IOHelper.save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, self.pathsave)
-        IOHelper.save_loss_to_csv(self.loss_train, self.filename, self.pathsave)
 
     def fit(self):
         self.preprocessing_data()
         self.clustering_data()
-        if self.count_centers <= self.max_cluster:
-            self.transform_data()
-            self.train_bee()
-            self.predict()
-            self.draw_result()
-            self.save_result()
+        #if self.count_centers <= self.max_cluster:
+        self.transform_data()
+        self.train_bee()
+        self.predict()
+        self.draw_result()
+        self.save_result()

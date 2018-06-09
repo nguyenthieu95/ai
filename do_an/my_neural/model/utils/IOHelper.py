@@ -62,6 +62,15 @@ def save_time(system_time=None, RMSE=None, MAE=None, modelname=None, filesave_mo
     file.write("MAE: {0}\n\n".format(MAE))
     file.close()
 
+def save_time_less(time_model=None, RMSE=None, MAE=None, modelname=None, filesave_model=None):
+    file = open(filesave_model, "a")
+    file.write("------------------------------------------------------\n")
+    file.write("{0}\n".format(modelname))
+    file.write("Time model: {0} seconds\n".format(time_model))
+    file.write("RMSE: {0}\n".format(RMSE))
+    file.write("MAE: {0}\n\n".format(MAE))
+    file.close()
+
 def save_run_test(num_run_test=None, data=None, filepath=None):
     t0 = np.reshape(data, (num_run_test, -1))
     np.savetxt(filepath, t0, delimiter=",")

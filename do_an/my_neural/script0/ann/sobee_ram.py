@@ -5,8 +5,8 @@ from model.utils import IOHelper
 from pandas import read_csv
 import tensorflow as tf
 
-data = [3, 5, 8, 10]
-list_number_data = [(11120, 13900, 0), (6640, 8300, 0), (4160, 5200, 0), (3280, 4100, 0)]
+data = [10, 5, 3]
+list_number_data = [(3280, 4100, 0), (6640, 8300, 0), (11120, 13900, 0)]
 
 for i in range(0, len(data)):
     pathsave = os.path.dirname(os.path.abspath(__file__)) + "/result/" + str(data[i]) + "m/ram/"
@@ -17,17 +17,16 @@ for i in range(0, len(data)):
     df = read_csv(fullpath+ filename, header=None, index_col=False, usecols=[4], engine='python')
     dataset_original = df.values
     list_num = list_number_data[i]
-
     output_index = 0  # 0: cpu, 1: ram
     method_statistic = 0
 
     sliding_windows = [2, 3, 5]
     num_hiddens = [8, 12, 15]
     couple_acts = [(0, 0), (1, 0), (2, 0)]  # 0: elu, 1:relu, 2:tanh, 3:sigmoid
-    optimizers = [0, 1, 2, 3]
+    optimizers = [0, 1, 2, 3]   # GradientDescentOptimizer, AdamOptimizer, AdagradOptimizer, AdadeltaOptimizer
 
     learning_rates = [0.05, 0.15, 0.35]
-    epochs = [800, 1300, 2200]
+    epochs = [1000, 1500, 2000]
     batch_sizes = [8, 32, 128]
 
     fig_id = 1
@@ -60,9 +59,7 @@ for i in range(0, len(data)):
                                 my_model = script0.ANN(para_data, para_net)
                                 my_model.fit()
                                 time_model = round(time.time() - start_time, 3)
-
-                                temp = [my_model.time_train, time_model]
-                                IOHelper.save_sonia(my_model.RMSE, my_model.MAE, model_name, filesave_model)
+                                IOHelper.save_time_less(time_model, my_model.RMSE, my_model.MAE, model_name, filesave_model)
 
                                 so_vong_lap += 1
                                 fig_id += 2

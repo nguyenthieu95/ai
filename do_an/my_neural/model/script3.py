@@ -118,24 +118,23 @@ class SOBEE(object):
         self.time_train = round(time.time() - start_time_train, 3)
 
     def predict(self):
+
         w2 = np.reshape(self.bee[:self.size_w2], (self.number_node_input, -1))
         b2 = np.reshape(self.bee[self.size_w2:], (-1, self.number_node_output))
-        y_pred = []
-        for i in range(0, len(self.S_test)):
-            output = np.add(np.matmul(self.S_test[i], w2), b2)
-            out = np.apply_along_axis(self.activation2, 1, output)
-            y_pred.append(self.activation2(out.flatten()))
+        output = np.add(np.matmul(self.S_test, w2), b2)
+        y_pred = self.activation2(output)
 
         # Evaluate models on the test set
         y_test_inverse = self.min_max_scaler.inverse_transform(self.y_test)
-        y_pred_inverse = self.min_max_scaler.inverse_transform(np.array(y_pred).reshape(-1, self.y_test.shape[1]))
+        y_pred_inverse = self.min_max_scaler.inverse_transform(y_pred)
 
         testScoreRMSE = sqrt(mean_squared_error(y_test_inverse, y_pred_inverse))
         testScoreMAE = mean_absolute_error(y_test_inverse, y_pred_inverse)
 
-        self.y_predict, self.RMSE, self.MAE = y_pred, testScoreRMSE, testScoreMAE
+        self.y_predict, self.RMSE, self.MAE = y_pred, round(testScoreRMSE, 4), round(testScoreMAE, 4)
         self.y_test_inverse, self.y_pred_inverse = y_test_inverse, y_pred_inverse
-        self.weight, self.bias = w2, b2
+        self.weight = w2
+        self.bias = b2
 
         # print('DONE - RMSE: %.5f, MAE: %.5f' % (testScoreRMSE, testScoreMAE))
         # print("Predict done!!!")
