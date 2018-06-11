@@ -27,28 +27,28 @@
 
 SONIA:
 
-cpu:        4504
-ram:        4542
-multi_cpu:  4860 
-multi_ram:  5874
+cpu:        
+ram:        
+multi_cpu:  
+multi_ram:  
 
 
 SoBee:
 
-cpu:            6009   
-ram:            6109
-multi_cpu:      6591
-multi_ram:      7270
+cpu:            
+ram:            
+multi_cpu:      
+multi_ram:      
 
 
 ============ Script 2 ===============
 
 SONIA:
 
-cpu:            
-ram:            
-multi_cpu:      
-multi_ram:      
+cpu:            8114
+ram:            8154
+multi_cpu:      8423
+multi_ram:      8758
 
 
 SoBee:
