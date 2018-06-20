@@ -12298,3 +12298,1965 @@ Time model: 225.727 seconds
 RMSE: 0.5639
 MAE: 0.4079
 
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 287.596 seconds
+RMSE: 0.5577
+MAE: 0.39
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 317.171 seconds
+RMSE: 0.5521
+MAE: 0.353
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 398.498 seconds
+RMSE: 0.565
+MAE: 0.3411
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 318.916 seconds
+RMSE: 0.5299
+MAE: 0.3116
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 320.58 seconds
+RMSE: 0.5558
+MAE: 0.3331
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 112.507 seconds
+RMSE: 0.5442
+MAE: 0.3264
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 114.011 seconds
+RMSE: 0.5391
+MAE: 0.3223
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 114.103 seconds
+RMSE: 0.521
+MAE: 0.3051
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 69.284 seconds
+RMSE: 0.5391
+MAE: 0.3275
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 68.761 seconds
+RMSE: 0.546
+MAE: 0.3284
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 70.882 seconds
+RMSE: 0.5484
+MAE: 0.3382
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 482.341 seconds
+RMSE: 0.5183
+MAE: 0.3138
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 557.618 seconds
+RMSE: 0.5288
+MAE: 0.3098
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 689.068 seconds
+RMSE: 0.5554
+MAE: 0.3321
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 332.538 seconds
+RMSE: 0.5467
+MAE: 0.3283
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 306.924 seconds
+RMSE: 0.5582
+MAE: 0.3355
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 194.931 seconds
+RMSE: 0.6148
+MAE: 0.3916
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 101.332 seconds
+RMSE: 0.5425
+MAE: 0.3267
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 101.569 seconds
+RMSE: 0.5451
+MAE: 0.3291
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 103.065 seconds
+RMSE: 0.6373
+MAE: 0.4736
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 664.499 seconds
+RMSE: 0.5224
+MAE: 0.3101
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 873.508 seconds
+RMSE: 0.5504
+MAE: 0.3313
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 645.063 seconds
+RMSE: 0.5477
+MAE: 0.3251
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 225.654 seconds
+RMSE: 0.5175
+MAE: 0.3056
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 224.598 seconds
+RMSE: 0.5565
+MAE: 0.3344
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 244.004 seconds
+RMSE: 0.526
+MAE: 0.3099
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 180.82 seconds
+RMSE: 0.5554
+MAE: 0.3562
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 176.827 seconds
+RMSE: 0.5449
+MAE: 0.3274
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=0_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 180.19 seconds
+RMSE: 0.5873
+MAE: 0.4136
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 594.758 seconds
+RMSE: 0.5426
+MAE: 0.3086
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 379.53 seconds
+RMSE: 0.9568
+MAE: 0.8918
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 365.541 seconds
+RMSE: 0.542
+MAE: 0.3504
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 134.475 seconds
+RMSE: 0.7507
+MAE: 0.5732
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 136.557 seconds
+RMSE: 0.5393
+MAE: 0.3138
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 135.825 seconds
+RMSE: 2.3157
+MAE: 2.2729
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 102.602 seconds
+RMSE: 1.567
+MAE: 1.4691
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 103.492 seconds
+RMSE: 0.6756
+MAE: 0.4374
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 108.427 seconds
+RMSE: 2.7511
+MAE: 2.6981
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 551.559 seconds
+RMSE: 0.5426
+MAE: 0.3086
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 649.128 seconds
+RMSE: 0.9568
+MAE: 0.8918
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 856.071 seconds
+RMSE: 0.542
+MAE: 0.3504
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 227.629 seconds
+RMSE: 0.6841
+MAE: 0.5821
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 202.578 seconds
+RMSE: 2.3292
+MAE: 2.2421
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 207.476 seconds
+RMSE: 2.3157
+MAE: 2.2729
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 157.053 seconds
+RMSE: 0.5872
+MAE: 0.3957
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 161.469 seconds
+RMSE: 0.6756
+MAE: 0.4374
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 161.132 seconds
+RMSE: 2.7511
+MAE: 2.6981
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 977.344 seconds
+RMSE: 0.5426
+MAE: 0.3086
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 802.757 seconds
+RMSE: 0.9568
+MAE: 0.8918
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 726.209 seconds
+RMSE: 0.542
+MAE: 0.3504
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 276.878 seconds
+RMSE: 0.6841
+MAE: 0.5821
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 327.58 seconds
+RMSE: 0.5393
+MAE: 0.3138
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 331.913 seconds
+RMSE: 2.3157
+MAE: 2.2729
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 321.267 seconds
+RMSE: 0.5687
+MAE: 0.3678
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 355.428 seconds
+RMSE: 0.6756
+MAE: 0.4374
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=1_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 307.941 seconds
+RMSE: 2.7511
+MAE: 2.6981
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 323.242 seconds
+RMSE: 0.5471
+MAE: 0.3375
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 321.642 seconds
+RMSE: 0.5572
+MAE: 0.3365
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 323.193 seconds
+RMSE: 0.5463
+MAE: 0.3294
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 117.773 seconds
+RMSE: 0.5547
+MAE: 0.3385
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 118.723 seconds
+RMSE: 0.5469
+MAE: 0.3278
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 117.627 seconds
+RMSE: 0.5789
+MAE: 0.352
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 80.88 seconds
+RMSE: 0.5502
+MAE: 0.34
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 81.66 seconds
+RMSE: 0.5536
+MAE: 0.3342
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 81.993 seconds
+RMSE: 0.5642
+MAE: 0.3444
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 484.006 seconds
+RMSE: 0.5501
+MAE: 0.3418
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 560.191 seconds
+RMSE: 0.5934
+MAE: 0.3629
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 645.641 seconds
+RMSE: 0.5759
+MAE: 0.3444
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 336.461 seconds
+RMSE: 0.551
+MAE: 0.3391
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 343.121 seconds
+RMSE: 0.5546
+MAE: 0.3343
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 282.504 seconds
+RMSE: 0.5767
+MAE: 0.3493
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 118.488 seconds
+RMSE: 0.551
+MAE: 0.3473
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 120.186 seconds
+RMSE: 0.5477
+MAE: 0.3299
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 121.259 seconds
+RMSE: 0.5778
+MAE: 0.3524
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 658.446 seconds
+RMSE: 0.5296
+MAE: 0.3512
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 928.324 seconds
+RMSE: 0.5664
+MAE: 0.3458
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 653.087 seconds
+RMSE: 0.5227
+MAE: 0.3094
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 238.185 seconds
+RMSE: 0.5608
+MAE: 0.3467
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 237.748 seconds
+RMSE: 0.5453
+MAE: 0.3269
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 241.473 seconds
+RMSE: 0.5279
+MAE: 0.3132
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 198.533 seconds
+RMSE: 0.5538
+MAE: 0.3519
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 203.88 seconds
+RMSE: 0.5643
+MAE: 0.3433
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=2_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 202.347 seconds
+RMSE: 0.566
+MAE: 0.3427
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 590.288 seconds
+RMSE: 0.541
+MAE: 0.3644
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 399.036 seconds
+RMSE: 0.5424
+MAE: 0.3525
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 338.504 seconds
+RMSE: 0.544
+MAE: 0.3569
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 125.797 seconds
+RMSE: 0.5469
+MAE: 0.3637
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 124.143 seconds
+RMSE: 0.5478
+MAE: 0.3618
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 125.516 seconds
+RMSE: 0.5417
+MAE: 0.3454
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 86.492 seconds
+RMSE: 0.5711
+MAE: 0.4195
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 91.023 seconds
+RMSE: 0.5715
+MAE: 0.4186
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 90.09 seconds
+RMSE: 0.5546
+MAE: 0.3828
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 509.937 seconds
+RMSE: 0.5416
+MAE: 0.352
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 556.056 seconds
+RMSE: 0.5485
+MAE: 0.3653
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 645.324 seconds
+RMSE: 0.5371
+MAE: 0.3424
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 318.271 seconds
+RMSE: 0.5485
+MAE: 0.3743
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 326.57 seconds
+RMSE: 0.5456
+MAE: 0.3548
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 232.107 seconds
+RMSE: 0.5428
+MAE: 0.3406
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 134.253 seconds
+RMSE: 0.5877
+MAE: 0.4478
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 133.304 seconds
+RMSE: 0.5863
+MAE: 0.4465
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 132.159 seconds
+RMSE: 0.5457
+MAE: 0.3564
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 696.548 seconds
+RMSE: 0.5515
+MAE: 0.3825
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 945.802 seconds
+RMSE: 0.546
+MAE: 0.3616
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 674.027 seconds
+RMSE: 0.5388
+MAE: 0.3475
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 247.91 seconds
+RMSE: 0.5447
+MAE: 0.3513
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 249.095 seconds
+RMSE: 0.544
+MAE: 0.3475
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 264.555 seconds
+RMSE: 0.5445
+MAE: 0.3463
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 211.721 seconds
+RMSE: 0.5776
+MAE: 0.4329
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 220.794 seconds
+RMSE: 0.5445
+MAE: 0.3552
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(1, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 218.801 seconds
+RMSE: 0.5465
+MAE: 0.35
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 633.163 seconds
+RMSE: 0.5388
+MAE: 0.3289
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 348.059 seconds
+RMSE: 0.5369
+MAE: 0.3242
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 322.96 seconds
+RMSE: 0.6719
+MAE: 0.455
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 115.711 seconds
+RMSE: 0.556
+MAE: 0.3342
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 115.452 seconds
+RMSE: 0.5773
+MAE: 0.3493
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 114.626 seconds
+RMSE: 0.5691
+MAE: 0.3427
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 69.576 seconds
+RMSE: 0.5382
+MAE: 0.3302
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 70.657 seconds
+RMSE: 0.5457
+MAE: 0.3304
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 69.383 seconds
+RMSE: 0.5563
+MAE: 0.3408
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 481.381 seconds
+RMSE: 0.5516
+MAE: 0.3344
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 495.072 seconds
+RMSE: 0.5615
+MAE: 0.3374
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 602.611 seconds
+RMSE: 0.669
+MAE: 0.4542
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 237.675 seconds
+RMSE: 0.5547
+MAE: 0.3331
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 325.351 seconds
+RMSE: 0.5756
+MAE: 0.348
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 334.449 seconds
+RMSE: 0.568
+MAE: 0.342
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 172.923 seconds
+RMSE: 0.5494
+MAE: 0.3351
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 125.713 seconds
+RMSE: 0.539
+MAE: 0.3248
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 102.854 seconds
+RMSE: 0.5431
+MAE: 0.3281
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 645.227 seconds
+RMSE: 0.5529
+MAE: 0.334
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 865.571 seconds
+RMSE: 0.5549
+MAE: 0.3307
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 676.272 seconds
+RMSE: 0.6735
+MAE: 0.4596
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 228.221 seconds
+RMSE: 0.5461
+MAE: 0.328
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 229.324 seconds
+RMSE: 0.5692
+MAE: 0.343
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 228.461 seconds
+RMSE: 0.5605
+MAE: 0.3346
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 137.364 seconds
+RMSE: 0.5499
+MAE: 0.3337
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 150.347 seconds
+RMSE: 0.5402
+MAE: 0.3252
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=0_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 173.534 seconds
+RMSE: 0.7756
+MAE: 0.6425
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 451.168 seconds
+RMSE: 0.6236
+MAE: 0.4072
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 565.99 seconds
+RMSE: 1.8256
+MAE: 1.7784
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 367.813 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 136.358 seconds
+RMSE: 0.671
+MAE: 0.4539
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 138.367 seconds
+RMSE: 1.5733
+MAE: 1.0164
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 136.365 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 107.034 seconds
+RMSE: 0.8436
+MAE: 0.7298
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 103.731 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 109.532 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 552.321 seconds
+RMSE: 1.146
+MAE: 0.8219
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 596.523 seconds
+RMSE: 1.1361
+MAE: 1.0008
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 699.845 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 333.615 seconds
+RMSE: 2.4684
+MAE: 2.3944
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 293.199 seconds
+RMSE: 4.3601
+MAE: 4.1873
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 211.451 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 161.447 seconds
+RMSE: 0.8827
+MAE: 0.7072
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 162.158 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 164.553 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 778.088 seconds
+RMSE: 1.0912
+MAE: 0.8091
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 1014.647 seconds
+RMSE: 1.7369
+MAE: 1.6885
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 728.6 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 280.3 seconds
+RMSE: 0.6349
+MAE: 0.4116
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 276.668 seconds
+RMSE: 6.1982
+MAE: 6.1269
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 324.042 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 255.094 seconds
+RMSE: 0.8186
+MAE: 0.6339
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 257.906 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=1_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 336.961 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 594.332 seconds
+RMSE: 0.5726
+MAE: 0.3514
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 324.739 seconds
+RMSE: 0.5544
+MAE: 0.3339
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 324.404 seconds
+RMSE: 0.5366
+MAE: 0.322
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 120.484 seconds
+RMSE: 0.5513
+MAE: 0.3372
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 121.962 seconds
+RMSE: 0.5518
+MAE: 0.3314
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 120.946 seconds
+RMSE: 0.5722
+MAE: 0.3448
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 79.394 seconds
+RMSE: 0.554
+MAE: 0.3454
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 80.608 seconds
+RMSE: 0.5552
+MAE: 0.3343
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 80.911 seconds
+RMSE: 0.5538
+MAE: 0.3346
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 486.778 seconds
+RMSE: 0.5482
+MAE: 0.3342
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 508.574 seconds
+RMSE: 0.5641
+MAE: 0.3411
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 599.606 seconds
+RMSE: 0.5431
+MAE: 0.327
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 228.922 seconds
+RMSE: 0.5416
+MAE: 0.3381
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 325.037 seconds
+RMSE: 0.5785
+MAE: 0.3504
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 348.569 seconds
+RMSE: 0.5507
+MAE: 0.3294
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 243.418 seconds
+RMSE: 0.5519
+MAE: 0.3446
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 197.065 seconds
+RMSE: 0.5662
+MAE: 0.3423
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 124.071 seconds
+RMSE: 0.563
+MAE: 0.343
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 654.03 seconds
+RMSE: 0.5661
+MAE: 0.3474
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 849.945 seconds
+RMSE: 0.5439
+MAE: 0.3268
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 739.067 seconds
+RMSE: 0.5345
+MAE: 0.3207
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 238.45 seconds
+RMSE: 0.578
+MAE: 0.3567
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 242.975 seconds
+RMSE: 0.5543
+MAE: 0.3333
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 238.364 seconds
+RMSE: 0.5522
+MAE: 0.3309
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 158.851 seconds
+RMSE: 0.5627
+MAE: 0.349
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 167.516 seconds
+RMSE: 0.5669
+MAE: 0.3427
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=2_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 200.981 seconds
+RMSE: 0.5613
+MAE: 0.3416
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 410.452 seconds
+RMSE: 0.549
+MAE: 0.3768
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 630.377 seconds
+RMSE: 0.551
+MAE: 0.3649
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 346.959 seconds
+RMSE: 0.532
+MAE: 0.3341
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 127.659 seconds
+RMSE: 0.5798
+MAE: 0.4345
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 126.504 seconds
+RMSE: 0.546
+MAE: 0.3671
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 125.896 seconds
+RMSE: 0.5422
+MAE: 0.345
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 91.835 seconds
+RMSE: 0.5829
+MAE: 0.4408
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 91.782 seconds
+RMSE: 0.579
+MAE: 0.4351
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 90.899 seconds
+RMSE: 0.567
+MAE: 0.3943
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 513.4 seconds
+RMSE: 0.543
+MAE: 0.3571
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 513.842 seconds
+RMSE: 0.5551
+MAE: 0.3677
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 614.791 seconds
+RMSE: 0.5452
+MAE: 0.3579
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 238.46 seconds
+RMSE: 0.5484
+MAE: 0.3735
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 315.39 seconds
+RMSE: 0.5623
+MAE: 0.3693
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 336.378 seconds
+RMSE: 0.5316
+MAE: 0.3365
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 219.315 seconds
+RMSE: 0.5838
+MAE: 0.4419
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 144.167 seconds
+RMSE: 0.5559
+MAE: 0.3932
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 136.527 seconds
+RMSE: 0.5601
+MAE: 0.3582
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 677.71 seconds
+RMSE: 0.5442
+MAE: 0.3495
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 932.221 seconds
+RMSE: 0.5444
+MAE: 0.3595
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 713.386 seconds
+RMSE: 0.5317
+MAE: 0.3339
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 252.47 seconds
+RMSE: 0.5413
+MAE: 0.3533
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 251.879 seconds
+RMSE: 0.5493
+MAE: 0.3509
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 254.915 seconds
+RMSE: 0.5493
+MAE: 0.3502
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 181.937 seconds
+RMSE: 0.6
+MAE: 0.4659
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 213.395 seconds
+RMSE: 0.5457
+MAE: 0.3642
+
+------------------------------------------------------
+_sliding=5_numHidden=8_coupleActi=(2, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 219.255 seconds
+RMSE: 0.5717
+MAE: 0.3657
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 456.157 seconds
+RMSE: 0.5608
+MAE: 0.3371
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 587.726 seconds
+RMSE: 0.5594
+MAE: 0.3351
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 322.563 seconds
+RMSE: 0.5931
+MAE: 0.3709
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 115.74 seconds
+RMSE: 0.5449
+MAE: 0.3271
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 116.333 seconds
+RMSE: 0.5456
+MAE: 0.3266
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 114.474 seconds
+RMSE: 0.5674
+MAE: 0.3411
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 74.117 seconds
+RMSE: 0.5364
+MAE: 0.324
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 72.04 seconds
+RMSE: 0.5457
+MAE: 0.3368
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 71.337 seconds
+RMSE: 0.5464
+MAE: 0.3281
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 482.737 seconds
+RMSE: 0.5424
+MAE: 0.3285
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 482.887 seconds
+RMSE: 0.5485
+MAE: 0.3279
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 563.113 seconds
+RMSE: 0.5924
+MAE: 0.3704
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 222.121 seconds
+RMSE: 0.5456
+MAE: 0.3273
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 222.0 seconds
+RMSE: 0.5484
+MAE: 0.3288
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 293.872 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 211.737 seconds
+RMSE: 0.5347
+MAE: 0.321
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 219.323 seconds
+RMSE: 0.5465
+MAE: 0.3393
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 217.242 seconds
+RMSE: 0.5462
+MAE: 0.3357
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 677.98 seconds
+RMSE: 0.5616
+MAE: 0.3385
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 724.211 seconds
+RMSE: 0.537
+MAE: 0.3163
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 840.648 seconds
+RMSE: 0.5942
+MAE: 0.3734
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 229.609 seconds
+RMSE: 0.545
+MAE: 0.327
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 228.638 seconds
+RMSE: 0.572
+MAE: 0.3454
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 226.731 seconds
+RMSE: 0.5836
+MAE: 0.3568
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 144.498 seconds
+RMSE: 0.5402
+MAE: 0.3266
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 145.616 seconds
+RMSE: 0.5455
+MAE: 0.3357
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=0_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 140.737 seconds
+RMSE: 0.5475
+MAE: 0.3353
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 436.828 seconds
+RMSE: 1.2866
+MAE: 0.8562
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 532.246 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 522.598 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 132.13 seconds
+RMSE: 1.648
+MAE: 1.5238
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 133.808 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 134.183 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 107.936 seconds
+RMSE: 0.8767
+MAE: 0.7071
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 110.189 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 108.733 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 568.467 seconds
+RMSE: 0.8763
+MAE: 0.6786
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 567.452 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 687.005 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 265.586 seconds
+RMSE: 1.6522
+MAE: 1.1825
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 336.571 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 336.296 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 193.777 seconds
+RMSE: 0.6767
+MAE: 0.4667
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 165.45 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 164.196 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 754.003 seconds
+RMSE: 0.9049
+MAE: 0.5916
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 1098.006 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 750.425 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 272.986 seconds
+RMSE: 1.4062
+MAE: 1.2556
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 272.031 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 271.324 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 257.939 seconds
+RMSE: 0.9881
+MAE: 0.8406
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 278.157 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 281.617 seconds
+RMSE: 57.6481
+MAE: 57.6456
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 637.966 seconds
+RMSE: 0.5537
+MAE: 0.3333
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 458.974 seconds
+RMSE: 0.5494
+MAE: 0.3312
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 327.257 seconds
+RMSE: 0.5423
+MAE: 0.3263
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 119.547 seconds
+RMSE: 0.5441
+MAE: 0.328
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 119.795 seconds
+RMSE: 0.5704
+MAE: 0.3458
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 121.452 seconds
+RMSE: 0.5765
+MAE: 0.3499
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 80.832 seconds
+RMSE: 0.548
+MAE: 0.3397
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 83.866 seconds
+RMSE: 0.5442
+MAE: 0.3278
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 83.835 seconds
+RMSE: 0.5564
+MAE: 0.3359
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 489.181 seconds
+RMSE: 0.5576
+MAE: 0.3362
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 490.188 seconds
+RMSE: 0.5358
+MAE: 0.3286
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 578.575 seconds
+RMSE: 0.5489
+MAE: 0.3319
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 231.721 seconds
+RMSE: 0.5464
+MAE: 0.3301
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 230.858 seconds
+RMSE: 0.5678
+MAE: 0.344
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 309.21 seconds
+RMSE: 0.5505
+MAE: 0.3285
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 248.574 seconds
+RMSE: 0.5458
+MAE: 0.3324
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 254.719 seconds
+RMSE: 0.5447
+MAE: 0.328
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 249.198 seconds
+RMSE: 0.5642
+MAE: 0.351
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 725.695 seconds
+RMSE: 0.5755
+MAE: 0.3556
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 736.577 seconds
+RMSE: 0.5509
+MAE: 0.3322
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 880.988 seconds
+RMSE: 0.5551
+MAE: 0.3361
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 238.143 seconds
+RMSE: 0.555
+MAE: 0.3412
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 237.516 seconds
+RMSE: 0.5793
+MAE: 0.3538
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 239.806 seconds
+RMSE: 0.5522
+MAE: 0.3311
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 164.672 seconds
+RMSE: 0.556
+MAE: 0.3444
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 166.396 seconds
+RMSE: 0.5584
+MAE: 0.337
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=2_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 165.977 seconds
+RMSE: 0.58
+MAE: 0.3581
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 413.504 seconds
+RMSE: 0.5458
+MAE: 0.363
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1000_batchSize=8_learningRate=0.15
+Time model: 508.11 seconds
+RMSE: 0.5499
+MAE: 0.3659
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1000_batchSize=8_learningRate=0.35
+Time model: 544.09 seconds
+RMSE: 0.5347
+MAE: 0.3349
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1000_batchSize=32_learningRate=0.05
+Time model: 124.421 seconds
+RMSE: 0.5577
+MAE: 0.3953
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1000_batchSize=32_learningRate=0.15
+Time model: 123.23 seconds
+RMSE: 0.546
+MAE: 0.3531
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1000_batchSize=32_learningRate=0.35
+Time model: 124.598 seconds
+RMSE: 0.54
+MAE: 0.3355
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1000_batchSize=128_learningRate=0.05
+Time model: 90.856 seconds
+RMSE: 0.5632
+MAE: 0.4037
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1000_batchSize=128_learningRate=0.15
+Time model: 92.459 seconds
+RMSE: 0.5667
+MAE: 0.412
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1000_batchSize=128_learningRate=0.35
+Time model: 90.584 seconds
+RMSE: 0.543
+MAE: 0.3533
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1500_batchSize=8_learningRate=0.05
+Time model: 524.528 seconds
+RMSE: 0.548
+MAE: 0.3562
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1500_batchSize=8_learningRate=0.15
+Time model: 519.474 seconds
+RMSE: 0.5375
+MAE: 0.3446
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1500_batchSize=8_learningRate=0.35
+Time model: 588.303 seconds
+RMSE: 0.5391
+MAE: 0.3425
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1500_batchSize=32_learningRate=0.05
+Time model: 237.336 seconds
+RMSE: 0.5477
+MAE: 0.3708
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 239.594 seconds
+RMSE: 0.5412
+MAE: 0.3439
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 294.53 seconds
+RMSE: 0.5405
+MAE: 0.3335
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 246.033 seconds
+RMSE: 0.5891
+MAE: 0.4503
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 241.214 seconds
+RMSE: 0.5547
+MAE: 0.384
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 231.514 seconds
+RMSE: 0.5554
+MAE: 0.3526
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 705.766 seconds
+RMSE: 0.5444
+MAE: 0.3575
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=8_learningRate=0.15
+Time model: 794.996 seconds
+RMSE: 0.5415
+MAE: 0.3529
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=8_learningRate=0.35
+Time model: 894.346 seconds
+RMSE: 0.5289
+MAE: 0.3265
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=32_learningRate=0.05
+Time model: 245.241 seconds
+RMSE: 0.5502
+MAE: 0.3808
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=32_learningRate=0.15
+Time model: 248.048 seconds
+RMSE: 0.5491
+MAE: 0.3496
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=32_learningRate=0.35
+Time model: 251.67 seconds
+RMSE: 0.5347
+MAE: 0.3273
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.05
+Time model: 182.973 seconds
+RMSE: 0.5778
+MAE: 0.4325
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.15
+Time model: 189.579 seconds
+RMSE: 0.5412
+MAE: 0.3514
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(0, 0)_optimizer=3_epoch=2000_batchSize=128_learningRate=0.35
+Time model: 208.657 seconds
+RMSE: 0.5506
+MAE: 0.3476
+
+------------------------------------------------------
+_sliding=5_numHidden=12_coupleActi=(1, 0)_optimizer=0_epoch=1000_batchSize=8_learningRate=0.05
+Time model: 416.183 seconds
+RMSE: 0.5594
+MAE: 0.3374
+
