@@ -5,8 +5,8 @@ from model.utils import IOHelper
 from pandas import read_csv
 import tensorflow as tf
 
-data = [10, 5, 3]
-list_number_data = [(3280, 4100, 0), (6640, 8300, 0), (11120, 13900, 0)]
+data = [3]
+list_number_data = [(11120, 13900, 0)]
 
 for i in range(0, len(data)):
     pathsave = os.path.dirname(os.path.abspath(__file__)) + "/result/" + str(data[i]) + "m/multi_ram/"
