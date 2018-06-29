@@ -4138,3 +4138,27 @@ Time model: 305.869 seconds
 RMSE: 5.7976
 MAE: 5.7973
 
+------------------------------------------------------
+_sliding=2_numHidden=15_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 324.046 seconds
+RMSE: 0.065
+MAE: 0.0474
+
+------------------------------------------------------
+_sliding=2_numHidden=15_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 322.316 seconds
+RMSE: 5.7976
+MAE: 5.7973
+
+------------------------------------------------------
+_sliding=2_numHidden=15_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 344.197 seconds
+RMSE: 5.7976
+MAE: 5.7973
+
+------------------------------------------------------
+_sliding=2_numHidden=15_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 1941.095 seconds
+RMSE: 0.0948
+MAE: 0.0823
+

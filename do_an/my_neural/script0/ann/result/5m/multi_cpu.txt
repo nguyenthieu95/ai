@@ -4126,3 +4126,39 @@ Time model: 306.293 seconds
 RMSE: 57.8115
 MAE: 57.8091
 
+------------------------------------------------------
+_sliding=2_numHidden=15_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.15
+Time model: 417.065 seconds
+RMSE: 57.8115
+MAE: 57.8091
+
+------------------------------------------------------
+_sliding=2_numHidden=15_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=32_learningRate=0.35
+Time model: 421.47 seconds
+RMSE: 57.8115
+MAE: 57.8091
+
+------------------------------------------------------
+_sliding=2_numHidden=15_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.05
+Time model: 348.246 seconds
+RMSE: 0.6635
+MAE: 0.4398
+
+------------------------------------------------------
+_sliding=2_numHidden=15_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.15
+Time model: 378.362 seconds
+RMSE: 57.8115
+MAE: 57.8091
+
+------------------------------------------------------
+_sliding=2_numHidden=15_coupleActi=(0, 0)_optimizer=1_epoch=1500_batchSize=128_learningRate=0.35
+Time model: 418.281 seconds
+RMSE: 57.8115
+MAE: 57.8091
+
+------------------------------------------------------
+_sliding=2_numHidden=15_coupleActi=(0, 0)_optimizer=1_epoch=2000_batchSize=8_learningRate=0.05
+Time model: 1774.795 seconds
+RMSE: 1.5771
+MAE: 1.4143
+
