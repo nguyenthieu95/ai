@@ -10,8 +10,8 @@ from utils.IOUtil import save_result_to_csv, write_to_result_file
 
 
 class Model:
-    def __init__(self, data_original, train_idx=None, test_idx=None, sliding=None, expand_func = None, pop_size = None,
-                 pc = None, pm = None, activation = None, test_name = None, path_save_result = None):
+    def __init__(self, data_original, train_idx=None, test_idx=None, sliding=None, expand_func = None, epoch=None,
+                 pop_size = None, pc = None, pm = None, activation = None, test_name = None, path_save_result = None):
         self.data_original = data_original
         self.train_idx = train_idx
         self.test_idx = test_idx
@@ -19,13 +19,15 @@ class Model:
         self.data = data_original[:train_idx + test_idx + sliding + 1, :]
         self.scaler = MinMaxScaler()
         self.expand_func = expand_func
+        self.epoch = epoch
         self.pop_size = pop_size
         self.pc = pc
         self.pm = pm
         self.activation = activation
         self.path_save_result = path_save_result
         self.test_name = test_name
-        self.filename = "GA-FLNN-sliding_{0}-expand_func_{1}-pop_size_{2}-pc_{3}-pm_{4}-activation_{5}".format(sliding, expand_func, pop_size, pc, pm, activation)
+        self.filename = "flnn_sliding_{0}-ex_func_{1}-act_func_{2}-epoch_{3}-pop_size_{4}-pc_{5}-pm_{6}".format(sliding,
+            expand_func, activation, epoch, pop_size, pc, pm)
     
     def preprocessing_data(self):
         data, train_idx, test_idx, sliding, expand_func = self.data, self.train_idx, self.test_idx, self.sliding, self.expand_func
@@ -46,12 +48,12 @@ class Model:
 
         self.X_train, self.X_test, self.y_train, self.y_test = data_X[:train_idx, :], data_X[train_idx:, :], data_y[:train_idx, :], data_y[train_idx:, :]
 
-    def train(self, epochs = None):
+    def train(self):
         self.preprocessing_data()
 
         p = Population(self.pop_size, self.pc, self.pm, activation = self.activation)
 
-        best = p.train(self.X_train, self.y_train, epochs=epochs)
+        best = p.train(self.X_train, self.y_train, epochs=self.epoch)
 
         pred = best.predict(self.X_test) 
 

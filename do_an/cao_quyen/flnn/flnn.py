@@ -9,12 +9,13 @@ from utils.GraphUtil import draw_predict_with_error
 from utils.IOUtil import save_result_to_csv, write_to_result_file
 
 class FLNN:
-    def __init__(self, dataset_original=None, train_idx=None, test_idx=None, sliding=None, activation = None,
-                expand_func = None, learning_rate = None, batch_size = None, beta = None, test_name = None, path_save_result = None):
+    def __init__(self, dataset_original=None, train_idx=None, test_idx=None, sliding=None, activation = None, expand_func = None,
+                 epoch=None, learning_rate = None, batch_size = None, beta = None, test_name = None, path_save_result = None):
         self.dataset_original = dataset_original[:test_idx+sliding, :]
         self.sliding = sliding
         self.method_statistic = 0
         self.activation = activation
+        self.epoch = epoch
         self.learning_rate = learning_rate
         self.batch_size = batch_size
         self.beta = beta
@@ -22,11 +23,12 @@ class FLNN:
         self.train_idx = train_idx
         self.test_idx = test_idx
         self.dimension = dataset_original.shape[1]
-        self.n_expanded = 2
-        self.e_func = expand_func
+        self.n_expanded = 5
+        self.expand_func = expand_func
         self.path_save_result = path_save_result
         self.test_name = test_name
-        self.filename = "flnn_sliding_{0}-activation_{1}-e_func_{2}".format(sliding, activation, e_func)
+        self.filename = "flnn_sliding_{0}-ex_func_{1}-act_func_{2}-epoch_{3}-lr_{4}-batch_{5}-beta_{6}".format(sliding,
+            expand_func, activation, epoch, learning_rate, batch_size, beta)
 
 
     def predict(self):
@@ -50,7 +52,7 @@ class FLNN:
         
         return self.min_max_scaler.inverse_transform(transform_data)
 
-    def power_polynomials(self, n = 2):
+    def power_polynomials(self, n = 5):
         expanded_results = np.zeros((self.dataset_original.shape[0], 1))
         
         for i in range(self.dimension):
@@ -63,7 +65,7 @@ class FLNN:
     
         return expanded_results
     
-    def chebyshev_polynomials(self, n = 2):
+    def chebyshev_polynomials(self, n = 5):
         expanded_results = np.zeros((self.dataset_original.shape[0], 1))
     
         for i in range(self.dimension):
@@ -78,7 +80,7 @@ class FLNN:
     
         return expanded_results[:, 1:]
 
-    def legendre_data(self, n = 2):
+    def legendre_data(self, n = 5):
         expanded = np.zeros((self.dataset_original.shape[0], 1))
 
         for i in range(self.dimension):
@@ -93,7 +95,7 @@ class FLNN:
 
         return expanded[:, 1:]
 
-    def laguerre_data(self, n = 2):
+    def laguerre_data(self, n = 5):
         expanded = np.zeros((self.dataset_original.shape[0], 1))
 
         for i in range(self.dimension):
@@ -117,13 +119,13 @@ class FLNN:
         
         # Expanded
         expanded = None
-        if self.e_func == 0:
+        if self.expand_func == 0:
             expanded = self.chebyshev_polynomials(n_expanded)
-        elif self.e_func == 1:
+        elif self.expand_func == 1:
             expanded = self.legendre_data(n_expanded)
-        elif self.e_func == 2:
+        elif self.expand_func == 2:
             expanded = self.laguerre_data(n_expanded)
-        elif self.e_func == 3:
+        elif self.expand_func == 3:
             expanded = self.power_polynomials(n_expanded)
         for i in range(expanded.shape[1]):
             list_split.append(expanded[:, i:i+1])
@@ -224,7 +226,7 @@ class FLNN:
         
         return mini_batches
 
-    def train(self, epochs = 300):
+    def train(self):
     
         self.processing_data_2()
 
@@ -239,7 +241,7 @@ class FLNN:
         
         vdW, vdb = self.init_momentum_parameters(n_inputs, n_outputs)
         
-        for e in range(epochs):
+        for e in range(self.epoch):
             
             seed += 1
             

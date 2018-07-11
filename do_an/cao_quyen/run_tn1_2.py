@@ -46,10 +46,10 @@ for index, dataindex in enumerate(data_index):
                                     for beta in betas:
 
                                         p = FLNN(dataset_original, idx[0], idx[1], sw, activation=activation,
-                                                 expand_func=expand_func, learning_rate=learning_rate,
+                                                 expand_func=expand_func, epoch=epoch, learning_rate=learning_rate,
                                                  batch_size=batch_size,
                                                  beta=beta, test_name=test_name, path_save_result=path_save_result)
-                                        p.train(epochs=epoch)
+                                        p.train()
 
         if method == 'GA':
 
@@ -62,9 +62,9 @@ for index, dataindex in enumerate(data_index):
                                 for pc in pcs:
                                     for pm in pms:
 
-                                        p = GAModel(dataset_original, idx[0], idx[1], sw, expand_func=expand_func, pop_size=pop_size, pc=pc,
+                                        p = GAModel(dataset_original, idx[0], idx[1], sw, expand_func=expand_func, epoch=epoch, pop_size=pop_size, pc=pc,
                                                     pm=pm, activation=activation, test_name=test_name, path_save_result=path_save_result)
-                                        p.train(epochs=epoch)
+                                        p.train()
 
 
 
