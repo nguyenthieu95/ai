@@ -32,6 +32,7 @@ def train_model(queue,name):
             pop_size = item["pop_size"]
             pc = item["pc"]
             pm = item["pm"]
+            method = item["method"]
 
             if method == 'GA':
                 p = GAModel(dataset_original, idx[0], idx[1], sw, expand_func=expand_func, pop_size=pop_size, pc=pc,
@@ -74,8 +75,10 @@ for index, dataindex in enumerate(data_index):
     param_grid = {
         "pop_size": pop_size,
         "pc": pc,
-        "pm": pm
+        "pm": pm,
+        "method": methods
     }
+    # Create combination of params.
     for item in list(param_grid):
         queue.put_nowait(item)
 
