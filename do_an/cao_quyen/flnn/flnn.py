@@ -10,7 +10,7 @@ from utils.IOUtil import save_result_to_csv, write_to_result_file
 
 class FLNN:
     def __init__(self, dataset_original=None, train_idx=None, test_idx=None, sliding=None, activation = None,
-                e_func = None, learning_rate = None, batch_size = None, beta = None, test_name = None, path_save_result = None):
+                expand_func = None, learning_rate = None, batch_size = None, beta = None, test_name = None, path_save_result = None):
         self.dataset_original = dataset_original[:test_idx+sliding, :]
         self.sliding = sliding
         self.method_statistic = 0
@@ -23,7 +23,7 @@ class FLNN:
         self.test_idx = test_idx
         self.dimension = dataset_original.shape[1]
         self.n_expanded = 2
-        self.e_func = e_func
+        self.e_func = expand_func
         self.path_save_result = path_save_result
         self.test_name = test_name
         self.filename = "flnn_sliding_{0}-activation_{1}-e_func_{2}".format(sliding, activation, e_func)
@@ -36,8 +36,8 @@ class FLNN:
         self.y_pred_inverse = self.inverse_data(y_pred).T
         self.y_test_inverse = self.inverse_data(self.y_test).T
 
-        self.MAE = mean_absolute_error(self.y_pred_inverse, self.y_test_inverse)
-        self.RMSE = np.sqrt(mean_squared_error(self.y_pred_inverse, self.y_test_inverse))
+        self.MAE = round(mean_absolute_error(self.y_pred_inverse, self.y_test_inverse), 4)
+        self.RMSE = round(np.sqrt(mean_squared_error(self.y_pred_inverse, self.y_test_inverse)), 4)
 
         write_to_result_file(self.filename, self.RMSE, self.MAE, self.test_name, self.path_save_result)
         draw_predict_with_error(1, self.y_test_inverse, self.y_pred_inverse, self.RMSE, self.MAE, self.filename,

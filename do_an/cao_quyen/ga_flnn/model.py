@@ -58,8 +58,8 @@ class Model:
         self.pred_inverse = self.scaler.inverse_transform(pred)
         self.real_inverse = self.scaler.inverse_transform(self.y_test)
 
-        self.mae = mean_absolute_error(self.real_inverse, self.pred_inverse)
-        self.rmse = np.sqrt(mean_squared_error(self.real_inverse, self.pred_inverse))
+        self.mae = round(mean_absolute_error(self.real_inverse, self.pred_inverse), 4)
+        self.rmse = round(np.sqrt(mean_squared_error(self.real_inverse, self.pred_inverse)), 4)
 
         write_to_result_file(self.filename, self.rmse, self.mae, self.test_name, self.path_save_result)
         draw_predict_with_error(2, self.real_inverse, self.pred_inverse, self.rmse, self.mae, self.filename, self.path_save_result)
