@@ -17,7 +17,7 @@ for index, dataindex in enumerate(data_index):
     idx = list_idx[index]
 
     sliding_windows = [2]
-    expand_func = 0  # 0:chebyshev, 1:powerseries, 2:laguerre, 3:legendre
+    expand_func = 0  # 0:chebyshev, 2:legendre, 3:laguerre, 4:powerseries,
     activation = 3  # 0: self, 1:tanh, 2:relu, 3:elu
     test_name = "tn1"
     path_save_result = "test/" + test_name + "/"

@@ -5,6 +5,8 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')
+from utils.GraphUtil import draw_predict_with_error
+from utils.IOUtil import save_result_to_csv, write_to_result_file
 
 class FLNN:
     def __init__(self, dataset_original=None, train_idx=None, test_idx=None, sliding=None, activation = None,
@@ -25,10 +27,7 @@ class FLNN:
         self.path_save_result = path_save_result
         self.test_name = test_name
         self.filename = "flnn_sliding_{0}-activation_{1}-e_func_{2}".format(sliding, activation, e_func)
-    
-    def save_file_csv(self):
-        t1 = np.concatenate( (self.y_test_inverse, self.y_pred_inverse), axis = 1)
-        np.savetxt(self.path_save_result + self.filename + ".csv", t1, delimiter=",")
+
 
     def predict(self):
         Z = np.dot(self.W, self.X_test) + self.b
@@ -37,28 +36,14 @@ class FLNN:
         self.y_pred_inverse = self.inverse_data(y_pred).T
         self.y_test_inverse = self.inverse_data(self.y_test).T
 
-        self.score_test_MAE = mean_absolute_error(self.y_pred_inverse, self.y_test_inverse)
-        self.score_test_RMSE = np.sqrt(mean_squared_error(self.y_pred_inverse, self.y_test_inverse))
+        self.MAE = mean_absolute_error(self.y_pred_inverse, self.y_test_inverse)
+        self.RMSE = np.sqrt(mean_squared_error(self.y_pred_inverse, self.y_test_inverse))
 
-        self.write_to_result_file()
+        write_to_result_file(self.filename, self.RMSE, self.MAE, self.test_name, self.path_save_result)
+        draw_predict_with_error(1, self.y_test_inverse, self.y_pred_inverse, self.RMSE, self.MAE, self.filename,
+                                self.path_save_result)
+        save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, self.path_save_result)
 
-        self.draw_predict()
-        # self.save_file_csv()
-
-    def write_to_result_file(self):
-        with open(self.path_save_result + self.test_name + '.txt', 'a') as file:
-            file.write("{0}  -  {1} - {2}\n".format(self.filename, self.score_test_MAE, self.score_test_RMSE))
-
-    def draw_predict(self):
-        plt.figure(2)
-        plt.plot(self.y_test_inverse[:, 0][0:200], color='#009FFD', linewidth=2.5)
-        plt.plot(self.y_pred_inverse[:, 0][0:200], color='#FFA400', linewidth=2.5)
-        plt.ylabel('CPU')
-        plt.xlabel('Timestamp')
-        plt.legend(['Actual', 'Prediction'], loc='upper right')
-        plt.savefig(self.path_save_result + self.filename + ".png")
-        # plt.show()
-        plt.close()
 
     def inverse_data(self, transform_data):
         self.min_max_scaler.fit_transform(self.dataset_original[:, [0]])

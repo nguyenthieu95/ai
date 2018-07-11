@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 plt.switch_backend('agg')
 from ga_flnn.expand_data import ExpandData
 from ga_flnn.population import Population
+from utils.GraphUtil import draw_predict_with_error
+from utils.IOUtil import save_result_to_csv, write_to_result_file
+
 
 class Model:
     def __init__(self, data_original, train_idx=None, test_idx=None, sliding=None, expand_func = None, pop_size = None,
@@ -23,21 +26,6 @@ class Model:
         self.path_save_result = path_save_result
         self.test_name = test_name
         self.filename = "GA-FLNN-sliding_{0}-expand_func_{1}-pop_size_{2}-pc_{3}-pm_{4}-activation_{5}".format(sliding, expand_func, pop_size, pc, pm, activation)
-
-    def draw_predict(self):
-        plt.figure(2)
-        plt.plot(self.real_inverse[:, 0][:200], color='#009FFD', linewidth=2.5)
-        plt.plot(self.pred_inverse[:, 0][:200], color='#FFA400', linewidth=2.5)
-        plt.ylabel('CPU')
-        plt.xlabel('Timestamp')
-        plt.legend(['Actual', 'Prediction'], loc='upper right')
-        plt.savefig(self.path_save_result + self.filename + ".png")
-        # plt.show()
-        plt.close()
-
-    def write_to_result_file(self):
-        with open(self.path_save_result + self.test_name + '.txt', 'a') as file:
-            file.write("{0}  -  {1}  -  {2}\n".format(self.filename, self.mae, self.rmse))
     
     def preprocessing_data(self):
         data, train_idx, test_idx, sliding, expand_func = self.data, self.train_idx, self.test_idx, self.sliding, self.expand_func
@@ -73,8 +61,7 @@ class Model:
         self.mae = mean_absolute_error(self.real_inverse, self.pred_inverse)
         self.rmse = np.sqrt(mean_squared_error(self.real_inverse, self.pred_inverse))
 
-        print(self.mae)
+        write_to_result_file(self.filename, self.rmse, self.mae, self.test_name, self.path_save_result)
+        draw_predict_with_error(2, self.real_inverse, self.pred_inverse, self.rmse, self.mae, self.filename, self.path_save_result)
+        save_result_to_csv(self.real_inverse, self.pred_inverse, self.filename, self.path_save_result)
 
-        self.draw_predict()
-
-        self.write_to_result_file()
