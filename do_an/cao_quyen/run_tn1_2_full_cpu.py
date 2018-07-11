@@ -79,7 +79,7 @@ for index, dataindex in enumerate(data_index):
         "method": methods
     }
     # Create combination of params.
-    for item in list(param_grid):
+    for item in list(ParameterGrid(param_grid)) :
         queue.put_nowait(item)
 
 
