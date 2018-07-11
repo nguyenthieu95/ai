@@ -23,6 +23,17 @@
 - Khi mất điện, tiến trình chết, các bộ tham số còn lại chưa được chạy vẫn ở trong queue. 
 
 
+====== Script 0 =========
+
+ANN: 3m
+
+cpu:        6604
+ram:        6828
+multi_cpu:  7050
+multi_ram:  7335
+
+
+
 ====== Script 1 =========
 
 SONIA:
@@ -82,7 +93,7 @@ ram:
     source ~/.bashrc 
     source activate ai_env 
     python ... tên file chạy   
-    
+   
 
 cd 6_google_trace/SVNCKH/script1/3m/sonia/
 cd 6_google_trace/SVNCKH/script1/5m/sonia/
