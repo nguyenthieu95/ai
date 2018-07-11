@@ -4,6 +4,7 @@ import math
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import matplotlib.pyplot as plt
+plt.switch_backend('agg')
 
 class FLNN:
     def __init__(self, dataset_original=None, train_idx=None, test_idx=None, sliding=None, activation = None,

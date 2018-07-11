@@ -2,8 +2,9 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import matplotlib.pyplot as plt
-from pso import Population
-from expand_data import ExpandData
+plt.switch_backend('agg')
+from pso_flnn.pso import Population
+from pso_flnn.expand_data import ExpandData
 
 class Model:
     def __init__(self, data_original, train_idx, test_idx, sliding, expand_func=0, pop_size=200, c1=2, c2=2,

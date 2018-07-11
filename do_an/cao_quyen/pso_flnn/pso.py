@@ -1,6 +1,6 @@
 import numpy as np
 import copy
-from particle import Particle
+from pso_flnn.particle import Particle
 
 class Population:
     def __init__(self, s, c1, c2, activation = 0):

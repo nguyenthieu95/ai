@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import matplotlib.pyplot as plt
+plt.switch_backend('agg')
 from ga_flnn.expand_data import ExpandData
 from ga_flnn.population import Population
 
