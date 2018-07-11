@@ -1,0 +1,2 @@
+flnn_sliding_2-activation_3-e_func_0  -  0.3140573092943754 - 0.4900101605724915
+GA-FLNN-sliding_2-expand_func_0-pop_size_100-pc_0.8-pm_0.02-activation_3  -  0.2838849248506358 - 0.471846512563233
