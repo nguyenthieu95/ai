@@ -1,0 +1,12 @@
+- Export environment:
+    source activate myenv
+    conda env export > environment.yml
+
+- Import and create new environment from file .yml
+    conda env create -f environment.yml (nhớ là dòng đầu tiên trong file này là tên của env)
+
+
+- Delete environment:
+    conda env remove --name myenv
+
+
