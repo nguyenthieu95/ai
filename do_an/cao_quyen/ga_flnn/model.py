@@ -3,10 +3,10 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')
-from ga_flnn.expand_data import ExpandData
 from ga_flnn.population import Population
 from utils.GraphUtil import draw_predict_with_error
 from utils.IOUtil import save_result_to_csv, write_to_result_file
+from utils.ExpandUtil import ExpandData
 
 
 class Model:
@@ -26,7 +26,7 @@ class Model:
         self.activation = activation
         self.path_save_result = path_save_result
         self.test_name = test_name
-        self.filename = "flnn_sliding_{0}-ex_func_{1}-act_func_{2}-epoch_{3}-pop_size_{4}-pc_{5}-pm_{6}".format(sliding,
+        self.filename = "GA_FLNN-_sliding_{0}-ex_func_{1}-act_func_{2}-epoch_{3}-pop_size_{4}-pc_{5}-pm_{6}".format(sliding,
             expand_func, activation, epoch, pop_size, pc, pm)
     
     def preprocessing_data(self):

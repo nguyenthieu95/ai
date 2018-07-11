@@ -49,7 +49,7 @@ class Population:
                 best_fitness = fitnesses[sort_index[-1]]
                 best_chormesome = copy.deepcopy(self.population[sort_index[-1]])
 
-            print("> Epoch {0}: Best fitness {1}".format(e + 1, best_fitness))
+            #print("> Epoch {0}: Best fitness {1}".format(e + 1, best_fitness))
             # Produce
             self.next_population = []
 
