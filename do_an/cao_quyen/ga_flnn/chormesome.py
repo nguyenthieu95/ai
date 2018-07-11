@@ -1,5 +1,5 @@
-import numpy as np
-from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.metrics import mean_absolute_error
+from utils.MathUtil import *
 
 class Chormesome:
     def __init__(self, n, w = None, activation = 0):
@@ -13,11 +13,13 @@ class Chormesome:
         if self.activation == 0:
             a = z
         elif self.activation == 1:
-            a = self.tanh(z)
+            a = elu(z)
         elif self.activation == 2:
-            a = self.relu(z)
+            a = relu(z)
         elif self.activation == 3:    
-            a = self.elu(z)
+            a = tanh(z)
+        elif self.activation == 4:
+            a = sigmoid(z)
         return a
 
     def compute_fitness(self, X, y):
@@ -28,18 +30,6 @@ class Chormesome:
 
         self.fitness = 1 / mae
         return self.fitness
-    
-    def tanh(self, x):
-        exp_plus = np.exp(x)
-        exp_minus = np.exp(-x)
-
-        return (exp_plus - exp_minus) / (exp_plus + exp_minus)
-
-    def relu(self, x):
-        return np.where(x < 0, 0, x)
-
-    def elu(self, x, alpha = 0.5):
-        return np.where(x < 0, alpha * (np.exp(x) - 1), x)
 
     def predict(self, X):
         w, b = self.w[:-1, :], self.w[[-1], :]

@@ -5,14 +5,17 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')
+from utils.GraphUtil import draw_predict_with_error
+from utils.IOUtil import save_result_to_csv, write_to_result_file
 
 class FLNN:
-    def __init__(self, dataset_original=None, train_idx=None, test_idx=None, sliding=None, activation = None,
-                e_func = None, learning_rate = None, batch_size = None, beta = None, test_name = None, path_save_result = None):
+    def __init__(self, dataset_original=None, train_idx=None, test_idx=None, sliding=None, activation = None, expand_func = None,
+                 epoch=None, learning_rate = None, batch_size = None, beta = None, test_name = None, path_save_result = None):
         self.dataset_original = dataset_original[:test_idx+sliding, :]
         self.sliding = sliding
         self.method_statistic = 0
         self.activation = activation
+        self.epoch = epoch
         self.learning_rate = learning_rate
         self.batch_size = batch_size
         self.beta = beta
@@ -20,15 +23,13 @@ class FLNN:
         self.train_idx = train_idx
         self.test_idx = test_idx
         self.dimension = dataset_original.shape[1]
-        self.n_expanded = 2
-        self.e_func = e_func
+        self.n_expanded = 5
+        self.expand_func = expand_func
         self.path_save_result = path_save_result
         self.test_name = test_name
-        self.filename = "flnn_sliding_{0}-activation_{1}-e_func_{2}".format(sliding, activation, e_func)
-    
-    def save_file_csv(self):
-        t1 = np.concatenate( (self.y_test_inverse, self.y_pred_inverse), axis = 1)
-        np.savetxt(self.path_save_result + self.filename + ".csv", t1, delimiter=",")
+        self.filename = "flnn_sliding_{0}-ex_func_{1}-act_func_{2}-epoch_{3}-lr_{4}-batch_{5}-beta_{6}".format(sliding,
+            expand_func, activation, epoch, learning_rate, batch_size, beta)
+
 
     def predict(self):
         Z = np.dot(self.W, self.X_test) + self.b
@@ -37,35 +38,21 @@ class FLNN:
         self.y_pred_inverse = self.inverse_data(y_pred).T
         self.y_test_inverse = self.inverse_data(self.y_test).T
 
-        self.score_test_MAE = mean_absolute_error(self.y_pred_inverse, self.y_test_inverse)
-        self.score_test_RMSE = np.sqrt(mean_squared_error(self.y_pred_inverse, self.y_test_inverse))
+        self.MAE = round(mean_absolute_error(self.y_pred_inverse, self.y_test_inverse), 4)
+        self.RMSE = round(np.sqrt(mean_squared_error(self.y_pred_inverse, self.y_test_inverse)), 4)
 
-        self.write_to_result_file()
+        write_to_result_file(self.filename, self.RMSE, self.MAE, self.test_name, self.path_save_result)
+        draw_predict_with_error(1, self.y_test_inverse, self.y_pred_inverse, self.RMSE, self.MAE, self.filename,
+                                self.path_save_result)
+        save_result_to_csv(self.y_test_inverse, self.y_pred_inverse, self.filename, self.path_save_result)
 
-        self.draw_predict()
-        # self.save_file_csv()
-
-    def write_to_result_file(self):
-        with open(self.path_save_result + self.test_name + '.txt', 'a') as file:
-            file.write("{0}  -  {1} - {2}\n".format(self.filename, self.score_test_MAE, self.score_test_RMSE))
-
-    def draw_predict(self):
-        plt.figure(2)
-        plt.plot(self.y_test_inverse[:, 0][0:200], color='#009FFD', linewidth=2.5)
-        plt.plot(self.y_pred_inverse[:, 0][0:200], color='#FFA400', linewidth=2.5)
-        plt.ylabel('CPU')
-        plt.xlabel('Timestamp')
-        plt.legend(['Actual', 'Prediction'], loc='upper right')
-        plt.savefig(self.path_save_result + self.filename + ".png")
-        # plt.show()
-        plt.close()
 
     def inverse_data(self, transform_data):
         self.min_max_scaler.fit_transform(self.dataset_original[:, [0]])
         
         return self.min_max_scaler.inverse_transform(transform_data)
 
-    def power_polynomials(self, n = 2):
+    def power_polynomials(self, n = 5):
         expanded_results = np.zeros((self.dataset_original.shape[0], 1))
         
         for i in range(self.dimension):
@@ -78,7 +65,7 @@ class FLNN:
     
         return expanded_results
     
-    def chebyshev_polynomials(self, n = 2):
+    def chebyshev_polynomials(self, n = 5):
         expanded_results = np.zeros((self.dataset_original.shape[0], 1))
     
         for i in range(self.dimension):
@@ -93,7 +80,7 @@ class FLNN:
     
         return expanded_results[:, 1:]
 
-    def legendre_data(self, n = 2):
+    def legendre_data(self, n = 5):
         expanded = np.zeros((self.dataset_original.shape[0], 1))
 
         for i in range(self.dimension):
@@ -108,7 +95,7 @@ class FLNN:
 
         return expanded[:, 1:]
 
-    def laguerre_data(self, n = 2):
+    def laguerre_data(self, n = 5):
         expanded = np.zeros((self.dataset_original.shape[0], 1))
 
         for i in range(self.dimension):
@@ -132,13 +119,13 @@ class FLNN:
         
         # Expanded
         expanded = None
-        if self.e_func == 0:
+        if self.expand_func == 0:
             expanded = self.chebyshev_polynomials(n_expanded)
-        elif self.e_func == 1:
+        elif self.expand_func == 1:
             expanded = self.legendre_data(n_expanded)
-        elif self.e_func == 2:
+        elif self.expand_func == 2:
             expanded = self.laguerre_data(n_expanded)
-        elif self.e_func == 3:
+        elif self.expand_func == 3:
             expanded = self.power_polynomials(n_expanded)
         for i in range(expanded.shape[1]):
             list_split.append(expanded[:, i:i+1])
@@ -239,7 +226,7 @@ class FLNN:
         
         return mini_batches
 
-    def train(self, epochs = 300):
+    def train(self):
     
         self.processing_data_2()
 
@@ -254,7 +241,7 @@ class FLNN:
         
         vdW, vdb = self.init_momentum_parameters(n_inputs, n_outputs)
         
-        for e in range(epochs):
+        for e in range(self.epoch):
             
             seed += 1
             

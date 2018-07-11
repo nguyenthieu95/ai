@@ -1,5 +1,5 @@
-import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+from utils.MathUtil import *
 
 class ExpandData:
     def __init__(self, data, train_idx, test_idx, sliding, expand_func = None):
@@ -12,61 +12,13 @@ class ExpandData:
 
     def expand_data(self):
         if self.expand_func == 0:
-            return self.chebyshev()
+            return chebyshev(self.data)
         elif self.expand_func == 1:
-            return self.legendre()
+            return legendre(self.data)
         elif self.expand_func == 2:
-            return self.laguerre()
+            return laguerre(self.data)
         elif self.expand_func == 3:
-            return self.powerseries()
-
-    def legendre(self):
-        data = self.data
-
-        x1 = data
-        x2 = 3 / 2 * np.power(data, 2) - 1 / 2
-        x3 = 1 / 3 * (5*data*x2 - 2*x1)
-        x4 = 1 / 4 * (7*data*x3 - 3*x2)
-        x5 = 1 / 5 * (9*data*x4 - 4*x3)
-        x6 = 1 / 6 * (11*data*x5 - 5*x4)
-
-        return [x2, x3, x4, x5, x6] 
-
-    def laguerre(self):
-        data = self.data
-
-        x1 = -data + 1
-        x2 = np.power(data, 2) / 2 - 2 * data + 1
-        x3 = 1 / 3 * ((5 - data)*x2 - 2*x1)
-        x4 = 1 / 4 * ((7 - data)*x3 - 3*x2)
-        x5 = 1 / 5 * ((9 - data)*x4 - 4*x3)
-        x6 = 1 / 6 * ((11 - data)*x5 - 5*x4)
-
-        return [x2, x3, x4, x5, x6]
-    
-    def chebyshev(self):
-        data = self.data
-
-        x1 = data
-        x2 = 2 * np.power(data, 2) - 1
-        x3 = 4 * np.power(data, 3) - 3 * data
-        x4 = 8 * np.power(data, 4) - 8 * np.power(data, 2) + 1
-        x5 = 2 * data * x4 - x3
-        x6 = 2 * data * x5 - x4
-
-        return [x2, x3, x4, x5, x6]
-    
-    def powerseries(self):
-        data = self.data
-
-        x1 = data
-        x2 = np.power(data, 2)
-        x3 = np.power(data, 3)
-        x4 = np.power(data, 4)
-        x5 = np.power(data, 5)
-        x6 = np.power(data, 6)
-
-        return [x2, x3, x4, x5, x6]
+            return powerseries(self.data)
 
     def scale(self, expanded_data):
         scale_expanded_data = []
