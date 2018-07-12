@@ -14,7 +14,7 @@ def save_result_to_csv(y_test=None, y_pred=None, filename=None, pathsave=None):
 
 
 def write_to_result_file(testname=None, RMSE=None, MAE=None, filename=None, pathsave=None):
-    with open(pathsave + filename + '.txt', 'a') as file:
+    with open(pathsave + filename + '.txt', 'a+') as file:
         file.write("{0}  -  {1} - {2}\n".format(testname, MAE, RMSE))
 
 

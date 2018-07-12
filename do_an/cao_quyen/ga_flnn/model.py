@@ -1,11 +1,7 @@
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
-import matplotlib.pyplot as plt
-plt.switch_backend('agg')
 from ga_flnn.population import Population
-from utils.GraphUtil import draw_predict_with_error
-from utils.IOUtil import save_result_to_csv, write_to_result_file
 from utils.ExpandUtil import ExpandData
 
 
@@ -63,7 +59,7 @@ class Model:
         self.mae = round(mean_absolute_error(self.real_inverse, self.pred_inverse), 4)
         self.rmse = round(np.sqrt(mean_squared_error(self.real_inverse, self.pred_inverse)), 4)
 
-        write_to_result_file(self.filename, self.rmse, self.mae, self.test_name, self.path_save_result)
-        draw_predict_with_error(2, self.real_inverse, self.pred_inverse, self.rmse, self.mae, self.filename, self.path_save_result)
-        save_result_to_csv(self.real_inverse, self.pred_inverse, self.filename, self.path_save_result)
+        # write_to_result_file(self.filename, self.rmse, self.mae, self.test_name, self.path_save_result)
+        # draw_predict_with_error(2, self.real_inverse, self.pred_inverse, self.rmse, self.mae, self.filename, self.path_save_result)
+        # save_result_to_csv(self.real_inverse, self.pred_inverse, self.filename, self.path_save_result)
 
