@@ -2,18 +2,18 @@ from multiprocessing import JoinableQueue, Queue, Process,cpu_count
 from queue import Empty
 import time
 import logging
-
+import json
+import numpy as np
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
-from flnn.model import Model as FLNN
 from utils.IOUtil import *
 from utils.GraphUtil import draw_predict_with_error
-
+from rabbitmq.rabbitmq import RabbitMQClient
 
 # parameters
 data_index = [5]
 list_idx = [(6640, 1660)]
-queue = Queue()
+rabbitmq_client = RabbitMQClient()
 
 # Consumer
 WORKER_POOLS = cpu_count()
@@ -27,7 +27,7 @@ def train_model(queue,name):
     LOGGER.info("Start worker %s",name)
     while True:
         try:
-            item = queue.get(True,timeout=1)
+            item = rabbitmq_client.get_message("test_ml")
             sliding_window = item["sliding_window"]
             expand_func = item["expand_func"]
             activation = item["activation"]
@@ -54,11 +54,12 @@ def train_model(queue,name):
 #Producer
 for index, dataindex in enumerate(data_index):
 
-    df = pd.read_csv("data/" + 'data_resource_usage_' + str(dataindex) + 'Minutes_6176858948.csv', usecols=[3], header=None, index_col=False)
-    df.dropna(inplace=True)
+    # df = pd.read_csv("../../data/" + 'data_resource_usage_' + str(dataindex) + 'Minutes_6176858948.csv', usecols=[3], header=None, index_col=False)
+    # df.dropna(inplace=True)
+    df = None
 
     # parameters
-    dataset_original = df.values
+    # dataset_original = df.values
     idx = list_idx[index]
     test_name = "tn1"
     path_save_result = "parallel/test/" + test_name + "/flnn/cpu/"
@@ -70,7 +71,7 @@ for index, dataindex in enumerate(data_index):
     # FLNN
     epoch = [800]
     learning_rate = [0.05]
-    batch_size = [16]
+    batch_size = np.arange(0.1,0.6,step=0.1)
     beta = [0.75]  # momemtum 0.7 -> 0.9 best
 
     param_grid = {
@@ -83,12 +84,13 @@ for index, dataindex in enumerate(data_index):
         "beta": beta
     }
     # Create combination of params.
-    for item in list(ParameterGrid(param_grid)) :
-        queue.put_nowait(item)
+    for idx, item in enumerate(list(ParameterGrid(param_grid))) :
+        rabbitmq_client.publish_message(exchange_name="test_ml",body=json.dumps(item))
+
 
 
 for i in range(WORKER_POOLS):
-    WORKERS.append(Process(target=train_model,args=(queue,"worker_%s"%i)))
+    WORKERS.append(Process(target=train_model,args=(rabbitmq_client,"worker_%s"%i)))
 
 for i in range(WORKER_POOLS):
     WORKERS[i].start()
