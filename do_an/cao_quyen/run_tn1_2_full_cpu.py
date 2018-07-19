@@ -7,10 +7,6 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import ParameterGrid
 
-from ga_flnn.model import Model as GAModel
-from flnn.flnn import FLNN
-
-
 # parameters
 data_index = [5]
 list_idx = [(6640, 1660)]

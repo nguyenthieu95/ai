@@ -69,12 +69,12 @@ param_grid = {
 
 
 param_grid_test = {
-    "sliding_window": [2],
+    "sliding_window": [2, 3, 5],
     "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
-    "activation": [1],          # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
+    "activation": [1, 2, 3],          # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
 
     "epoch": [500],
     "pop_size": [100],          # 100 -> 900
     "pc": [0.87],               # 0.85 -> 0.97
-    "pm": [0.1]                 # 0.02 -> 0.1
+    "pm": [0.02, 0.05]                 # 0.02 -> 0.1
 }

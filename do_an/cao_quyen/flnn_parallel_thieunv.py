@@ -54,7 +54,7 @@ for index, dataindex in enumerate(data_index):
     activation = [2, 3, 4]  # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
 
     # FLNN
-    epoch = [50]
+    epoch = [500]
     learning_rate = [0.05]
     batch_size = [16]
     beta = [0.75]  # momemtum 0.7 -> 0.9 best
