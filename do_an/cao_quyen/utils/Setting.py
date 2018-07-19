@@ -76,5 +76,14 @@ param_grid_test = {
     "epoch": [500],
     "pop_size": [100],          # 100 -> 900
     "pc": [0.87],               # 0.85 -> 0.97
-    "pm": [0.02, 0.05]                 # 0.02 -> 0.1
+    "pm": [0.02, 0.05, 0.08]                 # 0.02 -> 0.1
 }
+
+requirement_variables_test = [
+    "data/",    # pd.readfilepath
+    [3],        # usecols trong pd
+    test_name,      # test_name
+    "test/tn1/fl_gann/cpu/",    # path_save_result
+    None,       # output_index
+    False,      # output_multi
+]
