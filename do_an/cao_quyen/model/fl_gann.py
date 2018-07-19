@@ -55,7 +55,7 @@ class Model:
     def preprocessing_data(self):
         timeseries = TimeSeries(self.expand_func, self.train_idx, self.valid_idx, self.test_idx, self.sliding, self.method_statistic, self.data_original, self.scaler)
         self.X_train, self.y_train, self.X_valid, self.y_valid, self.X_test, self.y_test, self.scaler = timeseries.preprocessing(self.output_index)
-        print("Processing data done!!!")
+        #print("Processing data done!!!")
 
     def predict(self):
         w = np.reshape(self.chromosome[:self.size_w], (self.number_node_input, self.number_node_output))
