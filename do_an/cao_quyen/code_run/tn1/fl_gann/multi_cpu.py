@@ -57,7 +57,7 @@ for index, dataindex in enumerate(data_index):
         queue.put_nowait(item)
 
 # Consumer
-pool = Pool()
+pool = Pool(processes=30)
 pool.map(train_model, list(queue.queue))
 pool.close()
 pool.join()
