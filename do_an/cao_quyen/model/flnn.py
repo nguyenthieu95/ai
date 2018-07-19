@@ -121,7 +121,7 @@ class Model:
             save_result_to_csv(self.real_inverse[:,0:1], self.pred_inverse[:,0:1], self.filename, self.path_save_result+"CPU-")
             save_result_to_csv(self.real_inverse[:,1:2], self.pred_inverse[:,1:2], self.filename, self.path_save_result+"RAM-")
         else:
-            draw_predict_with_error(1, self.real_inverse, self.pred_inverse, self.rmse, self.mae, self.filename, self.path_save_result)
+            draw_predict_with_error(1, self.real_inverse, self.pred_inverse, self.rmse[0], self.mae[0], self.filename, self.path_save_result)
             write_all_results([self.filename, self.rmse[0], self.mae[0] ], self.test_name, self.path_save_result)
             save_result_to_csv(self.real_inverse, self.pred_inverse, self.filename, self.path_save_result)
 

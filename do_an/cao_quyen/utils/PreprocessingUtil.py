@@ -21,7 +21,8 @@ class ExpandingFunctions(object):
 
 
 class TimeSeries(object):
-    def __init__(self, expand_func= None, train_idx=None, valid_idx=0, test_idx=None, sliding=None, method_statistic=0, data=None, minmax_scaler=None):
+    def __init__(self, expand_func= None, train_idx=None, valid_idx=0, test_idx=None, sliding=None, method_statistic=0,
+                 data=None, minmax_scaler=None):
         """
         :param train_idx:
         :param valid_idx:
