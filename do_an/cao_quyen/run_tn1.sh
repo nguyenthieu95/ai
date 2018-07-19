@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PYTHONPATH=`pwd` &&
+
 python code_run/tn1/fl_gann/cpu.py &&
 
 python code_run/tn1/fl_gann/ram.py &&
