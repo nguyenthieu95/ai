@@ -185,19 +185,19 @@ class BaseClass(object):
         pop = [ self.create_chromosome(self.search_space) for _ in range(self.pop_size) ]
 
         for j in range(0, self.epoch):
+            # Next generations
+            pop = deepcopy(self.create_next_generation(pop))
+
             # Find best chromosome
             pop_sorted = sorted(pop, key=itemgetter(BaseClass.FITNESS_INDEX_SORTED))
             best_chromosome_train = deepcopy(pop_sorted[BaseClass.FITNESS_INDEX_AFTER_SORTED])
 
             if best_chromosome_train[1] > best_fitness_train:
                 best_fitness_train = best_chromosome_train[1]
-            print("> Epoch {0}: Best training fitness {1}".format(j + 1, 1.0 / best_fitness_train))
-
-            # Next generations
-            pop = deepcopy(self.create_next_generation(pop))
+            # print("> Epoch {0}: Best training fitness {1}".format(j + 1, 1.0 / best_fitness_train))
             self.loss_train.append(1.0 / best_chromosome_train[1])
 
-        print("done! Solution: f = {0}, MAE = {1}".format(best_chromosome_train[0], 1.0 / best_chromosome_train[1]))
+        #print("done! Solution: f = {0}, MAE = {1}".format(best_chromosome_train[0], 1.0 / best_chromosome_train[1]))
         return best_chromosome_train[0], self.loss_train
 
 

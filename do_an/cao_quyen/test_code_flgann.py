@@ -53,13 +53,3 @@ for index, dataindex in enumerate(data_index):
                                         p.run()
 
 
-    sliding_window = [2, 3, 4, 5]
-    expand_func = [0, 1, 2, 3, 4]                # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
-    activation = [0, 1, 2, 3, 4]             # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
-
-    # FL-GANN
-    epoch = [ 500, 600, 700, 800]
-    pop_size = [100, 150, 200, 250]  # 100 -> 900
-    pc = [0.87, 0.90, 0.94, 0.97]  # 0.85 -> 0.97
-    pm = [0.02, 0.05, 0.07, 0.1]  # 0.02 -> 0.1
-
