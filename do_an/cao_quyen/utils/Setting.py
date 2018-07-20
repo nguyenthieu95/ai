@@ -101,3 +101,12 @@ requirement_variables_test = [
     None,       # output_index
     False,      # output_multi
 ]
+
+requirement_variables_test3 = [
+    "data/",    # pd.readfilepath
+    [4],        # usecols trong pd
+    test_name,      # test_name
+    "test/tn1/fl_gann/ram/",    # path_save_result
+    None,       # output_index
+    False,      # output_multi
+]

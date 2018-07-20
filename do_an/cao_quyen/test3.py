@@ -5,7 +5,7 @@ import logging
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
 from model.fl_gann import Model as FLGANN
-from utils.Setting import requirement_variables_test as requirement_variables
+from utils.Setting import requirement_variables_test3 as requirement_variables
 from utils.Setting import param_grid_test as param_grid
 
 # parameters
