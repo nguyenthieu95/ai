@@ -3,7 +3,7 @@ from queue import Queue
 
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
-from model.flnn import Model as FLNN
+from model.fl_gann import Model as FLGANN
 from utils.Setting import param_grid_test as param_grid
 
 
@@ -17,17 +17,16 @@ def train_model(item):
     expand_func = item["expand_func"]
     activation = item["activation"]
     epoch = item["epoch"]
+    pop_size = item["pop_size"]
+    pc = item["pc"]
+    pm = item["pm"]
 
-    learning_rate = item["learning_rate"]
-    batch_size = item["batch_size"]
-    beta = item["beta"]
-
-    p = FLNN(dataset_original, idx[0], idx[1], idx[2], sliding=sliding_window, activation=activation,
-             expand_func=expand_func, epoch=epoch, learning_rate=learning_rate,
-             batch_size=batch_size, beta=beta, test_name=test_name,
-             path_save_result=path_save_result, method_statistic=method_statistic,
-             output_index=output_index, output_multi=output_multi)
-    p.train()
+    p = FLGANN(dataset_original, idx[0], idx[1], idx[2], sliding=sliding_window, activation=activation,
+               expand_func=expand_func, epoch=epoch, pop_size=pop_size, pc=pc, pm=pm,
+               lowup_w=lowup_w, lowup_b=lowup_b, test_name=test_name,
+               path_save_result=path_save_result, method_statistic=method_statistic,
+               output_index=output_index, output_multi=output_multi)
+    p.run()
 
 
 #Producer
@@ -49,6 +48,8 @@ for index, dataindex in enumerate(data_index):
     output_index = None
     output_multi = True
     method_statistic = 0
+    lowup_w = [-1, 1]
+    lowup_b = [-1, 1]
 
     # Create combination of params.
     for item in list(ParameterGrid(param_grid)) :
