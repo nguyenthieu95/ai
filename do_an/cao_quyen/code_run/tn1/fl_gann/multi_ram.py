@@ -1,11 +1,11 @@
-from multiprocessing import Pool
+from multiprocessing.pool import ThreadPool
 from queue import Queue
 
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
 from model.fl_gann import Model as FLGANN
 from utils.Setting import requirement_variables_multi_ram as requirement_variables
-from utils.Setting import param_grid
+from utils.Setting import param_grid_ga_real as param_grid
 
 # parameters
 data_index = [5]
@@ -58,7 +58,7 @@ for index, dataindex in enumerate(data_index):
         queue.put_nowait(item)
 
 # Consumer
-pool = Pool(processes=16)
+pool = ThreadPool(16)
 pool.map(train_model, list(queue.queue))
 pool.close()
 pool.join()

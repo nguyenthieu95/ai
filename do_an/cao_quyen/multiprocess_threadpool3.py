@@ -58,7 +58,7 @@ for index, dataindex in enumerate(data_index):
         queue.put_nowait(item)
 
 # Consumer
-pool = ThreadPool(8)
+pool = ThreadPool(32)
 pool.map(train_model, list(queue.queue))
 pool.close()
 pool.join()

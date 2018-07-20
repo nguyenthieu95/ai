@@ -162,7 +162,7 @@ class BaseClass(object):
             w2 = deepcopy(c2[0])
 
             ### Crossover
-            if np.random.uniform() > self.pc:
+            if np.random.uniform() < self.pc:
                 w1, w2 = self.crossover_arthmetic_recombination(c1[0], c2[0])
 
             ### Mutation
@@ -226,7 +226,7 @@ class Ver1(BaseClass):
             w2 = deepcopy(c2[0])
 
             ### Crossover
-            if np.random.uniform() > self.pc:
+            if np.random.uniform() < self.pc:
                 w1, w2 = self.crossover_arthmetic_recombination(c1[0], c2[0])
 
             ### Mutation
