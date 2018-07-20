@@ -1,10 +1,11 @@
-from multiprocessing import Pool
+from multiprocessing.pool import ThreadPool
 from queue import Queue
 
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
-from model.flnn import Model as FLNN
-
+from model.fl_gann import Model as FLGANN
+from utils.Setting import requirement_variables_multi_cpu as requirement_variables
+from utils.Setting import param_grid_ga_real as param_grid
 
 # parameters
 data_index = [5]
@@ -17,16 +18,16 @@ def train_model(item):
     activation = item["activation"]
     epoch = item["epoch"]
 
-    learning_rate = item["learning_rate"]
-    batch_size = item["batch_size"]
-    beta = item["beta"]
+    pop_size = item["pop_size"]
+    pc = item["pc"]
+    pm = item["pm"]
 
-    p = FLNN(dataset_original, idx[0], idx[1], idx[2], sliding=sliding_window, activation=activation,
-             expand_func=expand_func, epoch=epoch, learning_rate=learning_rate,
-             batch_size=batch_size, beta=beta, test_name=test_name,
-             path_save_result=path_save_result, method_statistic=method_statistic,
-             output_index=output_index, output_multi=output_multi)
-    p.train()
+    p = FLGANN(dataset_original, idx[0], idx[1], idx[2], sliding=sliding_window, activation=activation,
+               expand_func=expand_func, epoch=epoch, pop_size=pop_size, pc=pc, pm=pm,
+               lowup_w=lowup_w, lowup_b=lowup_b, test_name=test_name,
+               path_save_result=path_save_result, method_statistic=method_statistic,
+               output_index=output_index, output_multi=output_multi)
+    p.run()
 
 #Producer
 for index, dataindex in enumerate(data_index):
@@ -36,46 +37,29 @@ for index, dataindex in enumerate(data_index):
     # ( [number, number, ...], None )   ==> multiple input, multiple output                 ==> output_multi = True
     # ( [number, number, ...], number ) ==> multiple input, single output
 
-    df = pd.read_csv("../../../data/" + 'data_resource_usage_' + str(dataindex) + 'Minutes_6176858948.csv', usecols=[3, 4], header=None, index_col=False)
+    df = pd.read_csv(requirement_variables[0] + 'data_resource_usage_' + str(dataindex) + 'Minutes_6176858948.csv',
+                     usecols=requirement_variables[1], header=None, index_col=False)
     df.dropna(inplace=True)
 
     # parameters
     dataset_original = df.values
     idx = list_idx[index]
-    test_name = "tn1"
-    path_save_result = "multi_cpu/"
-    output_index = 0
-    output_multi = False
+    test_name = requirement_variables[2]
+    path_save_result = requirement_variables[3]
+    output_index = requirement_variables[4]
+    output_multi = requirement_variables[5]
     method_statistic = 0            # 0: sliding window, 1: mean, 2: min-mean-max, 3: min-median-max
+    lowup_w = [-1, 1]
+    lowup_b = [-1, 1]
 
-    sliding_window = [2, 3, 4, 5]
-    expand_func = [0, 1, 2, 3, 4]                # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
-    activation = [0, 1, 2, 3, 4]             # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
-
-    # FLNN
-    epoch = [1000, 1200, 1500, 2000]
-    learning_rate = [0.05, 0.10, 0.15, 0.20]
-    batch_size = [16, 32, 64, 128]
-    beta = [0.75, 0.80, 0.85, 0.90]  # momemtum 0.7 -> 0.9 best
-
-    param_grid = {
-        "sliding_window": sliding_window,
-        "expand_func": expand_func,
-        "activation": activation,
-        "epoch": epoch,
-        "learning_rate": learning_rate,
-        "batch_size": batch_size,
-        "beta": beta
-    }
     # Create combination of params.
     for item in list(ParameterGrid(param_grid)) :
         queue.put_nowait(item)
 
 # Consumer
-pool = Pool()
+pool = ThreadPool()
 pool.map(train_model, list(queue.queue))
 pool.close()
 pool.join()
 pool.terminate()
-
 
