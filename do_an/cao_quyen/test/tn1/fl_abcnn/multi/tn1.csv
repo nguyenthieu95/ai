@@ -1,0 +1,9 @@
+FL_GANN-sliding_2-ex_func_0-act_func_2-epoch_500-pop_size_100-pc_0.87-pm_0.02,1.0788,0.1041,0.946,0.0647
+FL_GANN-sliding_3-ex_func_0-act_func_2-epoch_500-pop_size_100-pc_0.87-pm_0.02,1.0787,0.2242,0.9459,0.2161
+FL_GANN-sliding_5-ex_func_0-act_func_2-epoch_500-pop_size_100-pc_0.87-pm_0.02,1.079,0.2243,0.9462,0.2162
+FL_GANN-sliding_2-ex_func_0-act_func_3-epoch_500-pop_size_100-pc_0.87-pm_0.02,0.8079,0.0839,0.5088,0.048
+FL_GANN-sliding_3-ex_func_0-act_func_3-epoch_500-pop_size_100-pc_0.87-pm_0.02,1.6997,0.2185,1.0555,0.1462
+FL_GANN-sliding_5-ex_func_0-act_func_3-epoch_500-pop_size_100-pc_0.87-pm_0.02,5.9309,0.3008,3.6995,0.1885
+FL_GANN-sliding_2-ex_func_0-act_func_1-epoch_500-pop_size_100-pc_0.87-pm_0.02,0.6008,0.1683,0.4405,0.109
+FL_GANN-sliding_3-ex_func_0-act_func_1-epoch_500-pop_size_100-pc_0.87-pm_0.02,0.935,0.2965,0.7231,0.1763
+FL_GANN-sliding_5-ex_func_0-act_func_1-epoch_500-pop_size_100-pc_0.87-pm_0.02,2.0033,0.2925,1.5026,0.1953
