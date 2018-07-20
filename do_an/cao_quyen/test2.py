@@ -4,9 +4,9 @@ import time
 import logging
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
-from model.fl_gann import Model as FLGANN
+from model.flnn import Model as FLNN
 from utils.Setting import requirement_variables_test as requirement_variables
-from utils.Setting import param_grid_test as param_grid
+from utils.Setting import param_grid_flnn_test as param_grid
 
 # parameters
 data_index = [5]
@@ -31,16 +31,16 @@ def train_model(queue,name):
             expand_func = item["expand_func"]
             activation = item["activation"]
             epoch = item["epoch"]
-            pop_size = item["pop_size"]
-            pc = item["pc"]
-            pm = item["pm"]
+            learning_rate = item["learning_rate"]
+            batch_size = item["batch_size"]
+            beta = item["beta"]
 
-            p = FLGANN(dataset_original, idx[0], idx[1], idx[2], sliding=sliding_window, activation=activation,
-                       expand_func=expand_func, epoch=epoch, pop_size=pop_size, pc=pc, pm=pm,
-                       lowup_w=lowup_w, lowup_b=lowup_b, test_name=test_name,
-                       path_save_result=path_save_result, method_statistic=method_statistic,
-                       output_index=output_index, output_multi=output_multi)
-            p.run()
+            p = FLNN(dataset_original, idx[0], idx[1], idx[2], sliding=sliding_window, activation=activation,
+                     expand_func=expand_func, epoch=epoch, learning_rate=learning_rate,
+                     batch_size=batch_size, beta=beta, test_name=test_name,
+                     path_save_result=path_save_result, method_statistic=method_statistic,
+                     output_index=output_index, output_multi=output_multi)
+            p.train()
 
         except Empty as e:
             break

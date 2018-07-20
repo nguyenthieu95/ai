@@ -49,15 +49,15 @@ for index, dataindex in enumerate(data_index):
     output_multi = False
     method_statistic = 0
 
-    sliding_window = [3, 5]
-    expand_func = [1, 2]  # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries,
+    sliding_window = [2, 3, 5]
+    expand_func = [0]  # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries,
     activation = [2, 3, 4]  # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
 
     # FLNN
     epoch = [500]
     learning_rate = [0.05]
     batch_size = [16]
-    beta = [0.75]  # momemtum 0.7 -> 0.9 best
+    beta = [0.02, 0.05, 0.08]  # momemtum 0.7 -> 0.9 best
 
     param_grid = {
         "sliding_window": sliding_window,
@@ -73,10 +73,8 @@ for index, dataindex in enumerate(data_index):
         queue.put_nowait(item)
 
 # Consumer
-pool = Pool(processes=8)
+pool = Pool(8)
 pool.map(train_model, list(queue.queue))
 pool.close()
 pool.join()
 pool.terminate()
-
-
