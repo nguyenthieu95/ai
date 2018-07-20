@@ -1,10 +1,10 @@
 ### Run on sh file
-#pd_readfilepath = "data/"
-#path_save_result = "code_run/tn1/fl_gann/"
+pd_readfilepath = "data/"
+path_save_result = "code_run/tn1/fl_gann/"
 
 ### Run on each python file
-pd_readfilepath = "../../../data/"
-path_save_result = ""
+#pd_readfilepath = "../../../data/"
+#path_save_result = ""
 
 
 test_name = "tn1"
