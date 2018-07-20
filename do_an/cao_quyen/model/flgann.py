@@ -53,7 +53,7 @@ class Model:
             self.activation_function = sigmoid
 
         self.X_train, self.y_train, self.X_valid, self.y_valid, self.X_test, self.y_test = None, None, None, None, None, None
-        self.chromosome, self.loss_train = None, None
+        self.chromosome, self.loss_train = None, []
         self.number_node_input, self.number_node_output = None, None
         self.length_matrix_w, self.length_vector_b, self.problem_size = None, None, None
 
@@ -155,7 +155,7 @@ class Model:
             self.loss_train.append(1.0 / best_chromosome_train[1])
 
         #print("done! Solution: f = {0}, MAE = {1}".format(best_chromosome_train[0], 1.0 / best_chromosome_train[1]))
-        return best_chromosome_train[0], self.loss_train
+        self.chromosome = best_chromosome_train[0]
 
 
     def predict(self):
@@ -187,7 +187,7 @@ class Model:
         self.length_matrix_w = self.number_node_input * self.number_node_output
         self.length_vector_b = self.number_node_output
         self.problem_size = self.length_matrix_w + self.length_vector_b
-        self.chromosome, self.loss_train = self.train()
+        self.train()
         self.predict()
 
 
