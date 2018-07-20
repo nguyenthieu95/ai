@@ -1,12 +1,9 @@
-#from multiprocessing.pool import ThreadPool
-from multiprocessing.dummy import Pool as ThreadPool
 from queue import Queue
 
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
 from model.fl_gann import Model as FLGANN
 from utils.Setting import param_grid_test as param_grid
-
 
 # parameters
 data_index = [5]
@@ -39,14 +36,14 @@ for index, dataindex in enumerate(data_index):
     # ( [number, number, ...], None )   ==> multiple input, multiple output                 ==> output_multi = True
     # ( [number, number, ...], number ) ==> multiple input, single output
 
-    df = pd.read_csv("data/" + 'data_resource_usage_' + str(dataindex) + 'Minutes_6176858948.csv', usecols=[4], header=None, index_col=False)
+    df = pd.read_csv("data/" + 'data_resource_usage_' + str(dataindex) + 'Minutes_6176858948.csv', usecols=[3], header=None, index_col=False)
     df.dropna(inplace=True)
 
     # parameters
     dataset_original = df.values
     idx = list_idx[index]
     test_name = "tn1"
-    path_save_result = "test/" + test_name + "/fl_abcnn/ram/"
+    path_save_result = "test/" + test_name + "/fl_psonn/cpu/"
     output_index = None
     output_multi = False
     method_statistic = 0
@@ -57,9 +54,5 @@ for index, dataindex in enumerate(data_index):
     for item in list(ParameterGrid(param_grid)) :
         queue.put_nowait(item)
 
-# Consumer
-pool = ThreadPool(16)
-pool.map(train_model, list(queue.queue))
-pool.close()
-pool.join()
-pool.terminate()
+for item in list(queue.queue):
+    train_model(item)
