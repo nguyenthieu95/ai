@@ -46,7 +46,7 @@ for index, dataindex in enumerate(data_index):
     dataset_original = df.values
     idx = list_idx[index]
     test_name = "tn1"
-    path_save_result = "test/" + test_name + "/fl_abcnn/multi/"
+    path_save_result = "test/" + test_name + "/fl_psonn/multi/"
     output_index = None
     output_multi = True
     method_statistic = 0
@@ -58,7 +58,7 @@ for index, dataindex in enumerate(data_index):
         queue.put_nowait(item)
 
 # Consumer
-pool = ThreadPool(32)
+pool = ThreadPool(1)
 pool.map(train_model, list(queue.queue))
 pool.close()
 pool.join()
