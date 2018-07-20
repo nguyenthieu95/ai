@@ -58,6 +58,5 @@ for index, dataindex in enumerate(data_index):
 
 # Consumer
 with ProcessPoolExecutor(max_workers=4) as executor:
-    results = executor.map(train_model, list(queue.queue))
-    for n, pid in results:
-        print('ran task {} in process {}'.format(n, pid))
+    executor.map(train_model, list(queue.queue))
+
