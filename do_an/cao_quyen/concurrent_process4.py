@@ -45,7 +45,7 @@ for index, dataindex in enumerate(data_index):
     dataset_original = df.values
     idx = list_idx[index]
     test_name = "tn1"
-    path_save_result = "test/" + test_name + "/fl_abcnn/multi_ram/"
+    path_save_result = "test/" + test_name + "/fl_psonn/multi_ram/"
     output_index = 1
     output_multi = False
     method_statistic = 0
