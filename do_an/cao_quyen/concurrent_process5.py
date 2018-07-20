@@ -3,7 +3,7 @@ from queue import Queue
 
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
-from model.fl_gann import Model as FLGANN
+from model.flgann import Model as FLGANN
 from utils.Setting import param_grid_test as param_grid
 
 
@@ -45,7 +45,7 @@ for index, dataindex in enumerate(data_index):
     dataset_original = df.values
     idx = list_idx[index]
     test_name = "tn1"
-    path_save_result = "test/" + test_name + "/fl_psonn/multi/"
+    path_save_result = "test/" + test_name + "/fl_gann/multi/"
     output_index = None
     output_multi = True
     method_statistic = 0
