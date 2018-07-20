@@ -1,4 +1,11 @@
 Multi --> 27 set -> 16'
-Thread => 27 set -> 12'
-Dummy => 27 set -> 12'
-None => 27 set -> 8'
+Thread => 27 set -> 12'         ==> Dang co loi o phan ve~
+Dummy => 27 set -> 12'          ==> Dang co loi o phan ve~
+None => 27 set -> 26'
+
+
+Ban 4, 201 C1 ==> Mat thoi gian cho
+==> Dang ki sang de chieu lay hoac dang ki chieu de mai lay
+
+==> Co the tu di xin dau ten o 202 C1 va dau truong o 114 C1
+
