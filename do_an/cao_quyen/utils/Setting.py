@@ -59,12 +59,12 @@ requirement_variables_ram = [
 param_grid_ga_real = {
     "sliding_window": [2, 3, 5],
     "expand_func": [0, 1, 2, 3, 4],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
-    "activation": [1, 2, 3],          # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
+    "activation": [1, 2, 3, 4],          # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
 
     "epoch": [500, 600, 700, 800],
     "pop_size": [100, 150, 200, 250],               # 100 -> 900
-    "pc": [0.87, 0.90, 0.95, 0.97],               # 0.85 -> 0.97
-    "pm": [0.05, 0.075, 0.1, 0.15]                 # 0.02 -> 0.1
+    "pc": [0.85, 0.90, 0.95],               # 0.85 -> 0.97
+    "pm": [0.05, 0.1, 0.15]                 # 0.02 -> 0.1
 }
 
 
