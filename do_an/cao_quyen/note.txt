@@ -4,6 +4,8 @@ Dummy => 27 set -> 12'          ==> Dang co loi o phan ve~
 None => 27 set -> 26'
 
 
+1h05'  -> 27 set * 5 file  ==>
+
 Ban 4, 201 C1 ==> Mat thoi gian cho
 ==> Dang ki sang de chieu lay hoac dang ki chieu de mai lay
 
