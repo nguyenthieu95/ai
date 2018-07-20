@@ -8,3 +8,6 @@ FL_GANN-sliding_3-ex_func_0-act_func_1-epoch_500-pop_size_100-pc_0.87-pm_0.05,3.
 FL_GANN-sliding_5-ex_func_0-act_func_1-epoch_500-pop_size_100-pc_0.87-pm_0.05,3.2086,0.1847,2.1089,0.1192
 FL_GANN-sliding_5-ex_func_0-act_func_2-epoch_500-pop_size_100-pc_0.87-pm_0.02,1.079,0.2243,0.9462,0.2162
 FL_GANN-sliding_2-ex_func_0-act_func_2-epoch_500-pop_size_100-pc_0.87-pm_0.05,1.0788,0.2243,0.946,0.2161
+FL_GANN-sliding_3-ex_func_0-act_func_2-epoch_500-pop_size_100-pc_0.87-pm_0.05,1.0787,0.2242,0.9459,0.2161
+FL_GANN-sliding_5-ex_func_0-act_func_2-epoch_500-pop_size_100-pc_0.87-pm_0.05,1.079,0.2243,0.9462,0.2162
+FL_GANN-sliding_2-ex_func_0-act_func_3-epoch_500-pop_size_100-pc_0.87-pm_0.02,1.9412,0.3186,1.2281,0.191
