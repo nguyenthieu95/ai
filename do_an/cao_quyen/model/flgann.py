@@ -79,7 +79,7 @@ class Model:
     def compute_fitness(self, chromosome=None, X_data=None, y_data=None):
         w2 = np.reshape(chromosome[:self.length_matrix_w], (self.number_node_input, -1))
         b2 = np.reshape(chromosome[self.length_matrix_w:], (-1, self.length_vector_b))
-        y_pred = self.activation( np.add( np.matmul(X_data, w2), b2) )
+        y_pred = self.activation_function( np.add( np.matmul(X_data, w2), b2) )
         return 1.0 / mean_absolute_error(y_pred, y_data)
 
     ### Selection
