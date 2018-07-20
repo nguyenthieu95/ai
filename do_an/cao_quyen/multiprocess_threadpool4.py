@@ -4,7 +4,7 @@ from queue import Queue
 
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
-from model.fl_gann import Model as FLGANN
+from model.flgann import Model as FLGANN
 from utils.Setting import param_grid_test as param_grid
 
 
