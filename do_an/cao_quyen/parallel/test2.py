@@ -13,6 +13,6 @@ if __name__ == '__main__':
     for i in range(4):
         matrices.append(np.random.random_integers(100, size=(1000, 1000)))
 
-    pool = Pool(8)
+    pool = Pool(4)
     print(timeit(lambda: map(mmul, matrices), number=20))
     print (timeit(lambda: pool.map(mmul, matrices), number=20))

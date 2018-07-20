@@ -1,7 +1,8 @@
 import numpy as np
 import os
 from timeit import timeit
-from multiprocessing import Pool
+from multiprocessing.pool import ThreadPool
+#from multiprocessing.dummy import Pool as ThreadPool
 
 
 def mmul(matrix):
@@ -21,5 +22,5 @@ if __name__ == '__main__':
     # that it will use all cores
     os.system("taskset -p 0xff %d" % os.getpid())
 
-    pool = Pool(8)
+    pool = ThreadPool(4)
     print(timeit(lambda: pool.map(mmul, matrices), number=20))
