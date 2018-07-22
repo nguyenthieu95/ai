@@ -1,6 +1,3 @@
-import sys, os
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../../")
-
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
 from model.tn3 import Model as FLGANN
