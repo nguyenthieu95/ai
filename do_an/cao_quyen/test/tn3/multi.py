@@ -1,11 +1,11 @@
 import sys, os
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../")
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../../")
 
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
-from model.fl_gann import Model as FLGANN
-from utils.Setting import requirement_variables_tn3_multi as requirement_variables
-from utils.Setting import param_grid_ga_real_client_tn3 as param_grid
+from model.tn3 import Model as FLGANN
+from utils.Setting2 import requirement_variables_tn3_multi as requirement_variables
+from utils.Setting2 import param_grid_ga_real_client_tn3 as param_grid
 
 # parameters
 data_index = [5]
