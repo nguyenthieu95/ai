@@ -203,8 +203,8 @@ param_grid_ga_real_client_tn3 = {
 }
 
 
-tn3_readfilepath = "../../../data/"
-tn3_savepath = ""
+tn3_readfilepath = "data/"
+tn3_savepath = "test/tn3/"
 test_name_3 = "tn3"
 
 requirement_variables_tn3_cpu = [
