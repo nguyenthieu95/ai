@@ -21,3 +21,14 @@ ram:    22054
 multi_cpu:  24489
 multi_ram:  26973
 multi:      29170
+
+
+tn2:
+
+ps: 15800
+pc: 18134
+pm: 19572
+
+
+
+

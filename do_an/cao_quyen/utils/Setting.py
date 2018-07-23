@@ -204,23 +204,23 @@ server_tn2_param_grid_ga_pm = {
 
 ###### TN 3: Changing functional link
 
-param_grid_ga_real_client_tn3 = {
+server_tn3_param_grid_ga = {
     "sliding_window": [2, 3, 4, 5],
-    "expand_func": [0, 1, 2, 3],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
+    "expand_func": [0, 1, 2, 3, 4],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
     "activation": [1],          # 1:elu, 3:tanh,
 
     "epoch": [600],
     "pop_size": [200],               # 100 -> 900
     "pc": [0.85],               # 0.85 -> 0.97
-    "pm": [0.15]                 # 0.02 -> 0.1
+    "pm": [0.02]                 # 0.02 -> 0.1
 }
 
 
-tn3_readfilepath = "../../../data/"
-tn3_savepath = ""
+tn3_readfilepath = "data/"
+tn3_savepath = "test/tn3/"
 test_name_3 = "tn3"
 
-requirement_variables_tn3_cpu = [
+server_tn3_requirement_variables_ga_cpu = [
     tn3_readfilepath,    # pd.readfilepath
     [3],        # usecols trong pd
     test_name_3,      # test_name
@@ -229,16 +229,16 @@ requirement_variables_tn3_cpu = [
     False,      # output_multi
 ]
 
-requirement_variables_tn3_multi = [
+server_tn3_requirement_variables_ga_ram = [
     tn3_readfilepath,    # pd.readfilepath
-    [3, 4],        # usecols trong pd
+    [4],        # usecols trong pd
     test_name_3,      # test_name
-    tn3_savepath + "multi/",    # path_save_result
+    tn3_savepath + "ram/",    # path_save_result
     None,       # output_index
-    True,      # output_multi
+    False,      # output_multi
 ]
 
-requirement_variables_tn3_multi_cpu = [
+server_tn3_requirement_variables_ga_multi_cpu = [
     tn3_readfilepath,    # pd.readfilepath
     [3, 4],        # usecols trong pd
     test_name_3,      # test_name
@@ -247,7 +247,7 @@ requirement_variables_tn3_multi_cpu = [
     False,      # output_multi
 ]
 
-requirement_variables_tn3_multi_ram = [
+server_tn3_requirement_variables_ga_multi_ram = [
     tn3_readfilepath,    # pd.readfilepath
     [3, 4],        # usecols trong pd
     test_name_3,      # test_name
@@ -256,11 +256,14 @@ requirement_variables_tn3_multi_ram = [
     False,      # output_multi
 ]
 
-requirement_variables_tn3_ram = [
+server_tn3_requirement_variables_ga_multi = [
     tn3_readfilepath,    # pd.readfilepath
-    [4],        # usecols trong pd
+    [3, 4],        # usecols trong pd
     test_name_3,      # test_name
-    tn3_savepath + "ram/",    # path_save_result
+    tn3_savepath + "multi/",    # path_save_result
     None,       # output_index
-    False,      # output_multi
+    True,      # output_multi
 ]
+
+
+
