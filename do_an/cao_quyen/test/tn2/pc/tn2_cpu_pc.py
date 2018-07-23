@@ -1,11 +1,8 @@
-import sys, os
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../")
-
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
 from model.flgann import Model as FLGANN
-from utils.Setting import requirement_variables_tn2_cpu as requirement_variables
-from utils.Setting import param_grid_ga_real_client_tn2_pop_size as param_grid
+from utils.Setting import server_tn2_requirement_variables_cpu_pc as requirement_variables
+from utils.Setting import server_tn2_param_grid_ga_pc as param_grid
 from utils.IOUtil import save_run_test
 
 # parameters
@@ -70,9 +67,10 @@ for index, dataindex in enumerate(data_index):
 
         finalRMSE.append(arrayRMSE)
         finalMAE.append(arrayMAE)
+        print("Loop {}".format(loop))
 
-    save_run_test(number_run_test, finalRMSE, "results/cpu_RMSE.csv")
-    save_run_test(number_run_test, finalMAE, "results/cpu_MAE.csv")
+    save_run_test(number_run_test, finalRMSE, "test/tn2/pc/results/cpu_RMSE.csv")
+    save_run_test(number_run_test, finalMAE, "test/tn2/pc/results/cpu_MAE.csv")
 
 
 

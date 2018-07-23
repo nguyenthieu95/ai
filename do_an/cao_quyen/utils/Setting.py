@@ -135,25 +135,36 @@ requirement_variables_test3 = [
 
 
 ###### TN 2
-requirement_variables_tn2_ram = [
-    "../../../data/",    # pd.readfilepath
-    [4],        # usecols trong pd
-    test_name,      # test_name
-    "results/" + "ram/",    # path_save_result
-    None,       # output_index
-    False,      # output_multi
-]
 
-requirement_variables_tn2_cpu = [
-    "../../../data/",    # pd.readfilepath
+test_tn2 = "tn2"
+server_tn2_requirement_variables_cpu_ps = [
+    "data/",    # pd.readfilepath
     [3],        # usecols trong pd
-    test_name,      # test_name
-    "results/" + "cpu/",    # path_save_result
+    test_tn2,      # test_name
+    "test/tn2/ps/results/",    # path_save_result
     None,       # output_index
     False,      # output_multi
 ]
 
-param_grid_ga_real_client_tn2_pop_size = {
+server_tn2_requirement_variables_cpu_pc = [
+    "data/",    # pd.readfilepath
+    [3],        # usecols trong pd
+    test_tn2,      # test_name
+    "test/tn2/pc/results/",    # path_save_result
+    None,       # output_index
+    False,      # output_multi
+]
+
+server_tn2_requirement_variables_cpu_pm = [
+    "data/",    # pd.readfilepath
+    [3],        # usecols trong pd
+    test_tn2,      # test_name
+    "test/tn2/pm/results/",    # path_save_result
+    None,       # output_index
+    False,      # output_multi
+]
+
+server_tn2_param_grid_ga_ps = {
     "sliding_window": [3],
     "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
     "activation": [1],          # 1:elu, 3:tanh,
@@ -161,10 +172,10 @@ param_grid_ga_real_client_tn2_pop_size = {
     "epoch": [600],
     "pop_size": [100, 150, 200, 250, 300, 350, 400, 450, 500],               # 100 -> 900
     "pc": [0.85],               # 0.85 -> 0.97
-    "pm": [0.15]                 # 0.02 -> 0.1
+    "pm": [0.02]                 # 0.02 -> 0.1
 }
 
-param_grid_ga_real_client_tn2_pc = {
+server_tn2_param_grid_ga_pc= {
     "sliding_window": [3],
     "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
     "activation": [1],          # 1:elu, 3:tanh,
@@ -172,10 +183,10 @@ param_grid_ga_real_client_tn2_pc = {
     "epoch": [600],
     "pop_size": [250],               # 100 -> 900
     "pc": [0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 0.98],               # 0.85 -> 0.97
-    "pm": [0.15]                 # 0.02 -> 0.1
+    "pm": [0.02]                 # 0.02 -> 0.1
 }
 
-param_grid_ga_real_client_tn2_pm = {
+server_tn2_param_grid_ga_pm = {
     "sliding_window": [3],
     "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
     "activation": [1],          # 1:elu, 3:tanh,
@@ -183,10 +194,11 @@ param_grid_ga_real_client_tn2_pm = {
     "epoch": [600],
     "pop_size": [250],               # 100 -> 900
     "pc": [0.85],               # 0.85 -> 0.97
-    "pm": [0.02, 0.05, 0.1, 0.125, 0.15, 0.175, 0.20, 0.25, 0.30]                 # 0.02 -> 0.1
+    "pm": [0.005, 0.01, 0.02, 0.05, 0.10, 0.125, 0.15, 0.175, 0.20]                 # 0.02 -> 0.1
 }
 
-#"pm": [0.02, 0.05, 0.075, 0.10, 0.15, 0.18, 0.20, 0.25, 0.30]  
+
+
 
 
 
