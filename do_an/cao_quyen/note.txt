@@ -14,4 +14,10 @@ Ban 4, 201 C1 ==> Mat thoi gian cho
 
 
 
+tn3:
 
+cpu:    8299
+ram:    22054
+multi_cpu:  24489
+multi_ram:  26973
+multi:      29170

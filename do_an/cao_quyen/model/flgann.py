@@ -98,10 +98,9 @@ class Model:
         return w1, w2
 
     ### Mutation
-    def mutation_flip_point(self, parent):
-        point = np.random.randint(0, len(parent))
+    def mutation_flip_point(self, parent, index):
         w = deepcopy(parent)
-        w[point] = np.random.uniform(self.search_space[point][0], self.search_space[point][1])
+        w[index] = np.random.uniform(self.search_space[index][0], self.search_space[index][1])
         return w
 
     def create_next_generation(self, pop):
@@ -123,10 +122,11 @@ class Model:
                 w1, w2 = self.crossover_arthmetic_recombination(c1[0], c2[0])
 
             ### Mutation
-            if np.random.uniform() < self.pm:
-                w1 = self.mutation_flip_point(w1)
-            if np.random.uniform() < self.pm:
-                w2 = self.mutation_flip_point(w2)
+            for id in range(0, self.problem_size):
+                if np.random.uniform() < self.pm:
+                    w1 = self.mutation_flip_point(w1, id)
+                if np.random.uniform() < self.pm:
+                    w2 = self.mutation_flip_point(w2, id)
 
             c1_new = [w1, self.compute_fitness(w1, self.X_train, self.y_train)]
             c2_new = [w2, self.compute_fitness(w2, self.X_train, self.y_train)]
@@ -169,15 +169,16 @@ class Model:
         self.mae = np.round(mean_absolute_error(self.pred_inverse, self.real_inverse, multioutput='raw_values'), 4)
         self.rmse = np.round(np.sqrt(mean_squared_error(self.pred_inverse, self.real_inverse, multioutput='raw_values')), 4)
 
-        if self.output_multi:
-            write_all_results([self.filename, self.rmse[0], self.rmse[1], self.mae[0], self.mae[1] ], self.test_name, self.path_save_result)
-            save_result_to_csv(self.real_inverse[:,0:1], self.pred_inverse[:,0:1], self.filename, self.path_save_result+"CPU-")
-            save_result_to_csv(self.real_inverse[:,1:2], self.pred_inverse[:,1:2], self.filename, self.path_save_result+"RAM-")
+
+        # if self.output_multi:
+        #     write_all_results([self.filename, self.rmse[0], self.rmse[1], self.mae[0], self.mae[1] ], self.test_name, self.path_save_result)
+        #     save_result_to_csv(self.real_inverse[:,0:1], self.pred_inverse[:,0:1], self.filename, self.path_save_result+"CPU-")
+        #     save_result_to_csv(self.real_inverse[:,1:2], self.pred_inverse[:,1:2], self.filename, self.path_save_result+"RAM-")
             #draw_predict_with_error(1, self.real_inverse[:,0:1], self.pred_inverse[:,0:1], self.rmse[0], self.mae[0], self.filename, self.path_save_result+"CPU-")
             #draw_predict_with_error(2, self.real_inverse[:,1:2], self.pred_inverse[:,1:2], self.rmse[1], self.mae[1], self.filename, self.path_save_result+"RAM-")
-        else:
-            write_all_results([self.filename, self.rmse[0], self.mae[0] ], self.test_name, self.path_save_result)
-            save_result_to_csv(self.real_inverse, self.pred_inverse, self.filename, self.path_save_result)
+        # else:
+        #     write_all_results([self.filename, self.rmse[0], self.mae[0] ], self.test_name, self.path_save_result)
+        #     save_result_to_csv(self.real_inverse, self.pred_inverse, self.filename, self.path_save_result)
             #draw_predict_with_error(1, self.real_inverse, self.pred_inverse, self.rmse[0], self.mae[0], self.filename, self.path_save_result)
 
     def run(self):

@@ -68,6 +68,7 @@ for index, dataindex in enumerate(data_index):
         for item in list(ParameterGrid(param_grid)):
             train_model(item)
 
+        print("Loop {}".format(loop))
         finalRMSE.append(arrayRMSE)
         finalMAE.append(arrayMAE)
 

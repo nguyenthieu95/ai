@@ -125,10 +125,9 @@ class BaseClass(object):
 
 
     ### Mutation
-    def mutation_flip_point(self, parent):
-        point = np.random.randint(0, len(parent))
+    def mutation_flip_point(self, parent, index):
         w = deepcopy(parent)
-        w[point] = np.random.uniform(self.search_space[point][0], self.search_space[point][1])
+        w[index] = np.random.uniform(self.search_space[index][0], self.search_space[index][1])
         return w
 
     def mutation_swap(self, parent):
@@ -166,10 +165,11 @@ class BaseClass(object):
                 w1, w2 = self.crossover_arthmetic_recombination(c1[0], c2[0])
 
             ### Mutation
-            if np.random.uniform() < self.pm:
-                w1 = self.mutation_flip_point(w1)
-            if np.random.uniform() < self.pm:
-                w2 = self.mutation_flip_point(w2)
+            for id in range(0, self.problem_size):
+                if np.random.uniform() < self.pm:
+                    w1 = self.mutation_flip_point(w1, id)
+                if np.random.uniform() < self.pm:
+                    w2 = self.mutation_flip_point(w2, id)
 
             c1_new = [w1, self.compute_fitness(w1, self.X_train, self.y_train)]
             c2_new = [w2, self.compute_fitness(w2, self.X_train, self.y_train)]
@@ -230,10 +230,11 @@ class Ver1(BaseClass):
                 w1, w2 = self.crossover_arthmetic_recombination(c1[0], c2[0])
 
             ### Mutation
-            if np.random.uniform() < self.pm:
-                w1 = self.mutation_flip_point(w1)
-            if np.random.uniform() < self.pm:
-                w2 = self.mutation_flip_point(w2)
+            for id in range(0, self.problem_size):
+                if np.random.uniform() < self.pm:
+                    w1 = self.mutation_flip_point(w1, id)
+                if np.random.uniform() < self.pm:
+                    w2 = self.mutation_flip_point(w2, id)
 
             c1_new = [w1, self.compute_fitness(w1, self.X_train, self.y_train)]
             c2_new = [w2, self.compute_fitness(w2, self.X_train, self.y_train)]

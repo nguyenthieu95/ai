@@ -17,3 +17,7 @@ def write_all_results(item=None, filename=None, pathsave=None):
     with open(pathsave + filename + ".csv", "a+") as file:
         wr = csv.writer(file, dialect='excel')
         wr.writerow(item)
+
+def save_run_test(num_run_test=None, data=None, filepath=None):
+    t0 = np.reshape(data, (num_run_test, -1))
+    np.savetxt(filepath, t0, delimiter=",")

@@ -1,18 +1,19 @@
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
 from model.fl_gann import Model as FLGANN
-from utils.Setting import param_grid_test as param_grid
+from utils.Setting import requirement_variables_multi_ram as requirement_variables
+from utils.Setting import param_grid_ga_real_client as param_grid
 
 # parameters
 data_index = [5]
 list_idx = [(6640, 0, 8300)]
 
 def train_model(item):
-
     sliding_window = item["sliding_window"]
     expand_func = item["expand_func"]
     activation = item["activation"]
     epoch = item["epoch"]
+
     pop_size = item["pop_size"]
     pc = item["pc"]
     pm = item["pm"]
@@ -24,7 +25,6 @@ def train_model(item):
                output_index=output_index, output_multi=output_multi)
     p.run()
 
-
 #Producer
 for index, dataindex in enumerate(data_index):
 
@@ -33,17 +33,18 @@ for index, dataindex in enumerate(data_index):
     # ( [number, number, ...], None )   ==> multiple input, multiple output                 ==> output_multi = True
     # ( [number, number, ...], number ) ==> multiple input, single output
 
-    df = pd.read_csv("data/" + 'data_resource_usage_' + str(dataindex) + 'Minutes_6176858948.csv', usecols=[3], header=None, index_col=False)
+    df = pd.read_csv(requirement_variables[0] + 'data_resource_usage_' + str(dataindex) + 'Minutes_6176858948.csv',
+                     usecols=requirement_variables[1], header=None, index_col=False)
     df.dropna(inplace=True)
 
     # parameters
     dataset_original = df.values
     idx = list_idx[index]
-    test_name = "tn1"
-    path_save_result = "test/" + test_name + "/fl_psonn/cpu/"
-    output_index = None
-    output_multi = False
-    method_statistic = 0
+    test_name = requirement_variables[2]
+    path_save_result = requirement_variables[3]
+    output_index = requirement_variables[4]
+    output_multi = requirement_variables[5]
+    method_statistic = 0            # 0: sliding window, 1: mean, 2: min-mean-max, 3: min-median-max
     lowup_w = [-1, 1]
     lowup_b = [-1, 1]
 
