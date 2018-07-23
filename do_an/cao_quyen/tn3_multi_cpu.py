@@ -1,8 +1,8 @@
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
 from model.tn3 import Model as FLGANN
-from utils.SettingClient import requirement_variables_tn3_multi_cpu as requirement_variables
-from utils.SettingClient import param_grid_ga_real_client_tn3 as param_grid
+from utils.Setting import server_tn3_requirement_variables_ga_multi_cpu as requirement_variables
+from utils.Setting import server_tn3_param_grid_ga as param_grid
 
 # parameters
 data_index = [5]
