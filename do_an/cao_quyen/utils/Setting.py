@@ -60,77 +60,29 @@ requirement_variables_ram = [
 
 
 ##### Settings parameters
-param_grid_ga_real = {
-    "sliding_window": [2, 3, 5],
+
+server_tn1_param_grid_flnn = {
+    "sliding_window": [2, 3, 4, 5],
     "expand_func": [0, 1, 2, 3, 4],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
-    "activation": [1, 2, 3, 4],          # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
+    "activation": [1],          # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
 
-    "epoch": [500, 600, 700, 800],
-    "pop_size": [100, 150, 200, 250],               # 100 -> 900
-    "pc": [0.85, 0.90, 0.95],               # 0.85 -> 0.97
-    "pm": [0.05, 0.1, 0.15]                 # 0.02 -> 0.1
-}
-
-param_grid_ga_real_client = {
-    "sliding_window": [2, 3, 5],
-    "expand_func": [0, 2, 4],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
-    "activation": [1, 3],          # 1:elu, 3:tanh,
-
-    "epoch": [600, 700, 800],
-    "pop_size": [150, 200, 250],               # 100 -> 900
-    "pc": [0.85],               # 0.85 -> 0.97
-    "pm": [0.05, 0.15]                 # 0.02 -> 0.1
+    "epoch": [1500],
+    "learning_rate": [0.05, 0.15],
+    "batch_size": [16, 64],
+    "beta": [0.85, 0.90]
 }
 
 
+server_tn1_param_grid_ga = {
+    "sliding_window": [2, 3, 4, 5],
+    "expand_func": [0, 1, 2, 3, 4],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
+    "activation": [1],          # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
 
-
-
-
-param_grid_test = {
-    "sliding_window": [2, 3, 5],
-    "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
-    "activation": [1, 2, 3],          # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
-
-    "epoch": [500],
-    "pop_size": [100],          # 100 -> 900
-    "pc": [0.87],               # 0.85 -> 0.97
+    "epoch": [650, 800],
+    "pop_size": [250, 300],               # 100 -> 900
+    "pc": [0.85, 0.90],               # 0.85 -> 0.97
     "pm": [0.02, 0.05]                 # 0.02 -> 0.1
 }
-
-
-param_grid_flnn_test = {
-    "sliding_window": [2, 3, 5],
-    "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
-    "activation": [1, 2, 3],          # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
-
-    "epoch": [500],
-    "learning_rate": [0.15],
-    "batch_size": [64],
-    "beta": [0.75, 0.80, 0.85]
-}
-
-
-requirement_variables_test = [
-    "data/",    # pd.readfilepath
-    [3],        # usecols trong pd
-    test_name,      # test_name
-    "test/tn1/fl_gann/cpu/",    # path_save_result
-    None,       # output_index
-    False,      # output_multi
-]
-
-requirement_variables_test3 = [
-    "data/",    # pd.readfilepath
-    [4],        # usecols trong pd
-    test_name,      # test_name
-    "test/tn1/fl_gann/ram/",    # path_save_result
-    None,       # output_index
-    False,      # output_multi
-]
-
-
-
 
 
 
