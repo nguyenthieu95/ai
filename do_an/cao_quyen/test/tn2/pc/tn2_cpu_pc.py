@@ -8,7 +8,7 @@ from utils.IOUtil import save_run_test
 # parameters
 data_index = [5]
 list_idx = [(6640, 0, 8300)]
-number_run_test = 15
+number_run_test = 10
 
 def train_model(item):
     sliding_window = item["sliding_window"]
