@@ -26,7 +26,7 @@ requirement_variables_multi = [
     pd_readfilepath,    # pd.readfilepath
     [3, 4],        # usecols trong pd
     test_name,      # test_name
-    path_save_result + "multi/",    # path_save_result
+    "test/tn1/flnn/" + "multi/",    # path_save_result
     None,       # output_index
     True,      # output_multi
 ]
@@ -44,7 +44,7 @@ requirement_variables_multi_ram = [
     pd_readfilepath,    # pd.readfilepath
     [3, 4],        # usecols trong pd
     test_name,      # test_name
-    path_save_result + "multi_ram/",    # path_save_result
+    "test/tn1/flnn/" + "multi_ram/",    # path_save_result
     1,       # output_index
     False,      # output_multi
 ]
@@ -60,6 +60,16 @@ requirement_variables_ram = [
 
 
 ##### Settings parameters
+client_tn1_param_grid_flnn = {
+    "sliding_window": [2],
+    "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
+    "activation": [1],          # 0: self, 1:elu, 2:relu, 3:tanh, 4:sigmoid
+
+    "epoch": [500],
+    "learning_rate": [0.05],
+    "batch_size": [64],
+    "beta": [0.85]
+}
 
 server_tn1_param_grid_flnn = {
     "sliding_window": [2, 3, 4, 5],
