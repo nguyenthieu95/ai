@@ -77,6 +77,38 @@ requirement_variables_ram = [
 ]
 
 
+flnn_path_save_result = "test/tn1/flnn/"
+
+
+flnn_requirement_variables_cpu = [
+    pd_readfilepath,    # pd.readfilepath
+    [3],        # usecols trong pd
+    test_name,      # test_name
+    flnn_path_save_result + "cpu/",    # path_save_result
+    None,       # output_index
+    False,      # output_multi
+]
+
+flnn_requirement_variables_multi_cpu = [
+    pd_readfilepath,    # pd.readfilepath
+    [3, 4],        # usecols trong pd
+    test_name,      # test_name
+    flnn_path_save_result + "multi_cpu/",    # path_save_result
+    0,       # output_index
+    False,      # output_multi
+]
+
+flnn_requirement_variables_ram = [
+    pd_readfilepath,    # pd.readfilepath
+    [4],        # usecols trong pd
+    test_name,      # test_name
+    flnn_path_save_result + "ram/",    # path_save_result
+    None,       # output_index
+    False,      # output_multi
+]
+
+
+
 ##### Settings parameters
 client_tn1_param_grid_flnn = {
     "sliding_window": [2],
