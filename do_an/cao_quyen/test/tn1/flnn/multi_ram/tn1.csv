@@ -24,3 +24,8 @@ flnn-sliding_4-ex_func_2-act_func_1-epoch_1500-lr_0.15-batch_16-beta_0.85,0.0518
 flnn-sliding_5-ex_func_2-act_func_1-epoch_1500-lr_0.15-batch_16-beta_0.85,0.0521,0.0436
 flnn-sliding_2-ex_func_3-act_func_1-epoch_1500-lr_0.05-batch_16-beta_0.85,0.0362,0.0233
 flnn-sliding_3-ex_func_3-act_func_1-epoch_1500-lr_0.05-batch_16-beta_0.85,0.0394,0.0264
+flnn-sliding_4-ex_func_3-act_func_1-epoch_1500-lr_0.05-batch_16-beta_0.85,0.0443,0.03
+flnn-sliding_5-ex_func_3-act_func_1-epoch_1500-lr_0.05-batch_16-beta_0.85,0.0377,0.0234
+flnn-sliding_2-ex_func_3-act_func_1-epoch_1500-lr_0.15-batch_16-beta_0.85,0.0346,0.0224
+flnn-sliding_3-ex_func_3-act_func_1-epoch_1500-lr_0.15-batch_16-beta_0.85,0.0372,0.0244
+flnn-sliding_4-ex_func_3-act_func_1-epoch_1500-lr_0.15-batch_16-beta_0.85,0.0372,0.0246

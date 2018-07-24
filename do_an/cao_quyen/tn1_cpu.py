@@ -1,6 +1,3 @@
-from multiprocessing.pool import ThreadPool
-from queue import Queue
-
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
 from model.fl_gann import Model as FLGANN
@@ -10,7 +7,6 @@ from utils.Setting import server_tn1_param_grid_ga as param_grid
 # parameters
 data_index = [5]
 list_idx = [(6640, 0, 8300)]
-queue = Queue()
 
 def train_model(item):
     sliding_window = item["sliding_window"]
@@ -54,13 +50,6 @@ for index, dataindex in enumerate(data_index):
 
     # Create combination of params.
     for item in list(ParameterGrid(param_grid)) :
-        queue.put_nowait(item)
-
-# Consumer
-pool = ThreadPool()
-pool.map(train_model, list(queue.queue))
-pool.close()
-pool.join()
-pool.terminate()
+        train_model(item)
 
 
