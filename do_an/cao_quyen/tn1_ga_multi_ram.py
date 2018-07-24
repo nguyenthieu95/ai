@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
 from model.fl_gann import Model as FLGANN
-from utils.Setting import requirement_variables_ram as requirement_variables
+from utils.Setting import tn1_requirement_variables_multi_ram as requirement_variables
 from utils.Setting import server_tn1_param_grid_ga as param_grid
 
 # parameters
