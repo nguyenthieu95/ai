@@ -5,8 +5,13 @@ channels:
 dependencies:
   - ca-certificates=2018.4.16=0
   - certifi=2018.4.16=py36_0
+  - freetype=2.8.1=0
+  - joblib=0.12.1=py_0
+  - libtiff=4.0.9=he6b73bb_1
+  - olefile=0.45.1=py_1
   - openssl=1.0.2o=0
   - pika=0.12.0=py_1
+  - pillow=5.2.0=py36_0
   - xorg-libxau=1.0.8=h470a237_5
   - xorg-libxdmcp=1.1.2=h470a237_6
   - asn1crypto=0.24.0=py36_0
@@ -17,7 +22,6 @@ dependencies:
   - dbus=1.13.2=h714fa37_1
   - expat=2.2.5=he0dffb1_0
   - fontconfig=2.12.6=h49f89f6_0
-  - freetype=2.8=hab7d2ae_1
   - glib=2.56.1=h000015b_0
   - gst-plugins-base=1.14.0=hbbd80ab_1
   - gstreamer=1.14.0=hb453b48_1
