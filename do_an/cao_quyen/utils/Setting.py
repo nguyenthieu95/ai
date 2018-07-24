@@ -22,6 +22,24 @@ requirement_variables_cpu = [
     False,      # output_multi
 ]
 
+tn1_requirement_variables_multi = [
+    pd_readfilepath,    # pd.readfilepath
+    [3, 4],        # usecols trong pd
+    test_name,      # test_name
+    path_save_result + "multi/",    # path_save_result
+    None,       # output_index
+    True,      # output_multi
+]
+
+tn1_requirement_variables_multi_ram = [
+    pd_readfilepath,    # pd.readfilepath
+    [3, 4],        # usecols trong pd
+    test_name,      # test_name
+    path_save_result + "multi_ram/",    # path_save_result
+    1,       # output_index
+    False,      # output_multi
+]
+
 requirement_variables_multi = [
     pd_readfilepath,    # pd.readfilepath
     [3, 4],        # usecols trong pd
