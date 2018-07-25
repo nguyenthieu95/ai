@@ -317,3 +317,4 @@ FL_GANN-sliding_5-ex_func_4-act_func_1-epoch_800-pop_size_250-pc_0.9-pm_0.05,0.5
 FL_GANN-sliding_2-ex_func_4-act_func_1-epoch_800-pop_size_300-pc_0.9-pm_0.05,0.485,0.2983
 FL_GANN-sliding_3-ex_func_4-act_func_1-epoch_800-pop_size_300-pc_0.9-pm_0.05,0.5023,0.3086
 FL_GANN-sliding_4-ex_func_4-act_func_1-epoch_800-pop_size_300-pc_0.9-pm_0.05,0.5022,0.3019
+FL_GANN-sliding_5-ex_func_4-act_func_1-epoch_800-pop_size_300-pc_0.9-pm_0.05,0.4893,0.3064
