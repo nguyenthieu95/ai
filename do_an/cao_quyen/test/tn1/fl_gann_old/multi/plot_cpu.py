@@ -9,8 +9,8 @@ real = results_df['realData'].values
 predictData = results_df['predict'].values
 
 ax = plt.subplot()
-ax.plot(real[:200],label="Actual")
-ax.plot(predictData[:200],label="predictions")
+ax.plot(real[:150],label="Actual")
+ax.plot(predictData[:150],label="predictions")
 plt.xlabel("TimeStamp")
 plt.ylabel("CPU")
 
