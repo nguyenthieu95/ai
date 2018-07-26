@@ -176,6 +176,41 @@ server_tn2_requirement_variables_cpu_pm = [
     False,      # output_multi
 ]
 
+
+
+
+server_tn2_requirement_variables_multi_cpu_ps = [
+    "data/",    # pd.readfilepath
+    [3, 4],        # usecols trong pd
+    test_tn2,      # test_name
+    "test/tn2/ps/results/",    # path_save_result
+    0,       # output_index
+    False,      # output_multi
+]
+
+server_tn2_requirement_variables_multi_cpu_pc = [
+    "data/",    # pd.readfilepath
+    [3, 4],        # usecols trong pd
+    test_tn2,      # test_name
+    "test/tn2/ps/results/",    # path_save_result
+    0,       # output_index
+    False,      # output_multi
+]
+
+server_tn2_requirement_variables_multi_cpu_pm = [
+    "data/",    # pd.readfilepath
+    [3, 4],        # usecols trong pd
+    test_tn2,      # test_name
+    "test/tn2/ps/results/",    # path_save_result
+    0,       # output_index
+    False,      # output_multi
+]
+
+
+
+
+
+
 server_tn2_param_grid_ga_ps = {
     "sliding_window": [3],
     "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric

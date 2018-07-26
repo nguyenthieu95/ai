@@ -1,15 +1,14 @@
-
 import pandas as pd
 from sklearn.model_selection import ParameterGrid
 from model.flgann import Model as FLGANN
-from utils.Setting import server_tn2_requirement_variables_cpu_ps as requirement_variables
-from utils.Setting import server_tn2_param_grid_ga_ps as param_grid
+from utils.Setting import server_tn2_requirement_variables_multi_cpu_pc as requirement_variables
+from utils.Setting import server_tn2_param_grid_ga_pc as param_grid
 from utils.IOUtil import save_run_test
 
 # parameters
 data_index = [5]
 list_idx = [(6640, 0, 8300)]
-number_run_test = 10
+number_run_test = 20
 
 def train_model(item):
     sliding_window = item["sliding_window"]
@@ -66,12 +65,12 @@ for index, dataindex in enumerate(data_index):
         for item in list(ParameterGrid(param_grid)):
             train_model(item)
 
-        print("Loop {}".format(loop))
         finalRMSE.append(arrayRMSE)
         finalMAE.append(arrayMAE)
+        print("Loop {}".format(loop))
 
-    save_run_test(number_run_test, finalRMSE, "test/tn2/ps/results/cpu_RMSE.csv")
-    save_run_test(number_run_test, finalMAE, "test/tn2/ps/results/cpu_MAE.csv")
+    save_run_test(number_run_test, finalRMSE, "test/tn2/pc/results/multi_cpu_RMSE.csv")
+    save_run_test(number_run_test, finalMAE, "test/tn2/pc/results/multi_cpu_MAE.csv")
 
 
 
