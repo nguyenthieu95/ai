@@ -69,8 +69,8 @@ for index, dataindex in enumerate(data_index):
         finalMAE.append(arrayMAE)
         print("Loop {}".format(loop))
 
-    save_run_test(number_run_test, finalRMSE, "test/tn2/pc/results/multi_cpu_RMSE.csv")
-    save_run_test(number_run_test, finalMAE, "test/tn2/pc/results/multi_cpu_MAE.csv")
+    save_run_test(number_run_test, finalRMSE, "test/tn2/pc/results/new_multi_cpu_RMSE.csv")
+    save_run_test(number_run_test, finalMAE, "test/tn2/pc/results/new_multi_cpu_MAE.csv")
 
 
 

@@ -70,8 +70,8 @@ for index, dataindex in enumerate(data_index):
         finalRMSE.append(arrayRMSE)
         finalMAE.append(arrayMAE)
 
-    save_run_test(number_run_test, finalRMSE, "test/tn2/ps/results/multi_cpu_RMSE.csv")
-    save_run_test(number_run_test, finalMAE, "test/tn2/ps/results/multi_cpu_MAE.csv")
+    save_run_test(number_run_test, finalRMSE, "test/tn2/ps/results/new_multi_cpu_RMSE.csv")
+    save_run_test(number_run_test, finalMAE, "test/tn2/ps/results/new_multi_cpu_MAE.csv")
 
 
 

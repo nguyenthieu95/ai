@@ -233,35 +233,35 @@ server_tn2_param_grid_ga_function = {
 
 server_tn2_param_grid_ga_ps = {
     "sliding_window": [3],
-    "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
+    "expand_func": [3],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
     "activation": [1],          # 1:elu, 3:tanh,
 
     "epoch": [600],
     "pop_size": [100, 150, 200, 250, 300, 350, 400, 450, 500],               # 100 -> 900
-    "pc": [0.85],               # 0.85 -> 0.97
-    "pm": [0.02]                 # 0.02 -> 0.1
+    "pc": [0.90],               # 0.85 -> 0.97
+    "pm": [0.035]                 # 0.02 -> 0.1
 }
 
 server_tn2_param_grid_ga_pc= {
     "sliding_window": [3],
-    "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
+    "expand_func": [3],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
     "activation": [1],          # 1:elu, 3:tanh,
 
     "epoch": [600],
-    "pop_size": [250],               # 100 -> 900
+    "pop_size": [350],               # 100 -> 900
     "pc": [0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 0.98],               # 0.85 -> 0.97
-    "pm": [0.02]                 # 0.02 -> 0.1
+    "pm": [0.035]                 # 0.02 -> 0.1
 }
 
 server_tn2_param_grid_ga_pm = {
     "sliding_window": [3],
-    "expand_func": [0],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
+    "expand_func": [3],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
     "activation": [1],          # 1:elu, 3:tanh,
 
     "epoch": [600],
-    "pop_size": [250],               # 100 -> 900
-    "pc": [0.85],               # 0.85 -> 0.97
-    "pm": [0.035, 0.065, 0.08, 0.09]                # 0.02 -> 0.1
+    "pop_size": [350],               # 100 -> 900
+    "pc": [0.90],               # 0.85 -> 0.97
+    "pm": [0.005, 0.01, 0.02, 0.035, 0.05, 0.065, 0.08, 0.09, 0.10]                # 0.02 -> 0.1
 
 }
 
