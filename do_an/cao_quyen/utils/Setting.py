@@ -206,6 +206,26 @@ server_tn2_requirement_variables_multi_cpu_pm = [
     False,      # output_multi
 ]
 
+server_tn2_requirement_variables_multi_cpu_function = [
+    "data/",    # pd.readfilepath
+    [3, 4],        # usecols trong pd
+    test_tn2,      # test_name
+    "test/tn2/function/results/",    # path_save_result
+    0,       # output_index
+    False,      # output_multi
+]
+
+server_tn2_param_grid_ga_function = {
+    "sliding_window": [3],
+    "expand_func": [0, 1, 2, 3, 4],         # 0:chebyshev, 1:legendre, 2:laguerre, 3:powerseries, 4:trigonometric
+    "activation": [1],          # 1:elu, 3:tanh,
+
+    "epoch": [650],
+    "pop_size": [250],               # 100 -> 900
+    "pc": [0.90],               # 0.85 -> 0.97
+    "pm": [0.035]                 # 0.02 -> 0.1
+}
+
 
 
 
@@ -241,11 +261,11 @@ server_tn2_param_grid_ga_pm = {
     "epoch": [600],
     "pop_size": [250],               # 100 -> 900
     "pc": [0.85],               # 0.85 -> 0.97
-    "pm": [0.005, 0.01, 0.02, 0.05, 0.10, 0.125, 0.15, 0.175, 0.20]                 # 0.02 -> 0.1
+    "pm": [0.035, 0.065, 0.08, 0.09]                # 0.02 -> 0.1
+
 }
 
-
-
+#"pm": [0.005, 0.01, 0.02, 0.05, 0.10, 0.125, 0.15, 0.175, 0.20]
 
 
 

@@ -9,11 +9,13 @@ real = results_df['realData'].values
 predictData = results_df['predict'].values
 
 ax = plt.subplot()
-ax.plot(real[:200],label="Actual")
-ax.plot(predictData[:200],label="predictions")
-plt.xlabel("TimeStamp")
-plt.ylabel("CPU")
+ax.plot(real[:120],label="Actual")
+ax.plot(predictData[:120],label="Predict")
+plt.xlabel("Time (5 minutes)")
+plt.ylabel("CPU Usage")
+ax.set_title('FL-GANN')
 
 plt.legend()
+plt.savefig('top1.pdf')
 plt.show()
 

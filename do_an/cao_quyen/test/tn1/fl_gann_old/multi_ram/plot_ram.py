@@ -9,11 +9,13 @@ real = results_df['realData'].values
 predictData = results_df['predict'].values
 
 ax = plt.subplot()
-ax.plot(real[:200],label="Actual")
-ax.plot(predictData[:200],label="predictions")
-plt.xlabel("TimeStamp")
-plt.ylabel("RAM")
+ax.plot(real[0:150],label="Actual")
+ax.plot(predictData[0:150],label="Predict")
+plt.xlabel("Time (5 minutes)")
+plt.ylabel("Memory Usage")
+ax.set_title('FLNN')
 
 plt.legend()
+plt.savefig('top2.pdf')
 plt.show()
 
